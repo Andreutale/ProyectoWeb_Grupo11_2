@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Landing Page Web | Usuario No Registrado</title>
+  <link rel="stylesheet" href="../../css/landing-no-registrado-web.css">
+  <link rel="stylesheet" href="../../html/css/Web_header_registrado.css">
+  <link rel="stylesheet" href="../../html/css/Web_footer.css">
+  <link rel="stylesheet" href="../../html/css/libro_de_estilos.css">
+
+
+
+
+</head>
+<body>
+
+<header role="banner">
+  <a href="#"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
+
+  <div class="enlaces">
+    <a href="Web_consultas.html"><h3>CONSULTAS</h3></a>
+    <a href="Web_catalogo.html"><h3>CATÁLOGO DE MÓDULOS</h3></a>
+    <a href="Web_perfil.html"><img src="../../../images/user_icon.svg" alt="Icono del perfil"></a>
+  </div>
+
+  <div class="menu-hamburguesa-web" id="menu-btn">
+    <div class="linea"></div>
+    <div class="linea"></div>
+    <div class="linea"></div>
+  </div>
+
+  <nav class="menu-desplegable-web" id="menu">
+    <ul>
+      <li><a href="#">Catálogo de módulos</a></li>
+      <li><a href="#">Consultas</a></li>
+      <li><a href="#">Perfil</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="Imagen del fondo de la landing">
+  <div class="landing-texto">
+    <p>Descubre nuestros módulos<br> web <b>personalizados:</b> <br><span class="texto-pequeño">Transforma tu institución</span></p>
+    <a href="../../html/web/Web_catalogo.html"><button class="btn-azul-verdoso">DESCÚBRELOS</button></a>
+  </div>
+
+  <img class="img_persona" src="../../../images/persona_landing_web.png" alt="Imagen de la persona que aparece en
+        el high fidelity">
+
+  <img class="img_persona_invertida" src="../../../images/persona_landing_web_invertida.png" alt="Imagen de la persona
+        de la landing invertida">
+
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>GTI 2025 ©</p>
+  </div>
+</footer>
+
+
+</body>
+
+<script type="module">
+  import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'
+  iniciarMenuHamburguesa();
+
+</script>
+
+</html>

@@ -3,18 +3,18 @@ body {
     font-family: 'Segoe UI', sans-serif;
     
   }
-/*titulo*/
+  
   .consulta-titulo {
     text-align: center;
     font-size: 2em;
     margin-bottom: 30px;
     margin-top: 0;
   }
-  /*fondo consulta*/
+  
   .consulta-section {
     padding: 80px 20px;
   }
-/*contenedor del consulta*/
+  
   .consulta-container {
     background-color: #fff;
     margin: 0 auto;
@@ -73,13 +73,13 @@ body {
     border-radius: 12px;
     font-size: 1em;
     cursor: pointer;
-    width: 100%;
+    width: 100%; 
   }
   
   .consulta-form button:hover {
     background-color: #16474d;
   }
-/*responsive*/
+  
   @media (max-width: 600px) {
     .consulta-form {
       flex-direction: column;
@@ -112,16 +112,24 @@ body {
       margin: 16px auto 0 auto;
     }
   }
+.consulta-subtitulo {
+  text-align: center;
+  font-weight:500;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
 
   @media (min-width: 600px) {
-    .consulta-section {
-        padding-left: 15%;
-        padding-right: 15%;
+    .consulta-section,
+    .consulta-titulo,
+  .consulta-subtitulo {
+            text-align: left;
+
       }
   
 }
 
-.fondo_consulta {
+.fondo_contacto {
     position: fixed;
     top: 0;
     left: 0;
@@ -131,3 +139,28 @@ body {
     z-index: -1;
   }
   
+  .popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+#popup-exito .popup-contenido p {
+  color: black;
+}
+
+.popup-contenido {
+  background-color: white !important;
+  color: black !important;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.2em;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
