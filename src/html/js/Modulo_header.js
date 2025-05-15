@@ -1,3 +1,4 @@
+// Funcion exportable para implementar la función del menú hamburguesa
 export function iniciarMenuHamburguesa() {
     const menuBtn = document.getElementById("menu-btn");
     const menu = document.getElementById("menu");
