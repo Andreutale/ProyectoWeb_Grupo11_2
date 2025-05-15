@@ -3,7 +3,6 @@ function setupSelectAllCheckbox() {
     const selectAll = document.getElementById('selectAll');
     if (!selectAll) return;
 
-    // Función para actualizar la apariencia del checkbox
     const updateCheckboxAppearance = (checkbox, isChecked) => {
         const img = checkbox.nextElementSibling;
         if (isChecked) {
@@ -17,7 +16,6 @@ function setupSelectAllCheckbox() {
         }
     };
 
-    // Evento para el checkbox "Seleccionar todos"
     selectAll.addEventListener('change', function() {
         const checkboxes = document.querySelectorAll('.rowCheckbox');
         const isChecked = this.checked;
@@ -28,12 +26,10 @@ function setupSelectAllCheckbox() {
         });
     });
 
-    // Eventos para los checkboxes individuales
     document.querySelectorAll('.rowCheckbox').forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             updateCheckboxAppearance(this, this.checked);
 
-            // Actualizar el estado de "Seleccionar todos"
             const allCheckboxes = document.querySelectorAll('.rowCheckbox');
             const allChecked = [...allCheckboxes].every(cb => cb.checked);
             selectAll.checked = allChecked;
@@ -55,7 +51,6 @@ function setupColumnSorting() {
             const sortKey = th.getAttribute('data-sort');
             const isAscending = !th.classList.contains('asc');
 
-            // Ordenar filas
             rows.sort((rowA, rowB) => {
                 const cellA = rowA.cells[columnIndex];
                 const cellB = rowB.cells[columnIndex];
@@ -74,10 +69,8 @@ function setupColumnSorting() {
                     : valueB.localeCompare(valueA);
             });
 
-            // Reinsertar filas ordenadas
             rows.forEach(row => tbody.appendChild(row));
 
-            // Actualizar indicadores visuales
             document.querySelectorAll('[data-sort]').forEach(header => {
                 header.classList.remove('asc', 'desc');
             });
@@ -94,17 +87,14 @@ function setupDropdownMenus() {
             const dropdown = this.closest('.dropdown-container').querySelector('.dropdown-menu');
             const isVisible = dropdown.style.display === 'block';
 
-            // Cerrar otros dropdowns
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
                 if (menu !== dropdown) menu.style.display = 'none';
             });
 
-            // Alternar visibilidad del actual
             dropdown.style.display = isVisible ? 'none' : 'block';
         });
     });
 
-    // Cerrar al hacer clic fuera
     document.addEventListener('click', () => {
         document.querySelectorAll('.dropdown-menu').forEach(menu => {
             menu.style.display = 'none';
@@ -137,7 +127,6 @@ function setupResourceModal() {
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Aquí iría la lógica para guardar el recurso
         console.log('Recurso añadido:', {
             nombre: this.nombreRecurso.value,
             tipo: this.tipoRecurso.value,
@@ -146,29 +135,6 @@ function setupResourceModal() {
         this.reset();
         modal.style.display = 'none';
     });
-}
-
-// Cargar header y footer
-async function loadHeaderAndFooter() {
-    try {
-        // Cargar header
-        const headerResponse = await fetch("Modulo_header_asignaturas.html");
-        if (headerResponse.ok) {
-            document.getElementById("header").innerHTML = await headerResponse.text();
-            // Iniciar menú hamburguesa si está disponible
-            if (typeof iniciarMenuHamburguesa === 'function') {
-                iniciarMenuHamburguesa();
-            }
-        }
-
-        // Cargar footer
-        const footerResponse = await fetch("Modulo_footer.html");
-        if (footerResponse.ok) {
-            document.getElementById("footer").innerHTML = await footerResponse.text();
-        }
-    } catch (error) {
-        console.error('Error cargando header/footer:', error);
-    }
 }
 
 // Modal para gestionar asignaturas favoritas
@@ -180,24 +146,20 @@ function setupAsignaturasModal() {
     const btnClose = modal.querySelector('.close-modal');
     const btnGuardar = document.getElementById('btnGuardarAsignaturas');
 
-    // Abrir modal al hacer clic en los tres puntos
     btnOpen.addEventListener('click', (e) => {
         e.preventDefault();
         modal.style.display = 'block';
     });
 
-    // Cerrar modal
     btnClose.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 
-    // Guardar cambios (simplemente cierra el modal)
     btnGuardar.addEventListener('click', () => {
-        alert("Asignaturas modificadas")
+        alert("Asignaturas modificadas");
         modal.style.display = 'none';
     });
 
-    // Cerrar al hacer clic fuera del modal
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
@@ -205,93 +167,68 @@ function setupAsignaturasModal() {
     });
 }
 
+// Desplegable responsive para recursos profesor
 function setupResponsiveDropdowns() {
     if (window.innerWidth > 1100) {
-        // Eliminar cualquier panel de información si estamos en desktop
         document.querySelectorAll('.responsive-info').forEach(panel => panel.remove());
         return;
     }
 
     document.querySelectorAll('.btn-desplegable-responsive').forEach(btn => {
-        // Verificar si ya tiene un evento click
         if (btn.hasAttribute('data-responsive-bound')) return;
         btn.setAttribute('data-responsive-bound', 'true');
 
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
             const row = this.closest('tr');
-            const tbody = row.parentNode;
-            const rowIndex = Array.from(tbody.children).indexOf(row);
+            const td = this.closest('td');
 
-            // Buscar si ya existe un panel de información para esta fila
-            let infoPanel = row.nextElementSibling;
+            let infoPanel = td.querySelector('.responsive-info');
 
-            if (infoPanel && infoPanel.classList.contains('responsive-info')) {
-                // Si ya existe, solo alternar su visibilidad
+            if (infoPanel) {
                 infoPanel.classList.toggle('active');
                 this.classList.toggle('active');
                 return;
             }
 
-            // Obtener los datos de las celdas ocultas
             const autor = row.cells[2].textContent.trim();
             const fecha = row.cells[3].textContent.trim();
             const tipo = row.cells[4].textContent.trim();
 
-            // Crear nueva fila para la información
-            infoPanel = document.createElement('tr');
+            infoPanel = document.createElement('div');
             infoPanel.className = 'responsive-info';
             infoPanel.innerHTML = `
-                <td colspan="7">
-                    <div class="responsive-info-content">
-                        <div class="responsive-info-item">
-                            <span class="responsive-info-label">Autor:</span>
-                            <span class="responsive-info-value">${autor}</span>
-                        </div>
-                        <div class="responsive-info-item">
-                            <span class="responsive-info-label">Fecha:</span>
-                            <span class="responsive-info-value">${fecha}</span>
-                        </div>
-                        <div class="responsive-info-item">
-                            <span class="responsive-info-label">Tipo:</span>
-                            <span class="responsive-info-value">${tipo}</span>
-                        </div>
+                <div class="responsive-info-content">
+                    <div class="responsive-info-item">
+                        <span class="responsive-info-label"><p>Autor:</p></span>
+                        <span class="responsive-info-value"><p>${autor}</p></span>
                     </div>
-                </td>
+                    <div class="responsive-info-item">
+                        <span class="responsive-info-label"><p>Fecha:</p></span>
+                        <span class="responsive-info-value"><p>${fecha}</p></span>
+                    </div>
+                    <div class="responsive-info-item">
+                        <span class="responsive-info-label"><p>Tipo:</p></span>
+                        <span class="responsive-info-value"><p>${tipo}</p></span>
+                    </div>
+                    <div class="responsive-actions">
+                        <button class="btn-azul-claro btn-opciones-responsive">Opciones</button>
+                    </div>
+                </div>
             `;
 
-            // Insertar después de la fila actual
-            tbody.insertBefore(infoPanel, row.nextSibling);
+            td.appendChild(infoPanel);
             infoPanel.classList.add('active');
             this.classList.add('active');
+
+            const btnOpciones = infoPanel.querySelector('.btn-opciones-responsive');
+            btnOpciones.addEventListener('click', function(e) {
+                e.stopPropagation();
+                row.querySelector('.opciones').click();
+            });
         });
     });
 }
-
-function setupAsignaturasTooltips() {
-    document.querySelectorAll('.asignaturas .btn-azul-claro h3').forEach(h3 => {
-        if (h3.textContent.length > 200) {
-            h3.parentElement.setAttribute('title', h3.textContent);
-        }
-    });
-}
-
-// Modifica el DOMContentLoaded para incluir la nueva función
-document.addEventListener('DOMContentLoaded', () => {
-    setupSelectAllCheckbox();
-    setupColumnSorting();
-    setupDropdownMenus();
-    setupResourceModal();
-    setupAsignaturasModal();
-    loadHeaderAndFooter();
-    setupResponsiveDropdowns();
-    setupAsignaturasTooltips();
-});
-
-// Manejar cambios de tamaño de pantalla
-window.addEventListener('resize', debounce(() => {
-    setupResponsiveDropdowns();
-}, 250));
 
 // Función debounce para mejorar el rendimiento
 function debounce(func, wait) {
@@ -304,3 +241,18 @@ function debounce(func, wait) {
         }, wait);
     };
 }
+
+// Inicializar todo cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    setupSelectAllCheckbox();
+    setupColumnSorting();
+    setupDropdownMenus();
+    setupResourceModal();
+    setupAsignaturasModal();
+    setupResponsiveDropdowns();
+});
+
+// Manejar cambios de tamaño de pantalla
+window.addEventListener('resize', debounce(() => {
+    setupResponsiveDropdowns();
+}, 250));
