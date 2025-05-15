@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/Modulo_header_asignaturas.css">
     <link rel="stylesheet" href="../css/Modulo_footer.css">
     <link rel="stylesheet" href="../css/Modulo_recursos_profesor.css">
+
 </head>
 <body>
 <!-- Apartado del header -->
@@ -218,8 +219,7 @@
 <div id="footer"></div>
 
 <!-- Scripts -->
-<script type="module" src="../js/Modulo_recursos_profesor.js">
-    // Importar funciones del header
+<script type="module">
     import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
 
     // Cargar header y footer
@@ -236,5 +236,8 @@
             document.getElementById("footer").innerHTML = html;
         });
 </script>
+
+<script type="module" src="../js/Modulo_recursos_profesor.js" ></script>
+
 </body>
 </html>
