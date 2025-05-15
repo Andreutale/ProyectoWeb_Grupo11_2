@@ -1,0 +1,78 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../../images/fondoLandingProfeAlumno.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main {
+  flex: 1;
+}
+
+.main-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.titulo {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-size: 1.1em;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.grid-asignaturas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.asignatura {
+  background-color: #C3D9E9;
+  border: 2px solid #3d5c6d;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.asignatura:hover {
+  transform: translateY(-4px);
+}
+
+.asignatura img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.asignatura p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.95em;
+  line-height: 1.3em;
+  color: #000; 
+}
+
+@media (max-width: 1000px) {
+  .main-container {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
