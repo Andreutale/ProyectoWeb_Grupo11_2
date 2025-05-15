@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultas</title>
+  <link rel="stylesheet" href="../css/Modulo_consulta.css" />
+  <link rel="stylesheet" href="../css/Modulo_header.css" />
+  <link rel="stylesheet" href="../css/Modulo_footer.css" />
+  <script src="../js/Modulo_header.js" defer></script>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header-container">
+  <header>
+    <a href="#"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+    <a href="../Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
+    <div class="menu-hamburguesa" id="menu-btn">
+      <div class="linea"></div>
+      <div class="linea"></div>
+      <div class="linea"></div>
+    </div>
+    <nav class="menu-desplegable" id="menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="../Perfil.html">Perfil</a></li>
+        <li><a href="#">Cerrar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<!-- Contenido principal -->
+<main class="main-container">
+  <h1 class="consulta-titulo">Consultas</h1>
+  <div class="consulta-container">
+    <form class="consulta-form">
+      <div class="form-left">
+        <div class="input-group">
+          <label for="correo">Correo *</label>
+          <input type="email" id="correo" name="correo" required />
+        </div>
+
+        <div class="input-group">
+          <label for="tipo">Tipo *</label>
+          <select id="tipo" name="tipo" required>
+            <option value="inicio">Error en el inicio de sesión</option>
+            <option value="acceso">Problema con acceso a materiales</option>
+            <option value="email">No recibo correos institucionales</option>
+            <option value="otro">Otro problema técnico</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="archivo">Adjuntos</label>
+          <input type="file" id="archivo" name="archivo" />
+        </div>
+      </div>
+
+      <div class="form-right">
+        <div class="input-group">
+          <label for="descripcion">Descripción *</label>
+          <textarea id="descripcion" name="descripcion" required></textarea>
+        </div>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit">Enviar consulta</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>GTI 2025 &copy;</p>
+  </div>
+</footer>
+
+<script type="module">
+  import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+  iniciarMenuHamburguesa();
+
+  const formulario = document.querySelector('.consulta-form');
+  const popup = document.getElementById('popup-exito');
+
+  formulario.addEventListener('submit', (event) => {
+    event.preventDefault(); 
+    formulario.reset(); 
+
+    popup.style.display = 'flex'; 
+
+    setTimeout(() => {
+      popup.style.display = 'none'; 
+    }, 3000);
+  });
+</script>
+
+<div id="popup-exito" class="popup">
+  <div class="popup-contenido">
+    <p>Su consulta ha sido enviada con éxito</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Profesor</title>
+  <link rel="stylesheet" href="../css/Modulo_landing_profesor.css">
+  <link rel="stylesheet" href="../css/Modulo_header.css">
+  <link rel="stylesheet" href="../css/Modulo_footer.css">
+  <script src="../js/Modulo_header.js" defer></script>
+</head>
+<body>
+
+<div class="header-container">
+  <header>
+    <a href="#"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+    <a href="../Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
+    <div class="menu-hamburguesa" id="menu-btn">
+      <div class="linea"></div>
+      <div class="linea"></div>
+      <div class="linea"></div>
+    </div>
+    <nav class="menu-desplegable" id="menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="../Perfil.html">Perfil</a></li>
+        <li><a href="#">Cerrar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<main class="main-container">
+  <h1 class="titulo">Hola, Lucio</h1>
+  <h2 class="subtitulo">¿A qué asignatura quieres acceder?</h2>
+
+  <div class="grid-asignaturas">
+    <div class="asignatura">
+      <img src="../../../images/iconos/icono_programacion.png" alt="Programación 1">
+      <p>Programación 1</p>
+    </div>
+    <div class="asignatura">
+      <img src="../../../images/iconos/icono_programacion.png" alt="Programación 2">
+      <p>Programación 2</p>
+    </div>
+    <div class="asignatura">
+      <img src="../../../images/iconos/icono_programacion_en_sistemas_cloud.png" alt="Programación en sistemas cloud">
+      <p>Programación en<br>sistemas cloud</p>
+    </div>
+    <div class="asignatura">
+      <img src="../../../images/iconos/icono_Proyecto_Aplicacion_Biometria.png" alt="Biometría y Medio Ambiente">
+      <p>Proyecto Aplicaciones de<br>Biometría y Medio Ambiente</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>GTI 2025 &copy;</p>
+  </div>
+</footer>
+
+<script type="module">
+  import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+  iniciarMenuHamburguesa();
+</script>
+
+</body>
+</html>
