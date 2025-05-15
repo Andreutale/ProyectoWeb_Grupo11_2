@@ -1,8 +1,7 @@
 main {
     display: flex;
     flex-direction: column;
-    border: solid 1px red;
-    height: 1000vh;
+    min-height: 100vh;
 }
 
 h1 {
@@ -14,14 +13,14 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*gap: 100px;*/
+    gap: 100px;
 }
 
 .contenedor_catalogo ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    /*gap: 150px;*/
+    gap: 150px;
 }
 
 .contenedor_catalogo ul li a button {
@@ -31,7 +30,7 @@ h1 {
 .separador {
     display: flex;
     justify-content: space-between;
-    /*gap: 150px;*/
+    gap: 150px;
 }
 
 .btn_recursos {
@@ -214,10 +213,45 @@ button div p {
     padding-left: 5px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 1300px) {
+    .contenedor_catalogo {
+        gap: 50px;
+    }
+
+    .contenedor_catalogo ul {
+        gap: 75px;
+    }
+
+    .separador {
+        gap: 75px;
+    }
+}
+
+@media (width <= 1050px) {
+    .contenedor_catalogo {
+        gap: 10px;
+    }
+
+    .contenedor_catalogo ul {
+        gap: 10px;
+    }
+
+    .separador {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 834px) {
     .contenedor_catalogo {
         display: flex;
         flex-direction: column;
+    }
+
+    .contenedor_catalogo ul {
+        gap: 50px;
+    }
+
+    .separador {
     }
 
     .separador {
