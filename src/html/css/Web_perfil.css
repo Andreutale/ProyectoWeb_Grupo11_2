@@ -1,0 +1,109 @@
+.perfil {
+    width: 75%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--gris-claro);
+    border-radius: 20px;
+}
+
+.perfil h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.perfil-contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.perfil-avatar {
+    display: flex;
+    justify-content: center;
+}
+
+.perfil-avatar img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+}
+
+.perfil-formulario {
+    width: 100%;
+    max-width: 500px;
+    display: grid;
+    gap: 1rem;
+}
+
+.perfil-campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil-campo p {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: black;
+}
+
+.perfil-campo input {
+    background-color: #ddd;
+    border: 1px solid #aaa;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+}
+
+.perfil-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.perfil-botones button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cerrar-sesion {
+    background-color: #1e5c66;
+    color: white;
+}
+
+.cambiar-contrasena {
+    background-color: #eee;
+    color: #1e5c66;
+    border: 1px solid #1e5c66;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .perfil-contenedor {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .perfil-formulario {
+        flex: 1;
+    }
+
+    .perfil-botones {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .perfil-botones button {
+        flex: 1;
+    }
+
+    .perfil-botones button + button {
+        margin-left: 1rem;
+    }
+}

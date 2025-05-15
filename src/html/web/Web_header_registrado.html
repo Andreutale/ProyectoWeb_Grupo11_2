@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Header registrado | WEB</title>
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Web_header_registrado.css">
+</head>
+
+<body>
+<!-- Aqui empieza el header header -->
+<!-- Header -->
+<header role="banner">
+    <!-- Logo -->
+    <a href="#"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
+
+    <!-- Enlaces principales -->
+    <div class="enlaces">
+        <a href="#"><h3>CONSULTAS</h3></a>
+        <a href="#"><h3>CATÁLOGO DE MÓDULOS</h3></a>
+        <a href="#"><img src="../../../images/user_icon.svg" alt="Icono del perfil"></a>
+    </div>
+
+    <!-- Menú hamburguesa -->
+    <div class="menu-hamburguesa-web" id="menu-btn">
+        <div class="linea"></div>
+        <div class="linea"></div>
+        <div class="linea"></div>
+    </div>
+
+    <!-- Menú desplegable (responsive) -->
+    <nav class="menu-desplegable-web" id="menu">
+        <ul>
+            <li><a href="#">Catálogo de módulos</a></li>
+            <li><a href="#">Consultas</a></li>
+            <li><a href="#">Perfil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script type="module">
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'
+    iniciarMenuHamburguesa();
+</script>
+</body>
+</html>

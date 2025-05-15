@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perfil | Web</title>
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Web_header_no_registrado.css">
+    <link rel="stylesheet" href="../css/Web_footer.css">
+    <link rel="stylesheet" href="../css/Web_perfil.css">
+</head>
+<body>
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- WEB -->
+<main>
+    <!-- FONDO -->
+    <img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="fondo del catálogo">
+    <section class="perfil">
+        <h1>Mi perfil</h1>
+        <!-- AVATAR -->
+        <div class="perfil-avatar">
+            <img src="../../../images/iconos/web_perfil.svg" alt="Avatar del usuario">
+        </div>
+        <!-- CONTENEDOR PERFIL -->
+        <div class="perfil-contenedor">
+            <form class="perfil-formulario">
+                <!-- NOMBRE -->
+                <div class="perfil-campo">
+                    <p for="nombre">Nombre</p>
+                    <input type="text" id="nombre" value="Carlos" readonly>
+                </div>
+                <!-- APELLIDOS -->
+                <div class="perfil-campo">
+                    <p for="apellidos">Apellidos</p>
+                    <input type="text" id="apellidos" value="Garcia" readonly>
+                </div>
+            </form>
+            <!-- TELÉFONO -->
+            <form class="perfil-formulario">
+                <div class="perfil-campo">
+                    <p for="telefono">Teléfono</p>
+                    <input type="text" id="telefono" value="987 654 321" readonly>
+                </div>
+                <!-- CORREO -->
+                <div class="perfil-campo">
+                    <p for="correo">Correo</p>
+                    <input type="email" id="correo" value="carlosgarcia@correo.com" readonly>
+                </div>
+            </form>
+        </div>
+        <!-- BOTONES -->
+        <div class="perfil-botones">
+            <button type="button" class="cerrar-sesion">Cerrar sesión</button>
+            <button type="button" class="cambiar-contrasena">Cambiar contraseña</button>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<!-- SCRIPTS GENERALES -->
+<script type="module">
+    // Primero importamos las funciones y datos necesarios
+    import { iniciarMenuHamburguesa } from "../js/Modulo_header.js";
+
+    // Cargamos el HTML del header y footer
+    fetch("Web_header_registrado.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa();
+        });
+
+    fetch("Web_footer.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+</script>
+</body>
+</html>

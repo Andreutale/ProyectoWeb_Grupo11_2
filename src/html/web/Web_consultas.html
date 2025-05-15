@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta</title>
+  <link rel="stylesheet" href="../css/Web_consultas.css" />
+  <link rel="stylesheet" href="../css/Web_header_registrado.css">
+  <link rel="stylesheet" href="../css/Web_footer.css">
+  <link rel="stylesheet" href="../css/libro_de_estilos.css">
+
+
+</head>
+<body>
+    <header role="banner">
+        <a href="#"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
+    
+        <div class="enlaces">
+          <a href="#"><h3>CONSULTAS</h3></a>
+          <a href="#"><h3>CATÁLOGO DE MÓDULOS</h3></a>
+          <a href="#"><img src="../../../images/user_icon.svg" alt="Icono del perfil"></a>
+        </div>
+    
+        <div class="menu-hamburguesa-web" id="menu-btn">
+          <div class="linea"></div>
+          <div class="linea"></div>
+          <div class="linea"></div>
+        </div>
+    
+        <nav class="menu-desplegable-web" id="menu">
+          <ul>
+            <li><a href="#">Catálogo de módulos</a></li>
+            <li><a href="#">Consultas</a></li>
+            <li><a href="#">Perfil</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+  <section class="consulta-section">
+    <h2 class="consulta-titulo">Consulta</h2> 
+
+    <div class="consulta-container">
+      <form class="consulta-form">
+        <div class="form-left">
+          <div class="input-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+
+          <div class="input-group">
+            <label for="apellidos">Apellidos *</label>
+            <input type="text" id="apellidos" name="apellidos" required />
+          </div>
+
+          <div class="input-group">
+            <label for="correo">Correo *</label>
+            <input type="email" id="correo" name="correo" required />
+          </div>
+
+          <div class="input-group">
+            <label for="tipo">Tipo de consulta *</label>
+            <input type="text" id="tipo" name="tipo" required />
+          </div>
+
+          <div class="input-group">
+            <label for="asunto">Asunto *</label>
+            <input type="text" id="asunto" name="asunto" required />
+          </div>
+        </div>
+
+        <div class="form-right">
+          <div class="input-group">
+            <label for="descripcion">Descripción *</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+          </div>
+
+          <button type="submit">Enviar correo</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>GTI 2025 ©</p>
+  </footer>
+  
+  <script type="module">
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'
+    iniciarMenuHamburguesa();
+  </script>
+
+<img class="fondo_consulta" src="../../../images/FondoConsulta.png" alt="Fondo de la sección de consulta">
+
+</body>
+</html>

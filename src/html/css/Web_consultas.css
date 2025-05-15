@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    
+  }
+  
+  .consulta-titulo {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    margin-top: 0;
+  }
+  
+  .consulta-section {
+    padding: 80px 20px;
+  }
+  
+  .consulta-container {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .consulta-form {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .form-left,
+  .form-right {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Grupo de campos */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .consulta-form label {
+    font-weight: bold;
+  }
+  
+  .consulta-form input,
+  .consulta-form textarea {
+    padding: 10px;
+    border: 1px solid #999;
+    background-color: #e6e6e6;
+    border-radius: 8px;
+    font-size: 1em;
+    resize: vertical;
+  }
+  
+  textarea {
+    min-height: 200px;
+  }
+  
+  /* Botón base */
+  .consulta-form button {
+    margin-top: 16px;
+    padding: 14px;
+    background-color: #1e5a61;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%; /* por defecto ocupa el ancho completo */
+  }
+  
+  .consulta-form button:hover {
+    background-color: #16474d;
+  }
+  
+  @media (max-width: 600px) {
+    .consulta-form {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .form-left,
+    .form-right {
+      width: 100%;
+    }
+  
+    .consulta-form button {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .consulta-container {
+      padding: 15px;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    .consulta-section {
+      padding-left: 15%;
+      padding-right: 15%;
+    }
+  
+    .consulta-form button {
+      width: 300px;
+      margin: 16px auto 0 auto;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .consulta-section {
+        padding-left: 15%;
+        padding-right: 15%;
+      }
+  
+}
+
+.fondo_consulta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+  }
+  

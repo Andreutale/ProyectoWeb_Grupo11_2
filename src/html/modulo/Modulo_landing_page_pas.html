@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing pas | MODULO</title>
+
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Modulo_header.css">
+    <link rel="stylesheet" href="../css/Modulo_footer.css">
+    <link rel="stylesheet" href="../css/Modulo_landing_pas.css">
+
+</head>
+<body>
+
+    <div id="header"></div>
+    <main>
+    <img class="fondo_landing" src="../../../images/fondo_landing_pas_modulo.jpg">
+<div class="contenedor-pagina">
+        <h1>Hola, <span id="nombreUsuario">Antonio</span></h1>
+        <h3>Pulsa el botón para acceder a la gestión de usuarios</h3>
+        <button class="btn-azul-oscuro">Gestión de usuarios</button>
+
+
+</div>
+
+
+
+    </main>
+    <div id="footer"></div>
+
+
+
+
+
+
+<script type="module">
+    // Primero importamos las funciones y datos necesarios
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+
+
+    // Cargamos el HTML del header y footer
+    fetch("Modulo_header.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
+        });
+
+    fetch("Modulo_footer_con_ola.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+
+
+</script>
+</body>
+</html>

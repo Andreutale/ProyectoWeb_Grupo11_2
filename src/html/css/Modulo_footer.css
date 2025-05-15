@@ -1,0 +1,36 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-container {
+    margin-top: auto;
+    position: relative;
+    width: 100%;
+}
+
+footer {
+    background-color: #358BC9;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ola_azul_claro {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 300px;
+    height: auto;
+    max-width: 100%;
+}
+
+@media(max-width: 768px) {
+    .ola_azul_claro {
+        display: none;
+    }
+}

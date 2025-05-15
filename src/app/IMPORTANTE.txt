@@ -1,0 +1,1 @@
+Aquí se meten los ficheros .php y dentro de la carpeta includes los ficheros .inc

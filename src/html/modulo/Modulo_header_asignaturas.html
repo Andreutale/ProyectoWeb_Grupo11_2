@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Header | Módulo</title>
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Modulo_header_asignaturas.css">
+    <script src="../js/Modulo_header.js" defer></script>
+
+</head>
+<body>
+
+<!-- contenedor del header -->
+<div class="header-container">
+    <!-- Header del módulo de la web -->
+    <header>
+        <!-- logo del módulo -->
+        <a href="#"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+        
+        <!-- enlaces -->
+        <nav class="enlaces_header_modulo">
+            <ul>
+                <li><a href="#">Guía Docente</a></li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Tareas</a></li>
+                <li><a href="#">Exámenes</a></li>
+                <li><a href="#">Calificaciones</a></li>
+                <li><a href="#">Anuncios</a></li>
+            </ul>
+        </nav>
+
+
+        <!-- icono de usuario -->
+        <a href="../Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
+
+        <!-- Menú hamburguesa -->
+        <div class="menu-hamburguesa" id="menu-btn">
+            <!-- Lineas del menú hamburguesa-->
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+        </div>
+
+        <!-- Contenido del menú desplegable -->
+        <nav class="menu-desplegable" id="menu">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="../Perfil.html">Perfil</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+    </header>
+</div>
+
+<script type="module">
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+    iniciarMenuHamburguesa()
+</script>
+
+</body>
+</html>

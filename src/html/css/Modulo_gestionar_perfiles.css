@@ -1,0 +1,228 @@
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+div input{
+    background-color: var(--blanco-1);
+    width: 90% ;
+    height: 40px;
+    border-radius: 5px;
+    padding-left:5px;
+}
+.buscador_gestionar_perfiles button{
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+}
+.buscador_gestionar_perfiles{
+    width: 20%;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buscador_gestionar_perfiles img{
+    height: 30px;
+    width: 30px;
+}
+/* boton añadir usuario*/
+table th div button {
+    background-color: var(--azul-claro);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+/* estilo tabla*/
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+/*encabezado de la tabla*/
+table tr th {
+    background-color: var(--azul-oscuro);
+    color: black;
+    padding: 15px 10px;
+    text-align: left;
+    border-bottom: 2px solid black;
+    vertical-align: middle;
+    height: 60px;
+}
+
+/*enlace de encabezado*/
+table tr th a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+/*filas de la tabla*/
+table tr {
+    height: 60px;
+}
+/*Colores de las impares de la tabla */
+table tr:nth-child(even) {
+    background-color: var(--azul-muy-claro);
+}
+/*Colores de las pares de la tabla */
+table tr:nth-child(odd) {
+    background-color: white;
+}
+/*cuerpo de la fila la tabla */
+table td {
+    padding: 12px 10px;
+    vertical-align: middle;
+}
+/*Ultima fila de la tabla */
+table td:last-child {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+/*imagenes de los botones de las filas */
+.botones_gestionar_perfiles img {
+    height: 30px;
+    width: 30px;
+}
+
+
+/* botones de las filas */
+.botones_gestionar_perfiles {
+
+    min-width: 40px;
+    padding: 5px;
+    background-color: var(--azul-claro);
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*scroll de la tabla*/
+.tabla_scrolleable {
+    max-height: 400px; /* o lo que desees */
+    overflow-y: auto;
+}
+
+/* ancho de la tabla */
+.tabla_scrolleable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Fijar la primera fila */
+.tabla_scrolleable th {
+    position: sticky;
+    top: 0;
+    background-color: var(--azul-oscuro); /* mismo color que tu cabecera */
+    z-index: 2;
+}
+
+
+.flecha_desplegable {
+    height: 16px;
+    width: 16px;
+    transition: transform 0.2s ease;
+}
+
+th.asc .flecha_desplegable {
+    transform: rotate(180deg);
+}
+
+th.desc .flecha_desplegable {
+    transform: rotate(0deg);
+}
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Ocultar por defecto */
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-content label {
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.cerrar {
+    align-self: flex-end;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: -10px;
+}
+
+
+/responsive/
+@media (max-width: 900px) {
+    /* para quitar los encabezados de correo y rol*/
+    #tablaRecursos thead th:nth-child(2),
+    #tablaRecursos thead th:nth-child(3),
+
+
+        /* para quitar las columnas de correo y rol */
+    #tablaRecursos tbody td:nth-child(2),
+    #tablaRecursos tbody td:nth-child(3) {
+        display: none ;
+    }
+
+    .buscador_gestionar_perfiles {
+        width: 60%;
+    }
+
+    .buscador_gestionar_perfiles input {
+        width: 100%
+    }
+
+
+    table th div button {
+        background-color: var(--azul-claro);
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 1px solid black;
+    }
+
+
+}

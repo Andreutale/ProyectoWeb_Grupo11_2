@@ -1,0 +1,102 @@
+/* Estructura del header */
+header {
+    height: 70px;
+    background-color: var(--azul-verdoso);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+}
+a > h3 {
+    color: white;
+}
+a > img{
+    height: 40px;
+}
+
+button{
+    padding: 10px 18px;
+}
+.logo {
+    height: 40px;
+}
+
+/* Enlaces visibles en desktop */
+.enlaces {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: center;
+}
+
+/* Menú hamburguesa (oculto por defecto en desktop) */
+.menu-hamburguesa-web {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.linea {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Menú desplegable oculto por defecto */
+.menu-desplegable-web {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--azul-verdoso);
+    width: 100%;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out;
+    z-index: 999;
+}
+
+.menu-desplegable-web.activo {
+    max-height: 300px;
+}
+
+.menu-desplegable-web ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-desplegable-web ul li a {
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid var(--blanco-1);
+}
+
+.menu-desplegable-web ul li:first-child a {
+    border-top: 1px solid var(--blanco-1);
+}
+
+.menu-desplegable-web ul li a:hover {
+    background-color: var(--blanco-1);
+    color: black;
+}
+
+/* Estilos responsive */
+@media (max-width: 700px) {
+    .enlaces {
+        display: none;
+    }
+
+    .menu-hamburguesa-web {
+        display: flex;
+    }
+
+    .menu-desplegable-web {
+        display: flex;
+    }
+}

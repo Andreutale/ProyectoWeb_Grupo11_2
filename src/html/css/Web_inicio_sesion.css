@@ -1,0 +1,179 @@
+.img_persona {
+    height: 40%;
+    max-height: 400px;
+    width: auto;
+    bottom: 50px;
+    right: 170px;
+    position: static;
+}
+
+.contenedor_inicio_sesion {
+    height: auto;
+    max-height: 80%;
+    width: 40%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor_inicio_sesion h1 {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.contenedor_inicio_sesion ul {
+    width: 70%;
+}
+
+.contenedor_inicio_sesion ul li {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor_inicio_sesion ul li label {
+    font-family: "Assistant", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 2px;
+}
+
+.contenedor_inicio_sesion ul li input {
+    padding: 10px;
+    border: 1px solid var(--gris-oscuro);
+    background-color: var(--blanco-1);
+    border-radius: 5px;
+}
+
+.contenedor_inicio_sesion ul li:last-child {
+    margin: 70px 0 40px 0;
+}
+
+.btn-azul-verdoso {
+    width: 30%;
+    height: 10%;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+
+.contenido_final {
+    width: 70%;
+}
+
+.contenido_final a {
+    text-align: center;
+}
+
+.contenedor_inicio_sesion a p {
+    color: black;
+    padding-bottom: 10px;
+}
+
+.contenedor_inicio_sesion a:hover {
+    text-decoration: underline var(--azul-verdoso) ;
+}
+
+.parrafo_verde {
+    color: var(--azul-verdoso);
+}
+
+.mensaje-error {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+    visibility: hidden;
+}
+
+
+
+
+@media(max-height: 760px) and (min-width: 1200px){
+    main {
+        background-color: yellow;
+    }
+}
+
+@media(max-height: 760px) {
+    main {
+        background-color: orange;
+    }
+}
+
+
+
+
+
+
+
+
+/*
+
+@media (max-width: 768px) {
+
+    main {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contenedor_inicio_sesion {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor_inicio_sesion ul li:last-child {
+        margin: 40px 0;
+    }
+
+    .btn-azul-verdoso {
+        margin-bottom: 5px;
+    }
+
+    .img_persona {
+        position: initial;
+
+    }
+}
+
+@media(max-width: 1400px) {
+    .img_persona {
+        right: 100px;
+        height: 35%;
+    }
+
+    .contenedor_inicio_sesion {
+        width: 60%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .contenedor_inicio_sesion {
+        max-height: 60%;
+    }
+
+    .img_persona {
+        height: 30%;
+        right: 10px;
+    }
+}
+
+@media(max-height: 750px) {
+    .contenedor_inicio_sesion h1 {
+        margin-bottom: 20px;
+    }
+
+    .contenedor_inicio_sesion ul li:last-child {
+        margin: 30px 0;
+    }
+
+    .btn-azul-verdoso {
+        margin-bottom: -20px;
+    }
+}
+
+*/

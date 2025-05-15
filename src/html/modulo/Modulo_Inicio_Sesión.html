@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión | Módulo</title>
+
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Modulo_Inicio_Sesión.css">
+    <link rel="stylesheet" href="../css/Modulo_header.css">
+    <link rel="stylesheet" href="../css/Modulo_footer.css">
+
+    <script type="module" src="../js/Modulo_Inicio_Sesion.js" defer></script>
+
+</head>
+<body>
+
+<!-- Apartado del header -->
+<div id="header"></div>
+
+<!-- Contenido de la página -->
+<main>
+    <!-- Formulario directamente en main -->
+    <div class="apartado_inicio_sesion">
+        <h1>Inicio de sesión</h1>
+        <form id="loginForm" action="#">
+            <p>Correo</p>
+            <input type="email" id="loginCorreo" name="email" placeholder="carlosgarcia@correo.com">
+            <p>Contraseña</p>
+            <input type="password" id="loginPassword" name="password" placeholder="*******">
+            <a class="enlace" href="#"> <p>He olvidado mi contraseña</p> </a>
+            <div class="contenido-centrado-form">
+                <button type="submit" class="btn-azul-oscuro">Acceder</button>
+                <p id="mensaje" class="error">Error</p>
+                <a class="enlace" href="#"> <p>¿No tienes cuenta? Regístrate</p> </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Imagen a la derecha -->
+    <div class="contenedor_imagen">
+        <img class="imagen_inicio_sesion" src="../../../images/Inicio_Sesión_Modulo_Imagen.png" alt="Persona graduándose del hifi">
+    </div>
+</main>
+
+
+<!-- Apartado del footer -->
+<div id="footer"></div>
+
+<script type="module">
+    // Primero importamos las funciones y datos necesarios
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+    import { usuarios } from '../../app/usuarios.js';
+
+    // Cargamos el HTML del header y footer
+    fetch("Modulo_header.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
+        });
+
+    fetch("Modulo_footer_con_ola.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+
+    // Si necesitas acceder a los usuarios en algún momento, ya puedes hacerlo
+    console.log("Usuarios cargados:", usuarios);
+</script>
+
+
+</body>
+</html>

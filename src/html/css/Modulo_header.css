@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 70px;
+    background-color: #004576;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > a > img {
+    margin: 0 30px;
+}
+
+.menu-hamburguesa {
+    display: none;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.user {
+    height: 40px;
+    width: auto;
+}
+
+.header-container {
+    position: relative;
+}
+
+.ola_azul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 0;
+    width: 150px;
+    height: auto;
+    max-width: 100%;
+}
+
+
+
+
+.menu-hamburguesa {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 30px;
+    width: 35px;
+    height: 25px;
+}
+
+.menu-hamburguesa .linea {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+
+/* Menú hamburguesa */
+
+.contenedor-desplegable {
+    display: none;
+}
+
+.menu-desplegable {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #004576;
+    width: 100%;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out;
+}
+
+.menu-desplegable.activo {
+    max-height: 300px;
+}
+
+.menu-desplegable ul li a {
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #358BC9;
+}
+
+.menu-desplegable ul li:first-child a {
+    border-top: 1px solid #358BC9;
+}
+
+.menu-desplegable ul li a:hover {
+    background-color: #358BC9;
+}
+
+
+@media (max-width: 768px) {
+
+    .user, .ola_azul{
+        display: none;
+    }
+
+    .logo {
+        height: 30px;
+    }
+
+    .menu-hamburguesa, .contenedor-desplegable {
+        display: flex;
+    }
+
+}
+
+

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contraseña olvidada | WEB</title>
+
+
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Web_header_no_registrado.css">
+    <link rel="stylesheet" href="../css/Web_footer.css">
+    <link rel="stylesheet" href="../css/Web_contraseña_olvidada.css">
+
+    <script src="../js/Web_contraseña_olvidada.js" defer></script>
+
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+
+
+<div class="contenido-pagina">
+    <div class="correo">
+        <h2 class="negro"> ¿Olvidaste tu contraseña? </h2>
+        <h3 class="quitar_pantalla_pequena">Recupera el acceso a tu cuenta fácilmente</h3>
+        <h3 class="titulo_pantalla_pquena">Recuperar contraseña</h3>
+
+        <p>Correo <span class="pantalla_pequena">electrónico</span></p>
+        <input id="correoElectronico" type="email" placeholder="Introduce tu correo electrónico">
+        <button id="btn_enviar" class="btn-azul-verdoso">Enviar</button>
+    </div>
+
+</div>
+</main>
+<div id="footer"></div>
+
+<img class="fondo_landing" src="../../../images/fondo_landing_web.png">
+<script type="module">
+    // Primero importamos las funciones y datos necesarios
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+
+
+    // Cargamos el HTML del header y footer
+    fetch("Web_header_no_registrado.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
+        });
+
+    fetch("Web_footer.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+
+
+</script>
+
+
+</body>
+
+
+</html>

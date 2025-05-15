@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro | WEB </title>
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Web_header_no_registrado.css">
+    <link rel="stylesheet" href="../css/Web_footer.css">
+    <link rel="stylesheet" href="../css/Web_registro.css">
+
+    <script type="module" src="../js/Web_registro.js" defer></script>
+</head>
+<body>
+<img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="Imagen del fondo de la pantalla">
+<img class="img_persona" src="../../../images/persona_registro_web.png" alt="Imagen de la persona que aparece en el high fidelity
+        de registro">
+
+<div id="header"></div>
+<main>
+    <nav class="contenedor_registro">
+        <h1>Registro</h1>
+        <ul class="contenedor_div_formulario">
+            <li class="contenedor_1_formulario">
+                <label for="nombre">Nombre *</label>
+                <input id="nombre" type="text" placeholder="Carlos">
+
+                <label for="correo">Correo *</label>
+                <input id="correo" type="email" placeholder="carlosgarcia@gmail.com">
+
+                <label for="contraseña">Contraseña *</label>
+                <input id="contraseña" type="password" placeholder="*********">
+            </li>
+            <li class="contenedor_2_formulario">
+                <label for="apellidos">Apellidos *</label>
+                <input id="apellidos" type="text" placeholder="García">
+
+                <label for="telefono">Teléfono *</label>
+                <input id="telefono" type="text" placeholder="987 654 321">
+
+                <label for="confirmarContraseña">Confirmar contraseña *</label>
+                <input id="confirmarContraseña" type="password" placeholder="*********">
+            </li>
+        </ul>
+        <button class="btn-azul-verdoso">Regístrate</button>
+        <a href="#"><p>¿Ya tienes cuenta? <span class="parrafo_verde">Inicia Sesión</span></p></a>
+    </nav>
+</main>
+
+
+<div id="footer"></div>
+
+<script type="module">
+    // Primero importamos las funciones y datos necesarios
+    import { iniciarMenuHamburguesa } from "../js/Modulo_header.js";
+    import { usuariosWeb } from '../../app/usuariosWeb.js';
+
+    // Cargamos el HTML del header y footer
+    fetch("Web_header_no_registrado.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa();
+        });
+
+    fetch("Web_footer.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+
+    // Si necesitas acceder a los usuarios en algún momento, ya puedes hacerlo
+    console.log("Usuarios cargados:", usuariosWeb);
+</script>
+
+</body>
+</html>

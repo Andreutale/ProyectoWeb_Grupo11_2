@@ -1,0 +1,162 @@
+.img_persona {
+    height: 75%;
+    width: 35%;
+    top: 100px;
+    right: 0;
+}
+
+.img_persona_invertida {
+    display: none;
+}
+
+.landing-texto {
+    position: absolute;
+    height: 50%;
+    width: 40%;
+    top: 20%;
+    left: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.landing-texto p {
+    color: black;
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 55px;
+}
+
+.texto-pequeño {
+    font-size: 32px;
+}
+
+.btn-azul-verdoso {
+    position: relative;
+    font-size: 28px;
+    font-weight: 600;
+    height: 70px;
+    width: 300px;
+    cursor: pointer;
+}
+
+
+@media(max-width: 940px) {
+    .img_persona {
+        display: none;
+    }
+    .landing-texto {
+        position: absolute;
+        top: 25%; /* Subimos un poco */
+        left: 5%; /* Pegado a la izquierda */
+        width: 90%; /* Más ancho para aprovechar el espacio */
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Alinear arriba */
+        align-items: center; /* Alinear a la izquierda */
+
+
+    }
+
+    .landing-texto p {
+        color: black;
+
+        font-size: 34px; /* Más pequeño pero legible */
+        margin-bottom: 40px; /* Menos separación */
+        text-align: center;
+    }
+
+    .texto-pequeño {
+        font-size: 28px; /* también más chico */
+    }
+
+    .btn-azul-verdoso {
+        align-self: center;
+        width: 100%;
+        max-width: 250px;
+        height: 60px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    .landing-texto a{
+        align-self: center;
+    }
+    .img_persona_invertida {
+        display: flex;
+
+        position: absolute;
+        height: 40%;
+        width: 40%;
+        bottom: 50px;
+        left: 0;
+    }
+
+
+    .texto-pequeño {
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media(max-width: 480px) {
+    .img_persona {
+        display: none;
+    }
+    .landing-texto {
+        position: absolute;
+        top: 25%; /* Subimos un poco */
+        left: 5%; /* Pegado a la izquierda */
+        width: 90%; /* Más ancho para aprovechar el espacio */
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Alinear arriba */
+        align-items: center; /* Alinear a la izquierda */
+
+    }
+
+    .landing-texto p {
+        color: black;
+        text-align: center;
+        font-size: 28px; /* Más pequeño pero legible */
+        margin-bottom: 40px; /* Menos separación */
+    }
+
+    .texto-pequeño {
+        font-size: 24px; /* también más chico */
+    }
+
+    .btn-azul-verdoso {
+        align-self: center;
+        width: 100%;
+        max-width: 250px;
+        height: 60px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .landing-texto a{
+        align-self: center;
+    }
+    .img_persona_invertida {
+        display: flex;
+
+        position: absolute;
+        height: 40%;
+        width: 50%;
+        bottom: 50px;
+        left: 0;
+    }
+
+
+    .texto-pequeño {
+        width: 100%;
+    }
+}
