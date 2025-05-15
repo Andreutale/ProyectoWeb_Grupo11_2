@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Acceso correcto:", usuarioValido);
 
             setTimeout(() => {
-                window.location.href = "../../landing-no-registrado-web.html";
+                window.location.href = "../../index.html";
             }, 1000);
         });
     }

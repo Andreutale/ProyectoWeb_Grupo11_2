@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto</title>
+  <link rel="stylesheet" href="../css/Web_contacto.css" />
+  <link rel="stylesheet" href="../css/Web_header_registrado.css">
+  <link rel="stylesheet" href="../css/Web_footer.css">
+  <link rel="stylesheet" href="../css/libro_de_estilos.css">
+</head>
+<body>
+  <!-- Header -->
+  <header role="banner">
+    <a href="#"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
+    <div class="enlaces">
+      <a href="#"><h3>CONSULTAS</h3></a>
+      <a href="#"><h3>CATÁLOGO DE MÓDULOS</h3></a>
+      <a href="#"><img src="../../../images/user_icon.svg" alt="Icono del perfil"></a>
+    </div>
+    <div class="menu-hamburguesa-web" id="menu-btn">
+      <div class="linea"></div><div class="linea"></div><div class="linea"></div>
+    </div>
+    <nav class="menu-desplegable-web" id="menu">
+      <ul>
+        <li><a href="#">Catálogo de módulos</a></li>
+        <li><a href="#">Consultas</a></li>
+        <li><a href="#">Perfil</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección principal -->
+<section class="consulta-section">
+  <h1 class="consulta-titulo">Contáctanos para poder ayudarte</h1>
+  <h2 class="consulta-subtitulo">Completa el formulario y te responderemos pronto</h2>
+
+    <div class="consulta-container">
+      <form class="consulta-form">
+        <div class="form-left">
+          <div class="input-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+
+          <div class="input-group">
+            <label for="producto">Producto *</label>
+            <input type="text" id="producto" name="producto" required />
+          </div>
+
+          <div class="input-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+          </div>
+        </div>
+
+        <div class="form-right">
+          <div class="input-group">
+            <label for="apellidos">Apellidos *</label>
+            <input type="text" id="apellidos" name="apellidos" required />
+          </div>
+
+          <div class="input-group">
+            <label for="entidad">Entidad *</label>
+            <input type="text" id="entidad" name="entidad" required />
+          </div>
+
+          <div class="input-group">
+            <label for="correo">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo" required />
+          </div>
+
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>GTI 2025 ©</p>
+    </div>
+  </footer>
+
+<script type="module">
+  import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'
+  iniciarMenuHamburguesa();
+
+  const formulario = document.querySelector('.consulta-form');
+  const popup = document.getElementById('popup-exito');
+
+  formulario.addEventListener('submit', (event) => {
+    event.preventDefault(); 
+    formulario.reset();
+
+    popup.style.display = 'flex'; 
+
+    setTimeout(() => {
+      popup.style.display = 'none'
+    }, 3000);
+  });
+</script>
+
+  <img class="fondo_contacto" src="../../../images/fondoContacto.png" alt="Fondo de la sección de consulta">
+
+<div id="popup-exito" class="popup">
+  <div class="popup-contenido">
+    <p>Su consulta ha sido enviada con éxito</p>
+  </div>
+</div>
+
+</body>
+</html>

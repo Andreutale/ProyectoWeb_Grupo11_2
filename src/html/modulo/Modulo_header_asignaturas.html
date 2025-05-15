@@ -8,7 +8,6 @@
     <title>Header | Módulo</title>
     <link rel="stylesheet" href="../css/libro_de_estilos.css">
     <link rel="stylesheet" href="../css/Modulo_header_asignaturas.css">
-    <script src="../js/Modulo_header.js" defer></script>
 
 </head>
 <body>
@@ -18,23 +17,10 @@
     <!-- Header del módulo de la web -->
     <header>
         <!-- logo del módulo -->
-        <a href="#"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
-        
-        <!-- enlaces -->
-        <nav class="enlaces_header_modulo">
-            <ul>
-                <li><a href="#">Guía Docente</a></li>
-                <li><a href="#">Recursos</a></li>
-                <li><a href="#">Tareas</a></li>
-                <li><a href="#">Exámenes</a></li>
-                <li><a href="#">Calificaciones</a></li>
-                <li><a href="#">Anuncios</a></li>
-            </ul>
-        </nav>
-
+        <a href="Modulo_Inicio_Sesión.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
 
         <!-- icono de usuario -->
-        <a href="../Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
+        <a href="../Modulo_Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
 
         <!-- Menú hamburguesa -->
         <div class="menu-hamburguesa" id="menu-btn">
@@ -47,13 +33,25 @@
         <!-- Contenido del menú desplegable -->
         <nav class="menu-desplegable" id="menu">
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="../Perfil.html">Perfil</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
+                <li><a href="Modulo_Inicio_Sesión.html">Inicio</a></li>
+                <li><a href="Modulo_Perfil.html">Perfil</a></li>
+                <li><a href="Modulo_Inicio_Sesión.html">Cerrar sesión</a></li>
             </ul>
         </nav>
 
     </header>
+    <!-- Apartados del header-->
+    <nav class="contenedor_apartados">
+        <ul>
+            <!-- Apartados -->
+            <li><a href="#"><h3>Guía Docente</h3></a></li>
+            <li><a href="#"><h3 class="recursos">Recursos</h3></a></li>
+            <li><a href="#"><h3>Tareas</h3></a></li>
+            <li><a href="#"><h3>Exámenes</h3></a></li>
+            <li><a href="#"><h3>Calificaciones</h3></a></li>
+            <li><a href="#"><h3>Anuncios</h3></a></li>
+        </ul>
+    </nav>
 </div>
 
 <script type="module">

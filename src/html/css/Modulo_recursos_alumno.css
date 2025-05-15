@@ -43,11 +43,6 @@
     margin: 0;
 }
 
-
-
-
-
-
 .contenedor_pagina {
     flex: 1;
     padding: 30px;
@@ -55,7 +50,7 @@
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    overflow: visible; /* Permite que el dropdown se muestre fuera */
+    overflow: visible;
 }
 
 .contenedor_imagen {
@@ -66,20 +61,6 @@ table th:nth-child(6),
 table td:nth-child(6) {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .asignaturas-lista {
@@ -257,6 +238,10 @@ table td {
 }
 
 .btn-añadirRecurso {
+    display: none;
+}
+
+.btn-añadirRecurso {
     width: 40px;
     padding: 0;
 }
@@ -306,6 +291,7 @@ table td img {
 }
 
 .dropdown-menu a {
+    color: var(--azul-oscuro);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -364,6 +350,12 @@ table td img {
     margin-bottom: 20px;
 }
 
+.form-group select option {
+    font-family: "Assistant", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
 .form-group label {
     display: block;
     margin-bottom: 8px;
@@ -388,7 +380,6 @@ th.desc .flecha_desplegable {
     transform: rotate(0deg);
 }
 
-
 /* Estilos para el panel de información responsive dentro de la celda */
 .responsive-info {
     display: none;
@@ -396,13 +387,12 @@ th.desc .flecha_desplegable {
     right: 0;
     top: 100%;
     background-color: white;
-    padding: 15px;
+    padding: 10px;
     border: 1px solid var(--azul-claro);
     border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 10;
-    min-width: 220px;
-    width: max-content;
+    min-width: 200px;
 }
 
 .responsive-info.active {
@@ -414,53 +404,36 @@ table td.responsive-actions {
     position: relative;
 }
 
-/* Estilos para el botón desplegable */
+/* Ajustar el botón desplegable */
 .btn-desplegable-responsive {
     background: none;
     border: none;
     cursor: pointer;
     padding: 5px;
-    transition: transform 0.2s ease;
-}
-
-.btn-desplegable-responsive.active img {
-    transform: rotate(180deg);
 }
 
 .btn-desplegable-responsive img {
     width: 20px;
     height: 20px;
-    transition: transform 0.2s ease;
 }
 
 /* Estilos para el contenido del dropdown */
 .responsive-info-content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .responsive-info-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .responsive-info-label {
     margin-right: 10px;
-    min-width: 60px;
 }
 
 .responsive-info-value {
-    text-align: right;
-}
-
-/* Botón de opciones en versión responsive */
-.btn-opciones-responsive {
-    width: 100%;
-    margin-top: 10px;
-    padding: 8px;
-    font-size: 14px;
 }
 
 @media(max-width: 1230px) {
@@ -499,27 +472,8 @@ table td.responsive-actions {
     .contenedo_botones {
         margin: 20px 0;
     }
-}
 
-@media(max-width: 550px) {
-    table th:nth-child(6),
-    table td:nth-child(6){
-        display: none;
-    }
-
-    .responsive-info {
-        right: -10px;
-        min-width: 180px;
-    }
-
-    .responsive-info-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
-    }
-
-    .responsive-info-value {
-        text-align: left;
-        width: 100%;
+    .contenedor_pagina {
+        padding-bottom: 200px;
     }
 }
