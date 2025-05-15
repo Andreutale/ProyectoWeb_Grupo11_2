@@ -79,7 +79,6 @@ function setupColumnSorting() {
     });
 }
 
-// Menús desplegables de opciones
 function setupDropdownMenus() {
     document.querySelectorAll('.opciones').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -210,9 +209,6 @@ function setupResponsiveDropdowns() {
                     <div class="responsive-info-item">
                         <span class="responsive-info-label"><p>Tipo:</p></span>
                         <span class="responsive-info-value"><p>${tipo}</p></span>
-                    </div>
-                    <div class="responsive-actions">
-                        <button class="btn-azul-claro btn-opciones-responsive">Opciones</button>
                     </div>
                 </div>
             `;

@@ -12,13 +12,14 @@
 
 </head>
 <body>
+<!-- header -->
     <header role="banner">
-        <a href="#"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
+        <a href="Web_landing_page_registrado.html"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
     
         <div class="enlaces">
-          <a href="#"><h3>CONSULTAS</h3></a>
-          <a href="#"><h3>CATÁLOGO DE MÓDULOS</h3></a>
-          <a href="#"><img src="../../../images/user_icon.svg" alt="Icono del perfil"></a>
+          <a href="Web_consultas.html"><h3>CONSULTAS</h3></a>
+          <a href="Web_catalogo.html"><h3>CATÁLOGO DE MÓDULOS</h3></a>
+          <a href="Web_perfil.html"><img src="../../../images/user_icon.svg" alt="Icono del perfil"></a>
         </div>
     
         <div class="menu-hamburguesa-web" id="menu-btn">
@@ -35,54 +36,56 @@
           </ul>
         </nav>
       </header>
-    
+    <!-- Titulo de pagina -->
   <section class="consulta-section">
-    <h2 class="consulta-titulo">Consulta</h2> 
-
+    <h2 class="consulta-titulo">Consulta</h2>
+    <!-- Conteiner de consultas -->
     <div class="consulta-container">
       <form class="consulta-form">
         <div class="form-left">
           <div class="input-group">
+            <!-- nombre -->
             <label for="nombre">Nombre *</label>
             <input type="text" id="nombre" name="nombre" required />
           </div>
-
+          <!-- apellidos -->
           <div class="input-group">
             <label for="apellidos">Apellidos *</label>
             <input type="text" id="apellidos" name="apellidos" required />
           </div>
-
+          <!-- correo -->
           <div class="input-group">
             <label for="correo">Correo *</label>
             <input type="email" id="correo" name="correo" required />
           </div>
-
+          <!-- Tipo de consulta -->
           <div class="input-group">
             <label for="tipo">Tipo de consulta *</label>
             <input type="text" id="tipo" name="tipo" required />
           </div>
-
+          <!-- asunto -->
           <div class="input-group">
             <label for="asunto">Asunto *</label>
             <input type="text" id="asunto" name="asunto" required />
           </div>
         </div>
-
+        <!-- rellenar texto consulta -->
         <div class="form-right">
           <div class="input-group">
             <label for="descripcion">Descripción *</label>
             <textarea id="descripcion" name="descripcion" required></textarea>
           </div>
-
+          <!-- boton enviar -->
           <button type="submit">Enviar correo</button>
         </div>
       </form>
     </div>
   </section>
-
+    <!-- footer -->
   <footer class="footer">
     <div class="footer-content">
       <p>GTI 2025 ©</p>
+    </div>
   </footer>
   
   <script type="module">
