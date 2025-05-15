@@ -220,13 +220,12 @@ function setupResponsiveDropdowns() {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
             const row = this.closest('tr');
-            const tbody = row.parentNode;
-            const rowIndex = Array.from(tbody.children).indexOf(row);
+            const td = this.closest('td'); // Obtenemos la celda padre
 
-            // Buscar si ya existe un panel de información para esta fila
-            let infoPanel = row.nextElementSibling;
+            // Buscar si ya existe un panel de información en esta celda
+            let infoPanel = td.querySelector('.responsive-info');
 
-            if (infoPanel && infoPanel.classList.contains('responsive-info')) {
+            if (infoPanel) {
                 // Si ya existe, solo alternar su visibilidad
                 infoPanel.classList.toggle('active');
                 this.classList.toggle('active');
@@ -238,30 +237,28 @@ function setupResponsiveDropdowns() {
             const fecha = row.cells[3].textContent.trim();
             const tipo = row.cells[4].textContent.trim();
 
-            // Crear nueva fila para la información
-            infoPanel = document.createElement('tr');
+            // Crear nuevo div para la información
+            infoPanel = document.createElement('div');
             infoPanel.className = 'responsive-info';
             infoPanel.innerHTML = `
-                <td colspan="7">
-                    <div class="responsive-info-content">
-                        <div class="responsive-info-item">
-                            <span class="responsive-info-label">Autor:</span>
-                            <span class="responsive-info-value">${autor}</span>
-                        </div>
-                        <div class="responsive-info-item">
-                            <span class="responsive-info-label">Fecha:</span>
-                            <span class="responsive-info-value">${fecha}</span>
-                        </div>
-                        <div class="responsive-info-item">
-                            <span class="responsive-info-label">Tipo:</span>
-                            <span class="responsive-info-value">${tipo}</span>
-                        </div>
+                <div class="responsive-info-content">
+                    <div class="responsive-info-item">
+                        <span class="responsive-info-label"><p>Autor:</p></span>
+                        <span class="responsive-info-value"><p>${autor}</p></span>
                     </div>
-                </td>
+                    <div class="responsive-info-item">
+                        <span class="responsive-info-label"><p>Fecha:</p></span>
+                        <span class="responsive-info-value"><p>${fecha}</p></span>
+                    </div>
+                    <div class="responsive-info-item">
+                        <span class="responsive-info-label"><p>Tipo:</p></span>
+                        <span class="responsive-info-value"><p>${tipo}</p></span>
+                    </div>
+                </div>
             `;
 
-            // Insertar después de la fila actual
-            tbody.insertBefore(infoPanel, row.nextSibling);
+            // Insertar dentro de la celda actual
+            td.appendChild(infoPanel);
             infoPanel.classList.add('active');
             this.classList.add('active');
         });
