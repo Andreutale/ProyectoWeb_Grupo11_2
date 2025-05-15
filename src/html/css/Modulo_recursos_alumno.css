@@ -1,0 +1,475 @@
+.asignaturas {
+    position: relative;
+    width: 250px;
+    min-width: 250px;
+    background-color: var(--azul-muy-claro);
+    border-right: 2px solid var(--azul-oscuro);
+    top: 0;
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 70px;
+    gap: 30px;
+}
+
+.asignaturas img {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    bottom: 20px;
+    right: 20px;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.asignaturas .btn-azul-claro {
+    width: 90%;
+    height: auto;
+    padding: 5px 0;
+    text-align: center;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+
+    max-width: 100%;
+}
+
+.asignaturas div h3 {
+    padding: 3px;
+    margin: 0;
+}
+
+.contenedor_pagina {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+.contenedor_imagen {
+    display: flex;
+}
+
+table th:nth-child(6),
+table td:nth-child(6) {
+    display: none;
+}
+
+
+.asignaturas-lista {
+    margin: 20px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.asignatura-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border-bottom: 1px solid var(--gris-claro);
+}
+
+.asignatura-item h3 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 12px;
+}
+
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Encabezado de la tabla */
+table tr th {
+    background-color: var(--azul-oscuro);
+    color: white;
+    padding: 15px 10px;
+    text-align: left;
+    border-bottom: 2px solid black;
+    vertical-align: middle;
+    height: 60px;
+}
+
+table tr th a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+table tr {
+    height: 60px;
+}
+
+table tr:nth-child(even) {
+    background-color: white;
+}
+
+table tr:nth-child(odd) {
+    background-color: var(--azul-muy-claro);
+}
+
+tr {
+    border-bottom: 10px solid var(--azul-muy-oscuro);
+}
+
+table td {
+    padding: 12px 10px;
+    vertical-align: middle;
+}
+
+.nombreMasImagen {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Estilos para los botones de opciones */
+.opciones {
+    height: 40px;
+    min-width: 100px;
+    padding: 0 15px;
+    background-color: var(--azul-claro);
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.flecha_desplegable {
+    height: 16px;
+    width: 16px;
+    transition: transform 0.2s ease;
+}
+
+.opciones:hover {
+    background-color: var(--azul-oscuro);
+}
+
+.checkbox-con-imagen {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+}
+
+.checkbox-con-imagen input[type="checkbox"] {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid var(--azul-claro);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checkbox-con-imagen input[type="checkbox"]:checked {
+    background-color: var(--azul-claro);
+    border-color: var(--azul-oscuro);
+}
+
+.checkbox-con-imagen img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.checkbox-con-imagen input[type="checkbox"]:checked + img {
+    opacity: 1;
+}
+
+.btn-azul-claro {
+    background-color: var(--azul-claro);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    height: 40px;
+    padding: 0 15px;
+}
+
+.btn-azul-claro:hover {
+    background-color: var(--azul-oscuro);
+}
+
+.btn-descargar {
+    min-width: 180px;
+}
+
+.btn-añadirRecurso {
+    display: none;
+}
+
+.btn-añadirRecurso {
+    width: 40px;
+    padding: 0;
+}
+
+.btn-añadirRecurso img {
+    width: 60%;
+    height: 60%;
+}
+
+.contenedor_ruta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contenedo_botones {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+table td img {
+    height: 24px;
+    width: 24px;
+}
+
+/* DROPDOWN CORREGIDO */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 5px;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.dropdown-menu a {
+    color: var(--azul-oscuro);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--azul-muy-claro);
+}
+
+/* MODAL CON ESTILOS CORREGIDOS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.modal-content h2 {
+    color: var(--azul-oscuro);
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    color: var(--azul-oscuro);
+    margin-bottom: 15px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: var(--gris-claro);
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--azul-oscuro);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group select option {
+    font-family: "Assistant", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--azul-oscuro);
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--gris-claro);
+    border-radius: 6px;
+}
+
+/* Indicadores de ordenación */
+th.asc .flecha_desplegable {
+    transform: rotate(180deg);
+}
+
+th.desc .flecha_desplegable {
+    transform: rotate(0deg);
+}
+
+/* Estilos para el panel de información responsive dentro de la celda */
+.responsive-info {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid var(--azul-claro);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    min-width: 200px;
+}
+
+.responsive-info.active {
+    display: block;
+}
+
+/* Asegurarse que la celda tenga posición relativa para el posicionamiento absoluto del dropdown */
+table td.responsive-actions {
+    position: relative;
+}
+
+/* Ajustar el botón desplegable */
+.btn-desplegable-responsive {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.btn-desplegable-responsive img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilos para el contenido del dropdown */
+.responsive-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.responsive-info-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.responsive-info-label {
+    margin-right: 10px;
+}
+
+.responsive-info-value {
+}
+
+@media(max-width: 1230px) {
+    .datos_responsive {
+        display: none;
+    }
+}
+
+@media(max-width: 1100px) {
+    table th:nth-child(3),
+    table th:nth-child(4),
+    table th:nth-child(5),
+    table td:nth-child(3),
+    table td:nth-child(4),
+    table td:nth-child(5) {
+        display: none;
+    }
+
+    table th:nth-child(6),
+    table td:nth-child(6) {
+        display: flex;
+    }
+
+    .asignaturas {
+        width: 150px;
+        min-width: 150px;
+        padding-top: 40px;
+    }
+}
+
+@media(max-width: 768px) {
+    .asignaturas {
+        display: none;
+    }
+
+    .contenedo_botones {
+        margin: 20px 0;
+    }
+
+    .contenedor_pagina {
+        padding-bottom: 200px;
+    }
+}
