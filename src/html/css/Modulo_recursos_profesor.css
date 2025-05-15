@@ -14,6 +14,10 @@
     gap: 30px;
 }
 
+.asignaturas div:first-child {
+    background-color: var(--azul-oscuro);
+}
+
 .asignaturas img {
     position: absolute;
     height: 40px;
@@ -302,7 +306,6 @@ table td img {
 }
 
 .dropdown-menu a {
-    color: var(--azul-oscuro);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -385,6 +388,81 @@ th.desc .flecha_desplegable {
     transform: rotate(0deg);
 }
 
+
+/* Estilos para el panel de información responsive dentro de la celda */
+.responsive-info {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid var(--azul-claro);
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 10;
+    min-width: 220px;
+    width: max-content;
+}
+
+.responsive-info.active {
+    display: block;
+}
+
+/* Asegurarse que la celda tenga posición relativa para el posicionamiento absoluto del dropdown */
+table td.responsive-actions {
+    position: relative;
+}
+
+/* Estilos para el botón desplegable */
+.btn-desplegable-responsive {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.btn-desplegable-responsive.active img {
+    transform: rotate(180deg);
+}
+
+.btn-desplegable-responsive img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+}
+
+/* Estilos para el contenido del dropdown */
+.responsive-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.responsive-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.responsive-info-label {
+    margin-right: 10px;
+    min-width: 60px;
+}
+
+.responsive-info-value {
+    text-align: right;
+}
+
+/* Botón de opciones en versión responsive */
+.btn-opciones-responsive {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 14px;
+}
+
 @media(max-width: 1230px) {
     .datos_responsive {
         display: none;
@@ -427,5 +505,21 @@ th.desc .flecha_desplegable {
     table th:nth-child(6),
     table td:nth-child(6){
         display: none;
+    }
+
+    .responsive-info {
+        right: -10px;
+        min-width: 180px;
+    }
+
+    .responsive-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .responsive-info-value {
+        text-align: left;
+        width: 100%;
     }
 }
