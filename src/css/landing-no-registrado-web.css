@@ -1,14 +1,16 @@
+
+/*imagen persona*/
 .img_persona {
     height: 75%;
     width: 35%;
     top: 100px;
     right: 0;
 }
-
+/*imagen persona invertida*/
 .img_persona_invertida {
     display: none;
 }
-
+/*texto grande*/
 .landing-texto {
     position: absolute;
     height: 50%;
@@ -21,7 +23,7 @@
     justify-content: flex-end;
     align-items: center;
 }
-
+/*texto pequeño*/
 .landing-texto p {
     color: black;
     text-align: center;
@@ -32,7 +34,7 @@
 .texto-pequeño {
     font-size: 32px;
 }
-
+/*boton descubrelos*/
 .btn-azul-verdoso {
     position: relative;
     font-size: 28px;
@@ -42,7 +44,7 @@
     cursor: pointer;
 }
 
-
+/*media para ajustarlo en tamaño "tablet"*/
 @media(max-width: 940px) {
     .img_persona {
         display: none;
@@ -104,7 +106,7 @@
 
 
 
-
+/*media para ajustarlo en tamaño movil*/
 @media(max-width: 480px) {
     .img_persona {
         display: none;
@@ -154,9 +156,13 @@
         bottom: 50px;
         left: 0;
     }
-
-
     .texto-pequeño {
         width: 100%;
+    }
+}
+/*quitamos la personita*/
+@media(max-width: 374px) {
+    .img_persona_invertida {
+       display: none;
     }
 }
