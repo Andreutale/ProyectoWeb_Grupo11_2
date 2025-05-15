@@ -6,6 +6,9 @@ const modal = document.getElementById('modalAñadirUsuario');
 const cerrarModal = document.getElementById('cerrarModal');
 const formulario = document.getElementById('formularioNuevoUsuario');
 
+
+
+//orden de las flechas
 function setupColumnSorting() {
     document.querySelectorAll('.sortable').forEach(header => {
         header.addEventListener('click', function(e) {
@@ -50,19 +53,21 @@ function setupColumnSorting() {
 }
 
 
-// Modifica el DOMContentLoaded para incluir la nueva función
+// Alerts del input y botones
 document.addEventListener('DOMContentLoaded', () => {
     setupColumnSorting();
 
-
+//alert del buscador
     btn_buscador.addEventListener("click", () => {
         var contenido_input = buscador.value;
         if(contenido_input === ""){
             alert("Usuario/s no encontrado")
+        }else{
+            alert("Usuarios encontrados")
         }
-        alert("Usuarios encontrados")
-    })
 
+    })
+//alerts de los botones papelera
     btn_eliminar.forEach(elemento => {
         // Agregar el evento de clic a cada elemento
         elemento.addEventListener("click", function() {
@@ -72,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+//pop up
 document.addEventListener('DOMContentLoaded', () => {
 
 
@@ -94,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Aquí podrías hacer una llamada a backend para guardar
 
-        alert('Usuario añadido:\nNombre: ${nombre}\nRol: ${rol}\nCorreo: ${correo}');
+        alert(`Usuario añadido:\nNombre: ${nombre}\nRol: ${rol}\nCorreo: ${correo}`);
         modal.classList.add('hidden');
         formulario.reset();
     });
