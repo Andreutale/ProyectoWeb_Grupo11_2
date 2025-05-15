@@ -1,0 +1,144 @@
+/* Estructura global */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #e9e9e9;
+}
+
+main {
+  flex: 1;
+}
+
+/* Título */
+.consulta-titulo {
+  text-align: center;
+  font-size: 2em;
+  margin: 40px 0 30px 0;
+  font-weight: 700;
+}
+
+/* Sección */
+.consulta-container {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Formulario */
+.consulta-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-left,
+.form-right {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input,
+select,
+textarea {
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  background-color: #e6e6e6;
+  font-size: 1em;
+  width: 100%;
+  max-width: 100%;
+}
+
+textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+/* Botón */
+.form-submit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+button {
+  background-color: #003d6a;
+  color: white;
+  padding: 14px 40px;
+  font-size: 1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 100%;
+}
+
+button:hover {
+  background-color: #004576;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .consulta-form {
+    flex-direction: column;
+  }
+
+  .form-left,
+  .form-right {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .form-submit {
+    justify-content: center;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+#popup-exito .popup-contenido p {
+  color: black;
+}
+
+.popup-contenido {
+  background-color: white !important;
+  color: black !important;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.2em;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
