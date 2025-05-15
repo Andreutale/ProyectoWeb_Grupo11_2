@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Estilos header */
 header {
     height: 70px;
     background-color: #004576;
@@ -12,28 +13,33 @@ header {
     align-items: center;
 }
 
+/* Imagen de la imagen */
 header > a > img {
     margin: 0 30px;
 }
 
+/* Menú hamburguesa */
 .menu-hamburguesa {
     display: none;
 }
 
+/* Estilos del logo */
 .logo {
     height: 40px;
     width: auto;
 }
 
+/* Estilos del perfil */
 .user {
     height: 40px;
     width: auto;
 }
-
+/* Contenedor del header */
 .header-container {
     position: relative;
 }
 
+/* Estilos de la ola azul */
 .ola_azul {
     position: absolute;
     top: 100%;
@@ -44,9 +50,7 @@ header > a > img {
     max-width: 100%;
 }
 
-
-
-
+/* Estilos del menú hamburguesa */
 .menu-hamburguesa {
     display: none;
     flex-direction: column;
@@ -58,6 +62,7 @@ header > a > img {
     height: 25px;
 }
 
+/* Estilos de la lineas del menú hamburguesa */
 .menu-hamburguesa .linea {
     width: 100%;
     height: 4px;
@@ -67,44 +72,49 @@ header > a > img {
 
 
 /* Menú hamburguesa */
-
 .contenedor-desplegable {
     display: none;
 }
 
+/* Estilos del desplegable */
 .menu-desplegable {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #004576;
+    background-color: var(--azul-muy-oscuro);
     width: 100%;
+    z-index: 5;
     flex-direction: column;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.8s ease-in-out;
 }
 
+/* Estilos del desplegable cuando esta activo */
 .menu-desplegable.activo {
     max-height: 300px;
 }
 
+/* Estilos de los enlaces del menú desplegable */
 .menu-desplegable ul li a {
     display: block;
     padding: 20px;
     color: white;
     text-decoration: none;
-    border-bottom: 1px solid #358BC9;
+    border-bottom: 1px solid var(--azul-oscuro);
 }
 
+/* Estilos del primer hijo del menú desplegable */
 .menu-desplegable ul li:first-child a {
-    border-top: 1px solid #358BC9;
+    border-top: 1px solid var(--azul-oscuro);
 }
 
+/* Estilos del  */
 .menu-desplegable ul li a:hover {
-    background-color: #358BC9;
+    background-color: var(--azul-oscuro);
 }
 
-
+/* Media queris */
 @media (max-width: 768px) {
 
     .user, .ola_azul{
