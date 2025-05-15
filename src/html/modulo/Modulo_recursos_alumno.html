@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recursos alumno | Módulo</title>
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Modulo_header.css">
+    <link rel="stylesheet" href="../css/Modulo_footer.css">
+    <link rel="stylesheet" href="../css/Modulo_recursos_alumno.css">
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+
+</main>
+
+<div id="footer"></div>
+
+<script type="module" src="../js/Modulo_recursos_profesor.js">
+    // Importar funciones del header
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+
+    // Cargar header y footer
+    fetch("Modulo_header_asignaturas.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa();
+        });
+
+    fetch("Modulo_footer.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+</script>
+</body>
+</html>
