@@ -99,7 +99,7 @@ header > a > img {
 
 /* Menú desplegable cuando está activo */
 .menu-desplegable.activo {
-    max-height: 300px;
+    max-height: 400px;
 }
 
 /* Enlaces del menú hamburguesa */
