@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         mensaje.style.visibility = "hidden";
         switch ((usuario.rol || "").toLowerCase()) {
             case "alumno":
-                window.location.href = "../../modulo_landing_alumno.html";
+                window.location.href = "Modulo_landing_alumno.html";
                 break;
             case "profesor":
-                window.location.href = "../../modulo_landing_profesor.html";
+                window.location.href = "Modulo_landing_profesor.html";
                 break;
             case "pas":
-                window.location.href = "../../modulo_landing_pas.html";
+                window.location.href = "Modulo_landing_page_pas.html";
                 break;
             default:
                 mensaje.style.display = "block";
