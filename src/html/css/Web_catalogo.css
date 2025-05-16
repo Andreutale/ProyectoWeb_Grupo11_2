@@ -8,6 +8,7 @@ h1 {
     margin-bottom: 50px;
 }
 
+/*CONTENEDORES GLOBALES*/
 .contenedor_catalogo {
     width: 100%;
     display: flex;
@@ -27,12 +28,14 @@ h1 {
     cursor: pointer;
 }
 
+/*SEPARADOR*/
 .separador {
     display: flex;
     justify-content: space-between;
     gap: 150px;
 }
 
+/*MODULOS*/
 .btn_recursos {
     background-image: url("../../../images/catalogo_recursos.png");
     border: none;
@@ -214,6 +217,7 @@ button div p {
 }
 
 @media (width <= 1300px) {
+    /*CONTENEDORES*/
     .contenedor_catalogo {
         gap: 50px;
     }
@@ -222,12 +226,14 @@ button div p {
         gap: 75px;
     }
 
+    /*SEPARADOR*/
     .separador {
         gap: 75px;
     }
 }
 
 @media (width <= 1050px) {
+    /*CONTENEDORES*/
     .contenedor_catalogo {
         gap: 10px;
     }
@@ -236,12 +242,14 @@ button div p {
         gap: 10px;
     }
 
+    /*SEPARADOR*/
     .separador {
         gap: 10px;
     }
 }
 
 @media (max-width: 834px) {
+    /*CONTENEDORES*/
     .contenedor_catalogo {
         display: flex;
         flex-direction: column;
@@ -251,14 +259,13 @@ button div p {
         gap: 50px;
     }
 
-    .separador {
-    }
-
+    /*SEPARADOR*/
     .separador {
         display: flex;
         flex-direction: column;
     }
 
+    /*MODULOS*/
     .btn_recursos {
         width: 150px;
         height: 150px;
