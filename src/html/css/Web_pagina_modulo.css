@@ -2,7 +2,6 @@ main {
     display: flex;
     flex-direction: column;
     height: auto;
-    margin-top: 50px;
     margin-bottom: 100px;
 }
 
@@ -180,7 +179,7 @@ p {
     /*FOTOS VISTA PREVIA DEL MÓDULO*/
     .contenedor_img {
         flex-direction: column;
-        width: 90vw;
+        width: 100vw;
     }
 
     /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
