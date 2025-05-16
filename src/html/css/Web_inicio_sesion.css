@@ -1,3 +1,4 @@
+/* Estilos de la persona */
 .img_persona {
     height: 40%;
     max-height: 400px;
@@ -7,6 +8,7 @@
     position: static;
 }
 
+/* Estilos del contenedor del inicio de sesión */
 .contenedor_inicio_sesion {
     height: auto;
     max-height: 80%;
@@ -21,11 +23,13 @@
     align-items: center;
 }
 
+/* Estilos del encabezado del contenedor */
 .contenedor_inicio_sesion h1 {
     margin-top: 30px;
     margin-bottom: 50px;
 }
 
+/* Estilos de los apartados de la pagina */
 .contenedor_inicio_sesion ul {
     width: 70%;
 }
@@ -43,6 +47,7 @@
     margin-bottom: 2px;
 }
 
+/* Estilos de los inputs */
 .contenedor_inicio_sesion ul li input {
     padding: 10px;
     border: 1px solid var(--gris-oscuro);
@@ -50,10 +55,13 @@
     border-radius: 5px;
 }
 
+
+/* Estilos del ultimo hijo */
 .contenedor_inicio_sesion ul li:last-child {
     margin: 70px 0 40px 0;
 }
 
+/* Estilos del boton azul verdoso */
 .btn-azul-verdoso {
     width: 30%;
     height: 10%;
@@ -62,10 +70,12 @@
     position: relative;
 }
 
+/* Estilosd el contenido final */
 .contenido_final {
     width: 70%;
 }
 
+/* Estilos del enclace */
 .contenido_final a {
     text-align: center;
 }
@@ -83,6 +93,7 @@
     color: var(--azul-verdoso);
 }
 
+/* Estilos del mensaje de error */
 .mensaje-error {
     color: red;
     text-align: center;
@@ -91,29 +102,7 @@
 }
 
 
-
-
-@media(max-height: 760px) and (min-width: 1200px){
-    main {
-        background-color: yellow;
-    }
-}
-
-@media(max-height: 760px) {
-    main {
-        background-color: orange;
-    }
-}
-
-
-
-
-
-
-
-
-/*
-
+/* Media queris */
 @media (max-width: 768px) {
 
     main {
@@ -152,9 +141,6 @@
 }
 
 @media (max-width: 1100px) {
-    .contenedor_inicio_sesion {
-        max-height: 60%;
-    }
 
     .img_persona {
         height: 30%;
@@ -176,4 +162,12 @@
     }
 }
 
-*/
+@media(max-width: 750px) {
+    .img_persona {
+        display: none;
+    }
+
+    .btn-azul-verdoso {
+        width: 60%;
+    }
+}
