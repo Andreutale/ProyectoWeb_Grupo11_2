@@ -1,3 +1,4 @@
+/* contenedor principal que contiene todo*/
 .contenido-pagina{
 
     display: flex;
@@ -11,7 +12,7 @@
     border-radius: 10px;
 
 }
-
+/* titulo en pantalla pequeña */
 .titulo_pantalla_pquena {
     display: none;
 }
@@ -21,6 +22,7 @@ h2{
     text-align: center;
 
 }
+/* Titulo en pantallas grandes*/
 .negro{
 
     font-weight: 700;
@@ -37,7 +39,7 @@ p{
     margin-top: 30px;
     color: black;
 }
-
+/* Contenedor hijo */
 .correo{
 
     height: auto ;
@@ -48,7 +50,7 @@ p{
     width: 100%;
     margin-top: 25px;
 }
-
+/* placeholder donde pondran el correo */
 .contenido-pagina input{
     width: 100%;
     height: 15%;
@@ -86,6 +88,6 @@ p{
 
     .titulo_pantalla_pquena {
         display: flex;
-        font-weight: bold;
+        font-weight:bold;
     }
 }
