@@ -1,6 +1,9 @@
 main {
     display: flex;
     flex-direction: column;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 h1 {
@@ -133,4 +136,59 @@ p {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+
+@media (max-width: 1220px ) {
+    main {
+        min-height: 220vh;
+    }
+
+    .contenedor_global {
+        flex-direction: column;
+        width: 150vw;
+        align-items: center;
+    }
+
+    /*FOTOS VISTA PREVIA DEL MÓDULO*/
+    .contenedor_img {
+        align-items: center;
+        width: 75vw;
+    }
+
+    .contenedor_img img {
+        min-width: 135.94px;
+        min-height: 100px;
+    }
+
+    /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
+    .credenciales {
+        margin-top: 10px;
+        width: 250px;
+    }
+
+    .descripcion {
+        width: 75vw;
+    }
+}
+
+@media (width <= 655px ) {
+    main {
+        margin-top: 20vh;
+        margin-bottom: 200px;
+    }
+
+    /*FOTOS VISTA PREVIA DEL MÓDULO*/
+    .contenedor_img {
+        flex-direction: column;
+        width: 90vw;
+    }
+
+    /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
+    .credenciales {
+        margin-top: 25px;
+    }
+
+    .botones_datos {
+        margin-bottom: 25px;
+    }
 }
