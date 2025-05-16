@@ -1,37 +1,29 @@
+/* Estilos del html y body */
 html, body {
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
-  background-image: url("../../../images/fondoLandingProfeAlumno.png");
+  background-image: url("../../../images/fondo_landing_estudiante_modulo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
+/* Estilos del main */
 main {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.main-container {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.titulo {
-  font-size: 1.8em;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.subtitulo {
-  font-size: 1.1em;
-  font-weight: 400;
+/* Estilos del contenedor del main */
+.main-container h3 {
   margin-bottom: 40px;
 }
 
+/* Estilos del contenedor de las asignaturas */
 .grid-asignaturas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -41,9 +33,10 @@ main {
   margin: 0 auto;
 }
 
+/* Estilos de cada cuadrado de la asignatura */
 .asignatura {
-  background-color: #C3D9E9;
-  border: 2px solid #3d5c6d;
+  background-color: var(--azul-muy-claro);
+  border: 2px solid var(--azul-muy-oscuro);
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -52,24 +45,19 @@ main {
   cursor: pointer;
 }
 
+/* Estilos de cuando mantienes el cursor sobre los cuadrados de las asignaturas */
 .asignatura:hover {
   transform: translateY(-4px);
 }
 
+/* Imagen de cada asignatura */
 .asignatura img {
   width: 40px;
   height: 40px;
   margin-bottom: 12px;
 }
 
-.asignatura p {
-  margin: 0;
-  font-weight: 500;
-  font-size: 0.95em;
-  line-height: 1.3em;
-  color: #000; 
-}
-
+/* Media queris */
 @media (max-width: 1000px) {
   .main-container {
     padding-left: 8%;

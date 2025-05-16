@@ -4,63 +4,89 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Landing Alumno</title>
+  <link rel="stylesheet" href="../css/libro_de_estilos.css">
   <link rel="stylesheet" href="../css/Modulo_landing_alumno.css">
-    <link rel="stylesheet" href="../css/Modulo_header.css">
+  <link rel="stylesheet" href="../css/Modulo_header.css">
   <link rel="stylesheet" href="../css/Modulo_footer.css">
   <script src="../js/Modulo_header.js" defer></script>
 
 </head>
 <body>
+
+<!-- Contenedor del header -->
 <div class="header-container">
   <header>
-    <a href="#"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
-    <a href="../Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
+    <!-- Logo -->
+    <a href="Modulo_landing_alumno.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+    <a href="../Modulo_Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
+    <!-- Lineas del menu hamburguesa -->
     <div class="menu-hamburguesa" id="menu-btn">
       <div class="linea"></div>
       <div class="linea"></div>
       <div class="linea"></div>
     </div>
+    <!-- Menú desplegable -->
     <nav class="menu-desplegable" id="menu">
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="../Perfil.html">Perfil</a></li>
-        <li><a href="#">Cerrar sesión</a></li>
+        <li><a href="Modulo_landing_alumno.html">Inicio</a></li>
+        <li><a href="../Modulo_Perfil.html">Perfil</a></li>
+        <li><a href="Modulo_Inicio_Sesión.html">Cerrar sesión</a></li>
       </ul>
     </nav>
   </header>
 </div>
 
-  <main class="main-container">
-    <h1 class="titulo">Hola, Carlos</h1>
-    <h2 class="subtitulo">¿A qué asignatura quieres acceder?</h2>
+<!-- Contenedor de la pagina -->
+<main class="main-container">
+  <h1>Hola, Carlos</h1>
+  <h3>¿A qué asignatura quieres acceder?</h3>
 
-    <div class="grid-asignaturas">
-      <div class="asignatura">
+  <!-- Contenedor de los apartados -->
+  <div class="grid-asignaturas">
+    <!-- Contenedor del apartado -->
+    <div class="asignatura">
+      <!-- Enlace al apartado -->
+      <a href="Modulo_asignaturas.html">
+        <!-- Imagen del apartado -->
         <img src="../../../images/iconos/icono_matematicas.png" alt="Matemáticas">
+        <!-- Nombre del apartado -->
         <p>Matemáticas</p>
-      </div>
-      <div class="asignatura">
+      </a>
+    </div>
+    <div class="asignatura">
+      <a href="Modulo_asignaturas.html">
         <img src="../../../images/iconos/icono_fisica.png" alt="Física">
         <p>Física</p>
-      </div>
-      <div class="asignatura">
+      </a>
+    </div>
+    <div class="asignatura">
+      <a href="Modulo_asignaturas.html">
         <img src="../../../images/iconos/icono_programacion.png" alt="Programación 2">
         <p>Programación 2</p>
-      </div>
-      <div class="asignatura">
+      </a>
+    </div>
+    <div class="asignatura">
+      <a href="Modulo_asignaturas.html">
         <img src="../../../images/iconos/icono_cdio.png" alt="CDIO">
         <p>CDIO</p>
-      </div>
-      <div class="asignatura">
+      </a>
+    </div>
+    <div class="asignatura">
+      <a href="Modulo_asignaturas.html">
         <img src="../../../images/iconos/icono_diseño_de_interfaces.png" alt="Diseño de interfaces">
         <p>Diseño de interfaces y<br>experiencia de usuario</p>
-      </div>
-      <div class="asignatura">
+      </a>
+    </div>
+    <div class="asignatura">
+      <a href="Modulo_asignaturas.html">
         <img src="../../../images/iconos/icono_gimnasia.png" alt="Gimnasia">
         <p>Gimnasia</p>
-      </div>
+      </a>
     </div>
-  </main>
+  </div>
+</main>
+
+<!-- Contenedor footer -->
 <footer class="footer">
   <div class="footer-content">
     <p>GTI 2025 &copy;</p>
