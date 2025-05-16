@@ -1,6 +1,5 @@
 /* contenedor principal que contiene todo*/
 .contenido-pagina{
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +9,6 @@
     padding: 70px 30px;
     width: 50%;
     border-radius: 10px;
-
 }
 /* titulo en pantalla pequeña */
 .titulo_pantalla_pquena {
@@ -20,21 +18,18 @@
 h2{
     font-weight: 700;
     text-align: center;
-
 }
 /* Titulo en pantallas grandes*/
 .negro{
-
     font-weight: 700;
-
 }
-h3{
+
+.correo h3{
     text-align: center;
     margin-top: 10px;
-
 }
 
-p{
+.correo p{
     padding-left: 5px;
     margin-top: 30px;
     color: black;

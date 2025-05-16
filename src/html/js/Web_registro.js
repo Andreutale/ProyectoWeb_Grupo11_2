@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
                 window.location.href = "Web_inicio_sesion.html";
-            }, 1500);
+            }, 150);
         });
     }
 });
