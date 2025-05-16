@@ -29,7 +29,7 @@ h1 {
 }
 
 .contenedor_img h2 {
-    margin-left: 2em;
+    margin: 0 auto;
 }
 
 .contenedor_img div {
@@ -152,6 +152,10 @@ p {
     .contenedor_img {
         align-items: center;
         width: 75vw;
+    }
+
+    .contenedor_img h2 {
+        margin: 0;
     }
 
     .contenedor_img img {
