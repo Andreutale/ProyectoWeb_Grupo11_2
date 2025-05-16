@@ -51,6 +51,7 @@ main button:hover {
     background-color: var(--azul-oscuro);
 }
 
+
 /* Datos del perfil */
 #datos {
     list-style: none;

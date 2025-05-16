@@ -2,6 +2,7 @@ main{
     display: flex; /* Usamos flexbox */
     flex-direction: column; /* Organizado en columnas*/
     background-color: var(--gris-claro); /* Color del fondo*/
+    height: 100vh;
 
 }
 
