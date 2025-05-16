@@ -34,19 +34,20 @@ h1{
 
 }
 
-h3{
 
-    margin-top: 50px;
-
-}
 
 button{
     margin-top: 70px;
     width: 50%;
     height:70px;
 
-}
 
+}
+/*texto del boton*/
+button a h3{
+    color: white;
+}
+/*responsive*/
 @media (max-width: 768px) {
     button {
         width: 80%;
