@@ -5,6 +5,7 @@ html, body {
     flex-direction: column;
 }
 
+/* Contenedor del footer */
 .footer-container {
     margin-top: auto;
     position: relative;
@@ -12,6 +13,7 @@ html, body {
     z-index: 999;
 }
 
+/* Estilos del footer */
 footer {
     background-color: var(--gris-oscuro);
     width: 100%;
@@ -21,10 +23,12 @@ footer {
     align-items: center;
 }
 
+/* Estilos del la p */
 p{
     color: #EBEBEB;
 }
 
+/* Estilos del footer */
 .footer {
     background-color: #3B3939;
     color: white;
@@ -32,26 +36,3 @@ p{
     text-align: center;
     margin-top: 60px;
   }
-  
-  .footer-content {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .footer-links {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .footer-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
