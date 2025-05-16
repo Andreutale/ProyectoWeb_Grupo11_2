@@ -1,9 +1,11 @@
+/* Estilos del main */
 main {
     display: flex;
     justify-content: space-between;
     min-height: 80vh;
 }
 
+/* Estilos del inicio de sesión */
 .apartado_inicio_sesion {
     background-color: var(--azul-muy-claro);
     width: 30%;
@@ -14,18 +16,20 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.25)
 }
 
+/* Estilos del formulario */
 .apartado_inicio_sesion form {
     width: 70%;
 }
 
+/* Estilos del titulo */
 .apartado_inicio_sesion h1 {
     margin-bottom: 10%;
 }
 
+/* Estilos de los input */
 form input {
     background-color: var(--blanco-1);
     width: 100%;
@@ -58,7 +62,7 @@ form div a {
     cursor: pointer;
 }
 
-
+/* Estilos del mensaje de error */
 .error {
     min-height: 1.5em; /* o height: 1.5em si quieres que siempre tenga la misma altura */
     color: red;
@@ -67,7 +71,7 @@ form div a {
     margin-top: 10px;
 }
 
-
+/* Contenido centrado del formulario */
 .contenido-centrado-form {
     display: flex;
     flex-direction: column;
@@ -78,7 +82,7 @@ form div a {
     text-align: center;
 }
 
-
+/* Estilos del contenedor de la imagen */
 .contenedor_imagen {
     z-index: -3;
     width: 40%;
@@ -88,12 +92,13 @@ form div a {
     justify-content: flex-end;
 }
 
+/* Imagen del inicio de sesión */
 .imagen_inicio_sesion {
     height: 100%;
     width: auto;
 }
 
-
+/* Media queris */
 @media(max-width: 1120px) {
     main {
         position: relative;
