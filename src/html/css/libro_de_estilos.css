@@ -58,7 +58,7 @@ main {
     font-family: "Assistant", sans-serif;
     font-weight: 500;
     font-size: 20px;
-    border: 0;
+    border: 1px solid black;
     border-radius: 10px;
     background-color: #004576;
     color: white;
@@ -69,7 +69,7 @@ main {
     font-family: "Assistant", sans-serif;
     font-weight: 500;
     font-size: 20px;
-    border: 0;
+    border: 1px solid black;
     border-radius: 10px;
     background-color: #9BD5FF;
     color: black;
@@ -80,7 +80,7 @@ main {
     font-family: "Assistant", sans-serif;
     font-weight: 500;
     font-size: 20px;
-    border: 0;
+    border: 1px solid black;
     border-radius: 10px;
     background-color: #225560;
     color: white;
@@ -91,7 +91,7 @@ main {
     font-family: "Assistant", sans-serif;
     font-weight: 500;
     font-size: 20px;
-    border: 0;
+    border: 1px solid black;
     border-radius: 10px;
     background-color: #E0E0E0;
     color: #225560;
