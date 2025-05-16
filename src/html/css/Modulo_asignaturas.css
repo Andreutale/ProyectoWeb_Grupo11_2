@@ -1,7 +1,8 @@
 main{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--gris-claro);
+    display: flex; /* Usamos flexbox */
+    flex-direction: column; /* Organizado en columnas*/
+    background-color: var(--gris-claro); /* Color del fondo*/
+
 }
 
 main ul{
@@ -10,7 +11,7 @@ main ul{
 
 h2{
     margin: 10px 0;
-    font-weight: bold;
+    font-weight: bold; /* Texto en negrita*/
 }
 
 h3{
@@ -22,17 +23,17 @@ main ul li {
     height: 150px;
     background-color: var(--azul-claro);
     margin: 20px 50px;
-    list-style: none;
+    list-style: none; /* Para quitar los puntos de una lsta*/
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.4s ease;
+    transition: background-color 0.4s ease; /* Transicion cambio de color*/
 }
 
 ul li:hover {
-    cursor: pointer;
+    cursor: pointer; /* Puntero al pasar por encima */
     background-color: var(--azul-oscuro);
 }
 
@@ -42,7 +43,7 @@ li a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 333;
+    z-index: 333; /* Lo añade en capas superiores */
 }
 
 li a img {
@@ -54,7 +55,7 @@ p{
     margin-top: 10px;
     text-align: center;
 }
-
+/* Resposive para pantallas pequeñas */
 @media (max-width: 768px) {
 
     h2 {
@@ -72,11 +73,12 @@ p{
 
     main ul{
         display: flex;
-        flex-direction: column;
+        flex-direction: column;  /* Organizado en columnas*/
         justify-content: center;
-        width: 100%;
+        width: 100%; /* Hacemos que ocupe todo el espacio */
     }
 
+    /* estilo para cada contenedor  */
     main ul li {
         width: 50%;
         height: 50px;
@@ -84,7 +86,7 @@ p{
         display: flex;
         justify-content: flex-start;
     }
-
+    /* Estilo para el texto de los contenedores */
     main ul li a {
         display: flex;
         flex-direction: row;
@@ -92,7 +94,7 @@ p{
         gap: 10px;
         width: 100%;
     }
-
+    /* Estilo para cada imagen */
     ul li a img {
         margin-left: 20px;
         height: 30px;
@@ -100,6 +102,6 @@ p{
     }
 
     ul li a p {
-        margin: 0;
-    }
+        margin:0;
+        }
 }

@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const anuncios = document.getElementById("anuncios");
     const nombreAsignatura = document.getElementById("nombre_asignatura");
 
+
+    //alerts de no implementados
     guiaDocente.addEventListener("click", () => {
         alert("Esta función aún no está implementada")
     })
