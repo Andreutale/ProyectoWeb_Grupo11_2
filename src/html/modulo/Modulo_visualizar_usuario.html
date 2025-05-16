@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visualizar usuario | MÓDULO</title>
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Modulo_header.css">
+    <link rel="stylesheet" href="../css/Modulo_footer.css">
+    <link rel="stylesheet" href="../css/Modulo_visualizar_usuario.css">
+</head>
+<body>
+<!-- HEADER -->
+<div id="header"></div>
+
+<main>
+    <section class="container">
+        <h1 style="text-align: center;">Visualizar usuario</h1>
+
+        <img src="../../../images/iconos/web_perfil.svg" alt="Foto de perdil" class="user-img">
+        <!--button class="btn-editar">Editar usuario</button-->
+
+        <!-- INFORMACIÓN PERSONAL -->
+        <div class="user-info">
+            <div>
+                <p>Nombre</p>
+                <input type="text" value="Lief" disabled>
+            </div>
+            <div>
+                <p>Apellidos</p>
+                <input type="text" value="Simants Dredge" disabled>
+            </div>
+            <div>
+                <p>Correo</p>
+                <input type="text" value="l.simdre@epsg.upv.es" disabled>
+            </div>
+            <div>
+                <p>Teléfono</p>
+                <input type="text" value="987 654 321" disabled>
+            </div>
+            <div>
+                <p>Rol</p>
+                <input type="text" value="Alumno" disabled>
+            </div>
+            <div>
+                <p>Grado</p>
+                <input type="text" value="Tecnologías Interactivas" disabled>
+            </div>
+        </div>
+
+        <!-- DATOS TABLA ASIGNATURAS MATRICULADAS-->
+        <h2>Asignaturas matriculadas</h2>
+        <table>
+            <thead>
+            <tr>
+                <th><p>Nombre</p></th>
+                <th><p>ID</p></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td><p>Programación 2</p></td><td><p>001</p></td></tr>
+            <tr><td><p>Física</p></td><td><p>002</p></td></tr>
+            <tr><td><p>Matemáticas</p></td><td><p>003</p></td></tr>
+            <tr><td><p>CDIO</p></td><td><p>004</p></td></tr>
+            <tr><td><p>Diseño de interfaces y experiencia de usuario</p></td><td><p>005</p></td></tr>
+            <tr><td><p>Gimnasia</p></td><td><p>006</p></td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<!-- SCRIPTS GENERALES -->
+<script type="module">
+    // Primero importamos las funciones y datos necesarios
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+    import { usuarios } from '../../app/usuarios.js';
+
+    // Cargamos el HTML del header y footer
+    fetch("Modulo_header_sin_ola.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
+        });
+
+    fetch("Modulo_footer.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer").innerHTML = html;
+        });
+
+    // Si necesitas acceder a los usuarios en algún momento, ya puedes hacerlo
+    console.log("Usuarios cargados:", usuarios);
+</script>
+</body>
+</html>
