@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="../css/Web_header_no_registrado.css">
     <link rel="stylesheet" href="../css/Web_footer.css">
     <link rel="stylesheet" href="../css/Web_registro.css">
-
-    <script type="module" src="../js/Web_registro.js" defer></script>
 </head>
 <body>
 <img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="Imagen del fondo de la pantalla">
@@ -20,33 +18,34 @@
 
 <div id="header"></div>
 <main>
-    <nav class="contenedor_registro">
+    <form class="contenedor_registro" action="../php/Web_registro.php" method="POST">
         <h1>Registro</h1>
         <ul class="contenedor_div_formulario">
             <li class="contenedor_1_formulario">
                 <label for="nombre">Nombre *</label>
-                <input id="nombre" type="text" placeholder="Carlos">
+                <input id="nombre" name="nombre" type="text" placeholder="Carlos" required>
 
                 <label for="correo">Correo *</label>
-                <input id="correo" type="email" placeholder="carlosgarcia@gmail.com">
+                <input id="correo" name="correo" type="email" placeholder="carlosgarcia@gmail.com" required>
 
                 <label for="contraseña">Contraseña *</label>
-                <input id="contraseña" type="password" placeholder="*********">
+                <input id="contraseña" name="contraseña" type="password" placeholder="*********" required>
             </li>
             <li class="contenedor_2_formulario">
                 <label for="apellidos">Apellidos *</label>
-                <input id="apellidos" type="text" placeholder="García">
+                <input id="apellidos" name="apellidos" type="text" placeholder="García" required>
 
                 <label for="telefono">Teléfono *</label>
-                <input id="telefono" type="text" placeholder="987 654 321">
+                <input id="telefono" name="telefono" type="text" placeholder="987 654 321" required>
 
                 <label for="confirmarContraseña">Confirmar contraseña *</label>
-                <input id="confirmarContraseña" type="password" placeholder="*********">
+                <input id="confirmarContraseña" name="confirmarContraseña" type="password" placeholder="*********" required>
             </li>
         </ul>
-        <button class="btn-azul-verdoso">Regístrate</button>
+        <p id="mensaje-error" class="mensaje-error">Correo ya registrado</p>
+        <button class="btn-azul-verdoso" type="submit">Regístrate</button>
         <a href="Web_inicio_sesion.html"><p>¿Ya tienes cuenta? <span class="parrafo_verde">Inicia Sesión</span></p></a>
-    </nav>
+    </form>
 </main>
 
 
@@ -55,8 +54,6 @@
 <script type="module">
     // Primero importamos las funciones y datos necesarios
     import { iniciarMenuHamburguesa } from "../js/Modulo_header.js";
-    import { usuariosWeb } from '../../app/usuariosWeb.js';
-
     // Cargamos el HTML del header y footer
     fetch("Web_header_no_registrado.html")
         .then(res => res.text())
@@ -70,9 +67,6 @@
         .then(html => {
             document.getElementById("footer").innerHTML = html;
         });
-
-    // Si necesitas acceder a los usuarios en algún momento, ya puedes hacerlo
-    console.log("Usuarios cargados:", usuariosWeb);
 </script>
 
 </body>
