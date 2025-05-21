@@ -61,6 +61,10 @@
     border-radius: 5px;
 }
 
+.mensaje-error {
+    visibility: hidden;
+}
+
 /* Estilo para el botón y enlace */
 .contenedor_registro button {
     margin-top: 10px;
