@@ -1,3 +1,9 @@
+<?php
+include('../../app/auth.php');
+verificarToken();
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -1,6 +1,9 @@
 <?php
 include('../../app/conexion.php');
 
+// Creamos un token
+$token = bin2hex(random_bytes(16));
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['nombre'];
     $apellidos = $_POST['apellidos'];
@@ -9,10 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contraseña = $_POST['contraseña'];
     $confirmar = $_POST['confirmarContraseña'];
 
-    $mensaje_error = $_POST['mensaje-error'];
-
     if ($contraseña !== $confirmar) {
         echo("Las contraseñas no coinciden.");
+        exit();
     }
 
     // Verificar si el correo ya está registrado
@@ -27,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Encriptar y guardar
     $contraseñaHash = password_hash($contraseña, PASSWORD_DEFAULT);
-    $stmt = $conexion->prepare("INSERT INTO usuariosWeb (nombre, apellidos, correo, telefono, contraseña) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $nombre, $apellidos, $correo, $telefono, $contraseñaHash);
+    $stmt = $conexion->prepare("INSERT INTO usuariosWeb (nombre, apellidos, correo, telefono, contraseña, token) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $nombre, $apellidos, $correo, $telefono, $contraseñaHash, $token);
 
     if ($stmt->execute()) {
-        // ✅ Redirige al inicio de sesión si todo va bien
+        // ✅ Registro exitoso → Redirigir al inicio de sesión
         header("Location: ../web/Web_inicio_sesion.html");
         exit();
     } else {
