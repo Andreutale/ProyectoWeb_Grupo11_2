@@ -24,6 +24,11 @@ main > div {
     flex-wrap: wrap;
 }
 
+li div {
+    display: flex;
+    align-items: center;
+}
+
 /* Imagen y botón */
 main > div > div:first-child {
     display: flex;

@@ -1,3 +1,9 @@
+<?php
+include('../../app/auth.php');
+verificarToken();
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,24 +17,7 @@
 </head>
 <body>
   <!-- Header -->
-  <header role="banner">
-    <a href="#"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
-    <div class="enlaces">
-      <a href="#"><h3>CONSULTAS</h3></a>
-      <a href="#"><h3>CATÁLOGO DE MÓDULOS</h3></a>
-      <a href="#"><img src="../../../images/user_icon.svg" alt="Icono del perfil"></a>
-    </div>
-    <div class="menu-hamburguesa-web" id="menu-btn">
-      <div class="linea"></div><div class="linea"></div><div class="linea"></div>
-    </div>
-    <nav class="menu-desplegable-web" id="menu">
-      <ul>
-        <li><a href="#">Catálogo de módulos</a></li>
-        <li><a href="#">Consultas</a></li>
-        <li><a href="#">Perfil</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header"></div>
 
   <!-- Sección principal -->
 <section class="consulta-section">
@@ -77,11 +66,27 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>GTI 2025 ©</p>
-    </div>
-  </footer>
+  <id id="footer"></id>
+
+  <script type="module">
+    // Importamos el menu hamburguesa
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+
+
+    // Cargamos el HTML del header y footer
+    fetch("Web_header_registrado.html")
+            .then(res => res.text())
+            .then(html => {
+              document.getElementById("header").innerHTML = html;
+              iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
+            });
+
+    fetch("Web_footer.html")
+            .then(res => res.text())
+            .then(html => {
+              document.getElementById("footer").innerHTML = html;
+            });
+  </script>
 
 <script type="module">
   import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'

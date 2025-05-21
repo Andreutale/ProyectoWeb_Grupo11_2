@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Acceso correcto:", usuarioValido);
 
             setTimeout(() => {
-                window.location.href = "../modulo/Modulo_Inicio_Sesión.html";
+                window.location.href = "Web_landing_page_registrado.html";
             }, 150);
         });
     }
