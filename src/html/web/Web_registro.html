@@ -55,11 +55,11 @@
     // Primero importamos las funciones y datos necesarios
     import { iniciarMenuHamburguesa } from "../js/Modulo_header.js";
     // Cargamos el HTML del header y footer
-    fetch("Web_header_no_registrado.html")
+    fetch("../php/cargar_header.php")
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;
-            iniciarMenuHamburguesa();
+            iniciarMenuHamburguesa(); // Si tienes esta función para el menú
         });
 
     fetch("Web_footer.html")

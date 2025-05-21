@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (password_verify($contraseña, $hash_guardado)) {
             $_SESSION['token'] = $token;
-            header("Location: ../modulo/Modulo_inicio_sesion.php");
+            header("Location: ../web/Web_landing_page_registrado.html");
             exit();
         } else {
             header("Location: ../web/Web_inicio_sesion.html?error=1");

@@ -69,11 +69,11 @@
 
 
   // Cargamos el HTML del header y footer
-  fetch("Web_header_registrado.html")
+  fetch("../php/cargar_header.php")
           .then(res => res.text())
           .then(html => {
             document.getElementById("header").innerHTML = html;
-            iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
+            iniciarMenuHamburguesa(); // Si tienes esta función para el menú
           });
 
   fetch("Web_footer.html")
