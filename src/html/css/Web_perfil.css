@@ -1,6 +1,6 @@
 .perfil {
     width: 75%;
-    margin: 2rem auto;
+    margin: auto auto;
     padding: 2rem;
     background-color: var(--gris-claro);
     border-radius: 20px;
@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
 
 .perfil-avatar {
@@ -104,6 +105,6 @@
     }
 
     .perfil-botones button + button {
-        margin-left: 1rem;
+        margin-left:1rem;
     }
 }
