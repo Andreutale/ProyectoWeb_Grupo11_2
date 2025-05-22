@@ -30,6 +30,10 @@ button{
     justify-content: center;
 }
 
+.enlaces h3:hover {
+    text-decoration: underline;
+}
+
 /* Menú hamburguesa (oculto por defecto en desktop) */
 .menu-hamburguesa-web {
     display: none;
