@@ -3,15 +3,18 @@
     width: auto;
     bottom: 0;
     right: 170px;
+
+    display: none;
 }
 
 .contenedor_registro {
-    height: 80%;
+    height: auto;
     width: 50%;
+    margin: auto auto;
+    border: 1px solid var(--gris-oscuro);
     background-color: white;
     border-radius: 20px;
     z-index: 1;
-    min-height: 450px;
 
     display: flex;
     flex-direction: column;
@@ -88,13 +91,9 @@
     color: var(--azul-verdoso);
 }
 
-
 @media (max-width: 768px) {
     .contenedor_registro {
-        background-color: transparent;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
+        width: 70%;
     }
 
     .contenedor_registro h1 {
@@ -111,10 +110,6 @@
         padding: 8px;
     }
 
-    .contenedor_div_formulario li input:last-child {
-        margin-bottom: 35px;
-    }
-
     .btn-azul-verdoso {
         margin-bottom: 10px;
         width: 60%;
@@ -122,11 +117,6 @@
 }
 
 @media (max-width: 940px) {
-    .contenedor_registro {
-        height: auto;
-        min-height: 0;
-        padding: 20px 0 30px;
-    }
 
     .contenedor_registro h1 {
         margin-bottom: 20px;
@@ -148,8 +138,7 @@
 
     .contenedor_1_formulario input,
     .contenedor_2_formulario input {
-        height: 30px;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
 
     .img_persona {
@@ -157,23 +146,8 @@
     }
 }
 
-@media (max-width: 1400px) {
-    .img_persona {
-        height: 50%;
-        right: 100px;
-    }
-}
-
-@media (max-height: 1000px) and (max-width: 1200px) {
-    .img_persona {
-        right: 130px;
-        height: 40%;
-    }
-}
-
-@media (min-height: 1000px) and (max-width: 1400px) {
-    .img_persona {
-        right: 120px;
-        height: 40%;
+@media (max-width: 500px) {
+    .contenedor_registro button {
+        width: 60%;
     }
 }
