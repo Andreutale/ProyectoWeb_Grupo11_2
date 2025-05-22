@@ -12,17 +12,19 @@ a > h3 {
     color: white;
 }
 
-button{
-    padding: 10px 18px;
+.enlaces a button{
+    padding: 8px 18px;
+    border: 0;
 }
-.menos_marcado{
-    font-size: 20px;
-    background-color: var(--azul-verdoso);
-    color: var(--blanco-1);
-    border: var(--blanco-1) solid 1px;
-    border-radius: 10px;
-    padding: 10px 18px;
+
+.enlaces a h3:hover {
+    text-decoration: underline;
 }
+
+.btn-inicio-sesion {
+    font-weight: bold;
+}
+
 .logo {
     height: 40px;
 }
