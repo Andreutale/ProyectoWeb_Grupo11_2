@@ -103,11 +103,12 @@
     }
 
     .contenedor_div_formulario li label {
-        margin-bottom: 2px;
+        margin-bottom: 0;
     }
 
     .contenedor_div_formulario li input {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        padding: 8px;
     }
 
     .contenedor_div_formulario li input:last-child {
@@ -115,14 +116,16 @@
     }
 
     .btn-azul-verdoso {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        width: 60%;
     }
 }
 
 @media (max-width: 940px) {
     .contenedor_registro {
-        height: 85%;
-        max-height: 700px;
+        height: auto;
+        min-height: 0;
+        padding: 20px 0 30px;
     }
 
     .contenedor_registro h1 {
