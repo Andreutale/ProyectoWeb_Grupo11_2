@@ -1,17 +1,24 @@
+main {
+    display: flex;
+    align-items: center;
+}
+
 /* Estilos de la persona */
 .img_persona {
     height: 40%;
     max-height: 400px;
     width: auto;
-    bottom: 50px;
+    bottom: 0px;
     right: 170px;
     position: static;
+    display: none;
 }
 
 /* Estilos del contenedor del inicio de sesión */
 .contenedor_inicio_sesion {
     height: auto;
     max-height: 80%;
+    margin: 0 auto;
     width: 90%;
     max-width: 500px;
     padding: 20px;
@@ -33,6 +40,7 @@
 /* Estilos de los apartados de la pagina */
 .contenedor_inicio_sesion ul {
     width: 70%;
+    padding: 0;
 }
 
 .contenedor_inicio_sesion ul li {
@@ -117,13 +125,19 @@
         justify-content: space-between;
     }
 
+    .contenedor_inicio_sesion h1 {
+        margin: 10px 0 20px 0;
+    }
+
     .contenedor_inicio_sesion {
         display: flex;
         flex-direction: column;
+        width: 60%;
+        justify-content: center;
     }
 
     .contenedor_inicio_sesion ul li:last-child {
-        margin: 40px 0;
+        margin: 30px 0;
     }
 
     .btn-azul-verdoso {
@@ -131,19 +145,16 @@
     }
 
     .img_persona {
-        position: initial;
-
+        display: none;
     }
+
+
 }
 
 @media(max-width: 1400px) {
     .img_persona {
         right: 100px;
         height: 35%;
-    }
-
-    .contenedor_inicio_sesion {
-        width: 60%;
     }
 }
 
@@ -155,12 +166,13 @@
     }
 }
 
-@media(max-width: 750px) {
-    .img_persona {
-        display: none;
+@media (max-width: 620px) {
+    ul li input::placeholder {
+        color: transparent;
     }
 
-    .btn-azul-verdoso {
-        width: 60%;
-    }
 }
+
+
+
+
