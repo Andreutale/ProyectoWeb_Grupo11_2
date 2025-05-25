@@ -59,12 +59,16 @@
 .perfil-botones {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
 .perfil-botones button {
-    padding: 0.75rem;
+    width: auto;
+    max-width: 500px;
+    margin: 0 30px;
+    padding: 0.5rem;
     font-size: 1rem;
     border-radius: 10px;
     border: none;
