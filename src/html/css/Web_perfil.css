@@ -4,6 +4,8 @@
     padding: 2rem;
     background-color: var(--gris-claro);
     border-radius: 20px;
+    z-index: 1;
+    position: relative;
 }
 
 .perfil h1 {
