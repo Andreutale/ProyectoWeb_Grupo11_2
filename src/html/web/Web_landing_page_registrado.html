@@ -11,35 +11,10 @@
   <link rel="stylesheet" href="../../html/css/Web_footer.css">
   <link rel="stylesheet" href="../../html/css/libro_de_estilos.css">
 
-
-
-
 </head>
 <body>
 
-<header role="banner">
-  <a href="#"><img class="logo" src="../../../images/logo_web.png" alt="Logo del apartado de web"></a>
-
-  <div class="enlaces">
-    <a href="Web_consultas.html"><h3>CONSULTAS</h3></a>
-    <a href="Web_catalogo.html"><h3>CATÁLOGO DE MÓDULOS</h3></a>
-    <a href="Web_perfil.html"><img src="../../../images/user_icon.png" alt="Icono del perfil"></a>
-  </div>
-
-  <div class="menu-hamburguesa-web" id="menu-btn">
-    <div class="linea"></div>
-    <div class="linea"></div>
-    <div class="linea"></div>
-  </div>
-
-  <nav class="menu-desplegable-web" id="menu">
-    <ul>
-      <li><a href="#">Catálogo de módulos</a></li>
-      <li><a href="#">Consultas</a></li>
-      <li><a href="#">Perfil</a></li>
-    </ul>
-  </nav>
-</header>
+<div id="header"></div>
 
 <main>
   <img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="Imagen del fondo de la landing">
@@ -56,19 +31,26 @@
 
 </main>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>GTI 2025 ©</p>
-  </div>
-</footer>
-
-
-</body>
+<div id="footer"></div>
 
 <script type="module">
-  import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'
-  iniciarMenuHamburguesa();
+  // Primero importamos las funciones y datos necesarios
+  import { iniciarMenuHamburguesa } from "../js/Modulo_header.js";
 
+  // Cargamos el HTML del header y footer
+  fetch("Web_header_registrado.html")
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa();
+          });
+
+  fetch("Web_footer.html")
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById("footer").innerHTML = html;
+          });
 </script>
 
+</body>
 </html>
