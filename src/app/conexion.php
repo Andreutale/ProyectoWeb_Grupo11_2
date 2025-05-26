@@ -1,9 +1,9 @@
 <?php
 // Parámetros de conexión
-$servidor = "127.0.0.1";  // El servidor MySQL (por lo general es localhost)
+$servidor = "localhost";  // El servidor MySQL (por lo general es localhost)
 $usuario = "root";        // El nombre de usuario para la base de datos
 $contraseña = "";         // La contraseña del usuario (para XAMPP generalmente está vacía)
-$baseDeDatos = "grupo_11";  // El nombre de tu base de datos
+$baseDeDatos = "usuarioWeb";  // El nombre de tu base de datos
 
 // Crear la conexión
 $conexion = new mysqli($servidor, $usuario, $contraseña, $baseDeDatos);
