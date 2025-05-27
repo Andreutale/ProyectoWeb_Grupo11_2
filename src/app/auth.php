@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../app/conexion.php');
+include('conexion.inc');
 
 function verificarToken() {
     global $conexion;
@@ -12,7 +12,7 @@ function verificarToken() {
     }
 
     $token = $_SESSION['token'];
-    $stmt = $conexion->prepare("SELECT id FROM usuariosWeb WHERE token = ?");
+    $stmt = $conexion->prepare("SELECT id FROM usuariosweb WHERE token = ?");
     $stmt->bind_param("s", $token);
     $stmt->execute();
     $stmt->store_result();

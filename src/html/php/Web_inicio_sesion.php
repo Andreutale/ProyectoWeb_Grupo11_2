@@ -1,12 +1,12 @@
 <?php
 session_start();
-include('../../app/conexion.php');
+include('../../app/conexion.inc');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
 
-    $stmt = $conexion->prepare("SELECT id, contraseña, token FROM usuariosWeb WHERE correo = ?");
+    $stmt = $conexion->prepare("SELECT id, contraseña, token FROM usuariosweb WHERE correo = ?");
     $stmt->bind_param("s", $correo);
     $stmt->execute();
     $stmt->store_result();

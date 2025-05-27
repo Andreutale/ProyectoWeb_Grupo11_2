@@ -1,5 +1,5 @@
 <?php
-include('../../app/conexion.php');
+include('../../app/conexion.inc');
 
 // Creamos un token
 $token = bin2hex(random_bytes(16));
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Verificar si el correo ya está registrado
-    $stmt = $conexion->prepare("SELECT id FROM usuariosWeb WHERE correo = ?");
+    $stmt = $conexion->prepare("SELECT id FROM usuariosweb WHERE correo = ?");
     $stmt->bind_param("s", $correo);
     $stmt->execute();
     $stmt->store_result();
