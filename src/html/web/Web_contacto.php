@@ -1,4 +1,4 @@
-<?php
+    <?php
 include('../../app/auth.php');
 verificarToken();
 ?>
@@ -34,7 +34,16 @@ verificarToken();
 
           <div class="input-group">
             <label for="producto">Producto *</label>
-            <input type="text" id="producto" name="producto" required />
+              <select id="producto" name="modulos">
+                  <option value="1">Recursos</option>
+                  <option value="2">Calificaciones</option>
+                  <option value="3">Exámenes</option>
+                  <option value="4">Anuncios</option>
+                  <option value="5">Tareas</option>
+                  <option value="6">Correo interno</option>
+                  <option value="7">Foros</option>
+                  <option value="8">Videoapuntes</option>
+              </select>
           </div>
 
           <div class="input-group">
@@ -107,7 +116,7 @@ verificarToken();
   });
 </script>
 
-  <img class="fondo_contacto" src="../../../images/fondoContacto.png" alt="Fondo de la sección de consulta">
+  <img class="fondo_contacto" src="../../../images/fondo_landing_web.png" alt="Fondo de la sección de consulta">
 
 <div id="popup-exito" class="popup">
   <div class="popup-contenido">

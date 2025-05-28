@@ -50,6 +50,7 @@ body {
   }
   
   .consulta-form input,
+  .consulta-form select,
   .consulta-form textarea {
     padding: 10px;
     border: 1px solid #999;
