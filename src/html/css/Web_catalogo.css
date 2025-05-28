@@ -11,6 +11,7 @@ h1 {
 
 /*CONTENEDORES GLOBALES*/
 .contenedor_catalogo {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -37,8 +38,7 @@ h1 {
 }
 
 /*MODULOS*/
-.btn_recursos {
-    background-image: url("../../../images/catalogo_recursos.png");
+.btn_modulo {
     border: none;
     border-radius: 20px;
     width: 200px;
@@ -47,13 +47,18 @@ h1 {
     background-size: cover;
     display: flex;
     align-items: end;
+    transition: 0.3s ease;
+}
+
+.btn_modulo:hover {
+    transform: scale(1.1);
 }
 
 button div p {
     color: black;
 }
 
-.btn_recursos div {
+.modulo_texto_container {
     background-color: var(--azul-no-tan-verdoso);
     width: 100%;
     height: 50px;
@@ -61,160 +66,42 @@ button div p {
     display: flex;
     align-items: center;
     padding-left: 5px;
+}
+
+.btn_recursos {
+    background-image: url("../../../images/catalogo_recursos.png");
 }
 
 .btn_calificaciones {
     background-image: url("../../../images/catalogo_calificaciones.png");
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
-}
-
-.btn_calificaciones div {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
 }
 
 .btn_examenes {
     background-image: url("../../../images/catalogo_examenes.png");
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
-}
-
-.btn_examenes div {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
 }
 
 .btn_anuncios {
     background-image: url("../../../images/catalogo_anuncios.png");
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
-}
-
-.btn_anuncios div {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
 }
 
 .btn_tareas {
     background-image: url("../../../images/catalogo_tareas.png");
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
 }
 
-.btn_tareas div {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
-}
-
-.btn_guia_docente {
-    background-image: url("../../../images/catalogo_guia_docente.png");
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
-}
-
-.btn_guia_docente div {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
+.btn_correo_interno {
+    background-image: url("../../../images/catalogo_correo_interno.png");
 }
 
 .btn_foros {
     background-image: url("../../../images/catalogo_foros.png");
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
-}
-
-.btn_foros div {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
 }
 
 .btn_videoapuntes {
     background-image: url("../../../images/catalogo_videoapuntes.png");
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
 }
 
-.btn_videoapuntes div {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
+.btn_inaccesible {
+    filter: grayscale(100%);
 }
 
 @media (width <= 1300px) {
@@ -234,17 +121,8 @@ button div p {
 }
 
 @media (width <= 1050px) {
-    /*CONTENEDORES*/
-    .contenedor_catalogo {
-        gap: 10px;
-    }
-
-    .contenedor_catalogo ul {
-        gap: 10px;
-    }
-
-    /*SEPARADOR*/
-    .separador {
+    /*CONTENEDORES Y SEPARADOR*/
+    .contenedor_catalogo, .contenedor_catalogo ul, .separador {
         gap: 10px;
     }
 }
@@ -267,42 +145,7 @@ button div p {
     }
 
     /*MODULOS*/
-    .btn_recursos {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn_calificaciones {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn_examenes {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn_anuncios {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn_tareas {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn_guia_docente {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn_foros {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btn_videoapuntes {
+    .btn_modulo {
         width: 150px;
         height: 150px;
     }
