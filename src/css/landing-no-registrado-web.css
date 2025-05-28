@@ -1,7 +1,12 @@
 
 /*imagen persona*/
 .img_persona {
+<<<<<<< HEAD
     position: absolute;
+=======
+    height: 75vh;
+    width: 35%;
+>>>>>>> web/consultas_corrección
     top: 100px;
     right: 0;
     object-fit: contain;
