@@ -8,6 +8,7 @@
 }
 
 .contenedor_registro {
+    position: relative;
     height: auto;
     width: 50%;
     margin: auto auto;
