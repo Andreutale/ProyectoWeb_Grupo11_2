@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/Modulo_header.css">
     <link rel="stylesheet" href="../css/Modulo_footer.css">
     <link rel="stylesheet" href="../css/Modulo_visualizar_usuario.css">
+    <script src="../js/Web_visualizar_usuario.js"></script>
 </head>
 <body>
 <!-- HEADER -->
@@ -18,7 +19,9 @@
         <h1 style="text-align: center;">Visualizar usuario</h1>
 
         <img src="../../../images/iconos/web_perfil.svg" alt="Foto de perdil" class="user-img">
-        <!--button class="btn-editar">Editar usuario</button-->
+        <button class="btn-editar">Editar usuario</button>
+        <button id="btn-confirmar" class="btn-confirmar">Confirmar cambios</button>
+        <button id="btn-cancelar" class="btn-cancelar">Cancelar cambios</button>
 
         <!-- INFORMACIÓN PERSONAL -->
         <div class="user-info">
@@ -67,6 +70,25 @@
             </tbody>
         </table>
     </section>
+
+    <!-- MODAL PARA AÑADIR ASIGNATURA -->
+    <div id="modal-asignaturas">
+        <div>
+            <h3>Asignaturas disponibles</h3>
+            <table id="tabla-asignaturas-disponibles">
+                <thead><tr><th>Nombre</th><th>ID</th><th>Acción</th></tr></thead>
+                <tbody>
+                <tr><td>Programación 2</td><td>001</td><td><button class="btn-añadir">Añadir</button></td></tr>
+                <tr><td>Física</td><td>002</td><td><button class="btn-añadir">Añadir</button></td></tr>
+                <tr><td>Matemáticas</td><td>003</td><td><button class="btn-añadir">Añadir</button></td></tr>
+                <tr><td>CDIO</td><td>004</td><td><button class="btn-añadir">Añadir</button></td></tr>
+                <tr><td>Diseño de interfaces y experiencia de usuario</td><td>005</td><td><button class="btn-añadir">Añadir</button></td></tr>
+                <tr><td>Gimnasia</td><td>006</td><td><button class="btn-añadir">Añadir</button></td></tr>
+                </tbody>
+            </table>
+            <button onclick="document.getElementById('modal-asignaturas').style.display='none'">Cerrar</button>
+        </div>
+    </div>
 </main>
 
 <!-- FOOTER -->
