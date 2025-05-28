@@ -5,6 +5,7 @@
     width: 35%;
     top: 100px;
     right: 0;
+    object-fit: contain;
 }
 /*imagen persona invertida*/
 .img_persona_invertida {
@@ -49,6 +50,7 @@
     .img_persona {
         display: none;
     }
+
     .landing-texto {
         position: absolute;
         top: 25%; /* Subimos un poco */
@@ -89,12 +91,11 @@
     }
     .img_persona_invertida {
         display: flex;
-
+        object-fit: contain;
         position: absolute;
-        height: 40%;
-        width: 40%;
+        margin-left: -32px;
+        width: 38%;
         bottom: 50px;
-        left: 0;
     }
 
 
@@ -110,6 +111,7 @@
 @media(max-width: 480px) {
     .img_persona {
         display: none;
+        object-fit: contain;
     }
     .landing-texto {
         position: absolute;
