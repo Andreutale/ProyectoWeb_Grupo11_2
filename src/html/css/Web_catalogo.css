@@ -1,64 +1,90 @@
+/* Fondo que ocupa toda la pantalla */
+.fondo_landing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../images/fondo_landing_web.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Estructura */
 main {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
-  margin-bottom: 0px;
   text-align: center;
+  margin: 40px 0 20px;
 }
 
-/*CONTENEDORES GLOBALES*/
+/* Contenedor general centrado */
 .contenedor_catalogo {
-  position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  box-sizing: border-box;
+  text-align: center; /* para centrar el inline-grid si lo usas */
 }
 
-.contenedor_catalogo ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  margin: 0px;
-  gap: 70px;
-
+/* Grid de módulos responsive: siempre al menos 2 columnas */
+.grid-modulos {
+  display: grid;
+  gap: 30px;
+  justify-content: center;
 }
 
-.contenedor_catalogo ul li a button {
-  cursor: pointer;
+/* ≥1200px → hasta 4 columnas, módulos entre 200px y 1fr */
+@media (min-width: 1200px) {
+  .grid-modulos {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
 }
 
-/*SEPARADOR*/
-.separador {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+/* 900–1199px → 3 columnas, módulos mínimo 180px */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .grid-modulos {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
 }
 
-/*MODULOS*/
+/* <900px → siempre 2 columnas, módulos mínimo 140px */
+@media (max-width: 899px) {
+  .grid-modulos {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
+}
+
+/* Botones: llenan su celda y se mantienen cuadrados */
 .btn_modulo {
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 260px;  /* tope en pantallas muy anchas */
   border: none;
   border-radius: 20px;
-  width: 200px;
-  height: 200px;
   padding: 0;
   background-size: cover;
+  background-position: center;
   display: flex;
-  align-items: end;
-  transition: 0.3s ease;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
 .btn_modulo:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-button div p {
-  color: black;
-}
-
+/* Texto del módulo */
 .modulo_texto_container {
   background-color: var(--azul-no-tan-verdoso);
   width: 100%;
@@ -66,85 +92,28 @@ button div p {
   border-radius: 0 0 20px 20px;
   display: flex;
   align-items: center;
-  padding-left: 5px;
+  justify-content: center;
 }
 
-.btn_recursos {
-  background-image: url("../../../images/catalogo_recursos.png");
+button div p {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
 }
 
-.btn_calificaciones {
-  background-image: url("../../../images/catalogo_calificaciones.png");
-}
+/* Imágenes de fondo específicas */
+.btn_recursos        { background-image: url("../../../images/catalogo_recursos.png"); }
+.btn_calificaciones  { background-image: url("../../../images/catalogo_calificaciones.png"); }
+.btn_examenes        { background-image: url("../../../images/catalogo_examenes.png"); }
+.btn_anuncios        { background-image: url("../../../images/catalogo_anuncios.png"); }
+.btn_tareas          { background-image: url("../../../images/catalogo_tareas.png"); }
+.btn_correo_interno  { background-image: url("../../../images/catalogo_correo_interno.png"); }
+.btn_foros           { background-image: url("../../../images/catalogo_foros.png"); }
+.btn_videoapuntes    { background-image: url("../../../images/catalogo_videoapuntes.png"); }
 
-.btn_examenes {
-  background-image: url("../../../images/catalogo_examenes.png");
-}
-
-.btn_anuncios {
-  background-image: url("../../../images/catalogo_anuncios.png");
-}
-
-.btn_tareas {
-  background-image: url("../../../images/catalogo_tareas.png");
-}
-
-.btn_correo_interno {
-  background-image: url("../../../images/catalogo_correo_interno.png");
-}
-
-.btn_foros {
-  background-image: url("../../../images/catalogo_foros.png");
-}
-
-.btn_videoapuntes {
-  background-image: url("../../../images/catalogo_videoapuntes.png");
-}
-
+/* Deshabilitados */
 .btn_inaccesible {
   filter: grayscale(100%);
-}
-
-@media (width <= 1300px) {
-  /CONTENEDORES/
-  .contenedor_catalogo {
-    gap: 20px;
-  }
-
-  .contenedor_catalogo ul {
-    gap: 30px;
-  }
-
-  /SEPARADOR/
-  .separador {
-    gap: 0px;
-  }
-}
-
-
-
-@media (max-width: 950px) {
-  /*CONTENEDORES*/
-  .contenedor_catalogo {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contenedor_catalogo ul {
-    gap: 50px;
-  }
-
-  /*SEPARADOR*/
-  .separador {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  /*MODULOS*/
-  .btn_modulo {
-    width: 150px;
-    height: 150px;
-  }
-
+  pointer-events: none;
 }
