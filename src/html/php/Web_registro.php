@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../../app/conexion.inc');
 
 // Creamos un token
@@ -13,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirmar = $_POST['confirmarContraseña'];
 
     if ($contraseña !== $confirmar) {
-        echo("Las contraseñas no coinciden.");
+        echo "Las contraseñas no coinciden.";
         exit();
     }
 
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ssssss", $nombre, $apellidos, $correo, $telefono, $contraseñaHash, $token);
 
     if ($stmt->execute()) {
-        // ✅ Registro exitoso → Redirigir al inicio de sesión
+        // Redirigir a la página de inicio de sesión, sin guardar sesión aquí
         header("Location: ../web/Web_inicio_sesion.html");
         exit();
     } else {

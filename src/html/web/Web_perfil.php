@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_correo'])) {
+    header("Location: Web_inicio_sesion.html");
+    exit();
+}
+
+$nombre = $_SESSION['user_nombre'];
+$apellidos = $_SESSION['user_apellidos'];
+$telefono = $_SESSION['user_telefono'];
+$correo = $_SESSION['user_correo'];
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -29,24 +43,24 @@
                 <!-- NOMBRE -->
                 <div class="perfil-campo">
                     <p for="nombre">Nombre</p>
-                    <input type="text" id="nombre" value="Carlos" readonly>
+                    <input type="text" id="nombre" value="<?php echo htmlspecialchars($nombre) ?>" readonly>
                 </div>
                 <!-- APELLIDOS -->
                 <div class="perfil-campo">
                     <p for="apellidos">Apellidos</p>
-                    <input type="text" id="apellidos" value="Garcia" readonly>
+                    <input type="text" id="apellidos" value="<?php echo htmlspecialchars($apellidos) ?>" readonly>
                 </div>
             </form>
             <!-- TELÉFONO -->
             <form class="perfil-formulario">
                 <div class="perfil-campo">
                     <p for="telefono">Teléfono</p>
-                    <input type="text" id="telefono" value="987 654 321" readonly>
+                    <input type="text" id="telefono" value="<?php echo htmlspecialchars($telefono) ?>" readonly>
                 </div>
                 <!-- CORREO -->
                 <div class="perfil-campo">
                     <p for="correo">Correo</p>
-                    <input type="email" id="correo" value="carlosgarcia@correo.com" readonly>
+                    <input type="email" id="correo" value="<?php echo htmlspecialchars($correo) ?>" readonly>
                 </div>
             </form>
         </div>
