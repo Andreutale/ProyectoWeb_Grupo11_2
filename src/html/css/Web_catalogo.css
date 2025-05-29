@@ -1,11 +1,10 @@
 main {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 h1 {
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     text-align: center;
 }
 
@@ -16,14 +15,16 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 50px;
 }
 
 .contenedor_catalogo ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    gap: 150px;
+    margin: 0px;
+    gap: 70px;
+
 }
 
 .contenedor_catalogo ul li a button {
@@ -34,7 +35,7 @@ h1 {
 .separador {
     display: flex;
     justify-content: space-between;
-    gap: 150px;
+    gap: 20px;
 }
 
 /*MODULOS*/
@@ -107,27 +108,22 @@ button div p {
 @media (width <= 1300px) {
     /*CONTENEDORES*/
     .contenedor_catalogo {
-        gap: 50px;
+        gap: 20px;
     }
 
     .contenedor_catalogo ul {
-        gap: 75px;
+        gap: 30px;
     }
 
     /*SEPARADOR*/
     .separador {
-        gap: 75px;
+        gap: 0px;
     }
 }
 
-@media (width <= 1050px) {
-    /*CONTENEDORES Y SEPARADOR*/
-    .contenedor_catalogo, .contenedor_catalogo ul, .separador {
-        gap: 10px;
-    }
-}
 
-@media (max-width: 834px) {
+
+@media (max-width: 950px) {
     /*CONTENEDORES*/
     .contenedor_catalogo {
         display: flex;
@@ -142,6 +138,7 @@ button div p {
     .separador {
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 
     /*MODULOS*/
@@ -149,4 +146,5 @@ button div p {
         width: 150px;
         height: 150px;
     }
+
 }
