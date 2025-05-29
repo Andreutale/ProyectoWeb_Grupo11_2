@@ -2,34 +2,133 @@ main {
     display: flex;
     flex-direction: column;
     height: auto;
-    margin-bottom: 100px;
 }
 
 h1 {
     margin: 1em auto;
 }
 
-.contenedor_global {
+.contenedor_informacion {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 50px;
 }
 
 /*FOTOS VISTA PREVIA DEL MÓDULO*/
 .contenedor_img {
-    width: 100%;
+    width: 80%;
     height: 100%;
     background-color: var(--gris-claro);
     border-radius: 20px;
-    margin: auto 2em;
-    padding: 1em 1em;
+    padding: 0 2em;
     display: flex;
     flex-direction: column;
 }
 
-.contenedor_img h2 {
+
+
+
+
+
+
+
+/* Slider Styles */
+.contenedor_img_slider {
+    width: 80%;
+    height: 100%;
+    background-color: var(--gris-claro);
+    border-radius: 20px;
+    padding: 0 2em 2em;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slider img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+    max-height: 400px;
+    cursor: pointer;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--azul-oscuro);
+}
+
+
+
+
+
+
+
+
+
+
+.contenedor_img h2 {
+    margin: 20px auto 0 auto;
+}
+
+.contenedor_img p {
+    text-align: center;
 }
 
 .contenedor_img div {
@@ -44,13 +143,20 @@ h1 {
 }
 
 .contenedor_img div img:hover {
-    opacity: .8;
     cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.15s ease-in-out;
 }
 
 /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
 .datos_demo {
-    margin: 0 2em;
+    margin: 0 auto;
+    width: 40%;
+    height: auto;
+}
+
+button p {
+    margin: 0;
 }
 
 .credenciales {
@@ -72,12 +178,13 @@ h1 {
     list-style: none;
 }
 
-p {
+.descripcion p, .contenedor_img p, .btn-blanco-gris p {
     color: black;
 }
 
 .subrallado {
     text-decoration: underline;
+    text-align: center;
 }
 
 .negrita {
@@ -87,6 +194,7 @@ p {
 .botones_datos {
     display: flex;
     flex-direction: column;
+    margin: 50px auto 20px auto;
 }
 
 .botones_datos button {
@@ -102,8 +210,9 @@ p {
 .descripcion {
     background-color: var(--gris-claro);
     border-radius: 20px;
-    padding: 1em 3em;
-    margin: 0 2em;
+    padding: 0 2em;
+    height: 100%;
+    width: 80%;
 }
 
 /*POP-UP*/
@@ -135,63 +244,72 @@ p {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.1s ease-in-out;
+}
+
+.close:hover {
+    color: var(--azul-oscuro);
+}
+
+.flecha_izquierda, .flecha_derecha {
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    padding: 0 20px;
+    user-select: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.flecha_izquierda:hover, .flecha_derecha:hover {
+    color: var(--azul-oscuro);
+}
+
+.imgMasFlechas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 1220px ) {
-    main {
-        min-height: 220vh;
-    }
 
-    .contenedor_global {
+    .contenedor_informacion {
         flex-direction: column;
-        width: 150vw;
         align-items: center;
     }
 
     /*FOTOS VISTA PREVIA DEL MÓDULO*/
     .contenedor_img {
         align-items: center;
-        width: 75vw;
-    }
-
-    .contenedor_img h2 {
-        margin: 0;
     }
 
     .contenedor_img img {
-        min-width: 135.94px;
+        min-width: 135px;
         min-height: 100px;
-    }
-
-    /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
-    .credenciales {
-        margin-top: 10px;
-        width: 250px;
-    }
-
-    .descripcion {
-        width: 75vw;
     }
 }
 
-@media (width <= 655px ) {
-    main {
-        margin-top: 20vh;
-        margin-bottom: 200px;
-    }
-
-    /*FOTOS VISTA PREVIA DEL MÓDULO*/
+@media (max-width: 768px) {
     .contenedor_img {
-        flex-direction: column;
-        width: 100vw;
+        display: none;
     }
 
-    /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
-    .credenciales {
-        margin-top: 25px;
+    .contenedor_img_slider {
+        display: flex;
     }
 
-    .botones_datos {
-        margin-bottom: 25px;
+    .slider img {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider img {
+        max-height: 200px;
+    }
+
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
     }
 }
