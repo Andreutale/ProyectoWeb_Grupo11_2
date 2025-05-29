@@ -2,7 +2,7 @@
 .contenido-pagina{
     display: flex;
     flex-direction: column;
-    margin: auto auto;
+    margin: 40px auto auto;
     align-items: center;
     justify-content: center;
     background-color: White;
@@ -65,7 +65,7 @@ h2{
     margin-top: 2px;
     border-radius: 5px;
     border: 1px solid var(--gris-oscuro);
-    padding: 3px 3px 3px 5px;
+    padding: 5px 3px 5px 5px;
 }
 
 @media(max-width: 768px){

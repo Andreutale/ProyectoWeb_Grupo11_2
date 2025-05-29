@@ -43,6 +43,17 @@ main {
   width: 100%;
 }
 
+/* Contenedor icono perfil */
+.perfil {
+  display: flex;
+}
+
+.perfil h2 {
+  color: white;
+  margin-top: 5px;
+  margin-right: -20px;
+}
+
 /* Cuadro de asignatura */
 .asignatura {
   background-color: var(--azul-muy-claro);

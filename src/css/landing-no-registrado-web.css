@@ -3,7 +3,7 @@
     height: 75vh;
     width: 35%;
     top: 100px;
-    right: -65px;
+    right: 0px;
     object-fit: contain;
 }
 /*imagen persona invertida*/
@@ -92,7 +92,7 @@
         display: flex;
         object-fit: contain;
         position: absolute;
-        margin-left: -65px;
+        margin-left: 0px;
         width: 38%;
         bottom: 50px;
     }
