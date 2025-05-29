@@ -17,6 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 
 /* Margen lateral de logos/iconos */
@@ -41,7 +42,7 @@ header > a > img {
     position: absolute;
     top: 100%;
     right: 0;
-    z-index: 0;
+    z-index: 1;
     width: 150px;
     height: auto;
     max-width: 100%;

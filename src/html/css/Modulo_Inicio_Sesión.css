@@ -9,8 +9,9 @@ main {
 .apartado_inicio_sesion {
     background-color: var(--azul-muy-claro);
     width: 30%;
-    height: 80%;
-    margin: auto auto auto auto;
+    height: auto;
+    margin: auto;
+    padding: 15px 0;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -27,6 +28,7 @@ main {
 /* Estilos del titulo */
 .apartado_inicio_sesion h1 {
     margin-bottom: 10%;
+    text-align: center;
 }
 
 /* Estilos de los input */
@@ -105,14 +107,6 @@ form div a {
 
 /* Media queris */
 @media(max-width: 1120px) {
-    main {
-        position: relative;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        overflow: hidden;
-    }
 
     .contenedor_imagen {
         position: absolute;
@@ -120,7 +114,6 @@ form div a {
         left: 0;
         width: 100%;
         height: 100vh;
-        z-index: -2;
         overflow: hidden;
     }
 
@@ -128,6 +121,7 @@ form div a {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        z-index: 0;
     }
 
     .apartado_inicio_sesion {
@@ -141,6 +135,12 @@ form div a {
         background-color: var(--azul-muy-claro);
         padding: 20px;
         border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-azul-oscuro {
+        width: 70%;
     }
 }
 
