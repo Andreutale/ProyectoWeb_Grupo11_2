@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Catálogo | WEB</title>
+  <meta charset="UTF-8">
+  <title>Catálogo | WEB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="stylesheet" href="../css/libro_de_estilos.css">
   <link rel="stylesheet" href="../css/Web_header_no_registrado.css">
   <link rel="stylesheet" href="../css/Web_footer.css">
@@ -12,63 +14,47 @@
 </head>
 <body>
 
-
 <!-- HEADER -->
 <div id="header"></div>
+
 <!-- WEB -->
 <main>
-  <img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="fondo del catálogo">
+  <div class="fondo_landing"></div>
   <div class="contenedor_catalogo">
     <h1>Módulos de PROA</h1>
-    <!-- PRIMERA FILA DEL CATÁLOGO -->
-    <div class="separador">
-      <ul>
-        <li><a href="Web_pagina_modulo.html"><button class="btn_recursos btn_modulo"><div class="modulo_texto_container"><p>Recursos</p></div></button></a></li>
-        <li class="btn_inaccesible"><a href="#"><button class="btn_calificaciones btn_modulo"><div class="modulo_texto_container"><p>Calificaciones</p></div></button></a></li>
-      </ul>
-      <ul>
-        <li class="btn_inaccesible"><a href="#"><button class="btn_examenes btn_modulo"><div class="modulo_texto_container"><p>Exámenes</p></div></button></a></li>
-        <li class="btn_inaccesible"><a href="#"><button class="btn_anuncios btn_modulo"><div class="modulo_texto_container"><p>Anuncios</p></div></button></a></li>
-      </ul>
-    </div>
-    <!-- SEGUNDA FILA DEL CATÁLOGO -->
-    <div class="separador">
-      <ul>
-        <li class="btn_inaccesible"><a href="#"><button class="btn_tareas btn_modulo"><div class="modulo_texto_container"><p>Tareas</p></div></button></a></li>
-        <li class="btn_inaccesible"><a href="#"><button class="btn_correo_interno btn_modulo"><div class="modulo_texto_container"><p>Correo interno</p></div></button></a></li>
-      </ul>
-      <ul>
-        <li class="btn_inaccesible"><a href="#"><button class="btn_foros btn_modulo"><div class="modulo_texto_container"><p>Foros</p></div></button></a></li>
-        <li class="btn_inaccesible"><a href="#"><button class="btn_videoapuntes btn_modulo"><div class="modulo_texto_container"><p>Videoapuntes</p></div></button></a></li>
-      </ul>
+    <div class="grid-modulos">
+      <a href="Web_pagina_modulo.html">
+        <button class="btn_recursos btn_modulo"><div class="modulo_texto_container"><p>Recursos</p></div></button>
+      </a>
+      <a href="#"><button class="btn_calificaciones btn_modulo btn_inaccesible"><div class="modulo_texto_container"><p>Calificaciones</p></div></button></a>
+      <a href="#"><button class="btn_examenes btn_modulo btn_inaccesible"><div class="modulo_texto_container"><p>Exámenes</p></div></button></a>
+      <a href="#"><button class="btn_anuncios btn_modulo btn_inaccesible"><div class="modulo_texto_container"><p>Anuncios</p></div></button></a>
+      <a href="#"><button class="btn_tareas btn_modulo btn_inaccesible"><div class="modulo_texto_container"><p>Tareas</p></div></button></a>
+      <a href="#"><button class="btn_correo_interno btn_modulo btn_inaccesible"><div class="modulo_texto_container"><p>Correo interno</p></div></button></a>
+      <a href="#"><button class="btn_foros btn_modulo btn_inaccesible"><div class="modulo_texto_container"><p>Foros</p></div></button></a>
+      <a href="#"><button class="btn_videoapuntes btn_modulo btn_inaccesible"><div class="modulo_texto_container"><p>Videoapuntes</p></div></button></a>
     </div>
   </div>
 </main>
+
 <!-- FOOTER -->
 <div id="footer"></div>
 
 <script type="module">
-  // Primero importamos las funciones y datos necesarios
   import { iniciarMenuHamburguesa } from "../js/Modulo_header.js";
 
-  // Cargamos el HTML del header y footer
   fetch("../php/cargar_header.php")
-          .then(res => res.text())
-          .then(html => {
-            document.getElementById("header").innerHTML = html;
-            iniciarMenuHamburguesa(); // Si tienes esta función para el menú
-          });
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header").innerHTML = html;
+      iniciarMenuHamburguesa();
+    });
 
   fetch("Web_footer.html")
-          .then(res => res.text())
-          .then(html => {
-            document.getElementById("footer").innerHTML = html;
-          });
-
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("footer").innerHTML = html;
+    });
 </script>
 </body>
 </html>
-
-<!--
-ᘛ⁐ᕐᐷ <--Pelusín
--->
