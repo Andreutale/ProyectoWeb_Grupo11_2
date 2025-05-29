@@ -20,7 +20,6 @@ header {
 /* MAIN */
 main {
     flex-grow: 1;
-    padding: 2rem;
     background-color: #f2f2f2;
 }
 
