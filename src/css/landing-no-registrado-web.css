@@ -3,7 +3,7 @@
     height: 75vh;
     width: 35%;
     top: 100px;
-    right: 0;
+    right: -65px;
     object-fit: contain;
 }
 /*imagen persona invertida*/
@@ -92,7 +92,7 @@
         display: flex;
         object-fit: contain;
         position: absolute;
-        margin-left: -32px;
+        margin-left: -65px;
         width: 38%;
         bottom: 50px;
     }
@@ -164,6 +164,6 @@
 /*quitamos la personita*/
 @media(max-width: 374px) {
     .img_persona_invertida {
-       display: none;
+        display: none;
     }
 }
