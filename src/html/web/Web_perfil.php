@@ -67,7 +67,6 @@ $correo = $_SESSION['user_correo'];
         <!-- BOTONES -->
         <div class="perfil-botones">
             <button type="button" class="btn-azul-verdoso"><a href="../php/logout.php"><p>Cerrar sesión</p></a></button>
-            <button type="button" class="btn-blanco-gris"><p>Cambiar contraseña</p></button>
         </div>
     </section>
 </main>
