@@ -1,35 +1,172 @@
+html {
+    scroll-behavior: smooth;
+}
+
 main {
     display: flex;
     flex-direction: column;
     height: auto;
-    margin-bottom: 100px;
 }
 
 h1 {
     margin: 1em auto;
 }
 
-.contenedor_global {
+.contenedor_informacion {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-/*FOTOS VISTA PREVIA DEL MÓDULO*/
-.contenedor_img {
-    width: 100%;
-    height: 100%;
-    background-color: var(--gris-claro);
-    border-radius: 20px;
-    margin: auto 2em;
-    padding: 1em 1em;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 50px;
 }
 
+/* Contenedor flotante */
+.floating-bouncing-arrow {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    pointer-events: none; /* Permite clicks a través del contenedor */
+    transition: opacity 0.5s ease;
+}
+
+.hide-arrow {
+    opacity: 0;
+    pointer-events: none; /* Desactiva interacciones cuando está oculto */
+}
+
+/* Estilo de la flecha */
+.bouncing-arrow {
+    display: inline-block;
+    font-size: 4rem; /* Más grande */
+    color: #000; /* Negro puro */
+    text-decoration: none;
+    animation: bounce 1.5s infinite ease-in-out;
+    cursor: pointer;
+    pointer-events: auto; /* Habilita clicks en la flecha */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Sutil sombra */
+    transition: all 0.3s;
+    opacity: 0.9; /* Ligeramente transparente */
+
+}
+
+/* Efecto al pasar el mouse */
+.bouncing-arrow:hover {
+    animation: none; /* Detiene la animación al hover */
+    transform: scale(1.2); /* Aumenta un poco el tamaño */
+}
+
+.contenedor_img_slider {
+    width: 80%;
+    height: auto;
+    padding: 0 2em 20px 2em;
+    background-color: var(--gris-claro);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contenedor_img_slider p {
+    margin: 0;
+    color: black;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.slider img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+    max-height: 400px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--azul-oscuro);
+}
+
+
+
+
+
+
+
+
+
+
 .contenedor_img h2 {
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
+}
+
+.contenedor_img p {
+    text-align: center;
 }
 
 .contenedor_img div {
@@ -44,13 +181,20 @@ h1 {
 }
 
 .contenedor_img div img:hover {
-    opacity: .8;
     cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.15s ease-in-out;
 }
 
 /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
 .datos_demo {
-    margin: 0 2em;
+    margin: 0 auto;
+    width: 40%;
+    height: auto;
+}
+
+button p {
+    margin: 0;
 }
 
 .credenciales {
@@ -72,13 +216,16 @@ h1 {
     list-style: none;
 }
 
-p {
+.descripcion p, .contenedor_img p, .btn-blanco-gris p {
     color: black;
 }
 
 .subrallado {
     text-decoration: underline;
+    text-align: center;
 }
+
+.subrallado:last-child {}
 
 .negrita {
     font-weight: bold;
@@ -86,11 +233,14 @@ p {
 
 .botones_datos {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin: 30px auto 20px auto;
+    gap: 20px;
 }
 
 .botones_datos button {
     margin: .25em 0;
+    padding: 10px 100px;
 }
 
 .btn-azul-verdoso p {
@@ -102,8 +252,9 @@ p {
 .descripcion {
     background-color: var(--gris-claro);
     border-radius: 20px;
-    padding: 1em 3em;
-    margin: 0 2em;
+    padding: 0 2em;
+    height: 100%;
+    width: 80%;
 }
 
 /*POP-UP*/
@@ -135,63 +286,94 @@ p {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.1s ease-in-out;
 }
 
-@media (max-width: 1220px ) {
-    main {
-        min-height: 220vh;
+.close:hover {
+    color: var(--azul-oscuro);
+}
+
+.flecha_izquierda, .flecha_derecha {
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    padding: 0 20px;
+    user-select: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.flecha_izquierda:hover, .flecha_derecha:hover {
+    color: var(--azul-oscuro);
+}
+
+.imgMasFlechas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos responsivos */
+@media (max-width: 900px) {
+    .contenedor_img_slider {
     }
 
-    .contenedor_global {
-        flex-direction: column;
-        width: 150vw;
-        align-items: center;
-    }
-
-    /*FOTOS VISTA PREVIA DEL MÓDULO*/
-    .contenedor_img {
-        align-items: center;
-        width: 75vw;
-    }
-
-    .contenedor_img h2 {
-        margin: 0;
-    }
-
-    .contenedor_img img {
-        min-width: 135.94px;
-        min-height: 100px;
-    }
-
-    /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
-    .credenciales {
-        margin-top: 10px;
-        width: 250px;
-    }
-
-    .descripcion {
-        width: 75vw;
+    .slider img {
+        max-height: 350px;
     }
 }
 
-@media (width <= 655px ) {
-    main {
-        margin-top: 20vh;
-        margin-bottom: 200px;
+@media (max-width: 600px) {
+    .slider img {
+        max-height: 250px;
     }
 
-    /*FOTOS VISTA PREVIA DEL MÓDULO*/
-    .contenedor_img {
-        flex-direction: column;
-        width: 100vw;
-    }
-
-    /*CREDENCIALES NECESARIAS PARA USAR EL MÓDULO + DEMO Y COMPRAR*/
-    .credenciales {
-        margin-top: 25px;
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
 
     .botones_datos {
-        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
+}
+
+@media (max-width: 400px) {
+    .slider img {
+        max-height: 200px;
+    }
+
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+/* Animación mejorada */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-20px) scale(1.1);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        transform: translateY(-10px) scale(1.05);
+    }
+}
+
+/* Efecto hover */
+.bouncing-arrow:hover {
+    animation: none;
+    transform: scale(1.2);
+    opacity: 1;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
