@@ -11,7 +11,7 @@
     position: relative;
     height: auto;
     width: 50%;
-    margin: auto auto;
+    margin: 40px auto auto;
     border: 1px solid var(--gris-oscuro);
     background-color: white;
     border-radius: 20px;
@@ -71,6 +71,7 @@
 
 /* Estilo para el botón y enlace */
 .contenedor_registro button {
+    padding: 10px 0;
     margin-top: 10px;
     width: 30%;
 }
@@ -112,6 +113,7 @@
     }
 
     .btn-azul-verdoso {
+
         margin-bottom: 10px;
         width: 60%;
     }
