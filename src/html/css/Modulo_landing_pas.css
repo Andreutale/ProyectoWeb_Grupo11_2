@@ -1,69 +1,88 @@
-main{
-    display: flex;
-    align-items: flex-start;
+main {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  background-image: url("../../../images/fondo_landing_pas_modulo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+.contenedor-pagina {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 90%;
     position: relative;
-    overflow: hidden;
-}
-/* Contenedor principal */
-.contenedor-pagina{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-
-}
-/*contenedor principal*/
-.contenedor-pagina img{
-
-    width: 100%;
-    height: auto;
-    display: block;
-
-}
-
-.fondo_landing {
-    opacity: .5;
-}
-
-
-h1{
-
-    margin-top: 50px;
+    z-index: 1;
 
 }
 
 
-
-button{
-    margin-top: 70px;
-    width: 50%;
-    height:70px;
-
-
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
 }
-/*texto del boton*/
-button a h3{
-    color: white;
+
+/* Subtítulo */
+h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
-/*responsive*/
+
+/* Botón */
+button {
+  margin-top: 40px;
+  width: 250px;
+  height: 60px;
+  background-color: var(--azul-oscuro);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button a {
+  text-decoration: none;
+  display: block;
+}
+
+button a h3 {
+  color: white;
+  margin: 0;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    button {
-        width: 80%;
-        height: 60px;
-    }
+  .contenedor-pagina {
+    padding: 30px 20px;
+  }
 
-    h1{
-        font-size: 26px;
-        font-weight: bold;
-    }
+  h1 {
+    font-size: 1.5rem;
+  }
 
-    h3{
-        font-size: 20px;
-    }
+  h3 {
+    font-size: 1rem;
+  }
 
+  button {
+    width: 80%;
+    height: 50px;
+  }
 
-
-
+  button a h3 {
+    font-size: 1rem;
+  }
 }
