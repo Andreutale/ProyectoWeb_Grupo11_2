@@ -24,7 +24,7 @@
 }
 
 .contenedor_registro h1 {
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 .contenedor_div_formulario {
@@ -102,11 +102,11 @@
         margin-bottom: 40px;
     }
 
-    .contenedor_div_formulario li label {
+    .contenedor_div_formulario li div label {
         margin-bottom: 0;
     }
 
-    .contenedor_div_formulario li input {
+    .contenedor_div_formulario li div input {
         margin-bottom: 15px;
         padding: 8px;
     }
