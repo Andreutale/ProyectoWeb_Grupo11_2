@@ -1,3 +1,41 @@
+/* Reset y box-model */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor del header */
+.header-container {
+    position: relative;
+}
+
+/* Estilos del header */
+header {
+    height: 70px;
+    background-color: #004576;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Margen lateral de logos/iconos */
+header > a > img {
+    margin: 0 30px;
+}
+
+/* Tamaño por defecto del logo (pantallas ≤768px) */
+.logo {
+    height: 120px;
+    width: auto;
+}
+
+/* Tamaño del icono de usuario */
+.user {
+    height: 40px;
+    width: auto;
+}
+
 /* Contenedor de las asignaturas */
 .contenedor_apartados {
     display: flex;
@@ -11,7 +49,7 @@
 
 /* Apartado de recursos */
 .recursos {
-    color: var(--azul-oscuro)
+    color: var(--azul-oscuro);
 }
 
 /* Contenedor de apartados */
@@ -21,44 +59,7 @@
     gap: 50px;
 }
 
-/* Header */
-header {
-    height: 70px;
-    background-color: #004576;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Imagen del header */
-header > a > img {
-    margin: 0 30px;
-}
-
-/* Menu hamburguesa */
-.menu-hamburguesa {
-    display: none;
-}
-
-/* estilos del logo */
-.logo {
-    height: 150px;
-    width: auto;
-}
-
-/* Imagen del perfil */
-.user {
-    height: 40px;
-    width: auto;
-
-}
-
-/* Contenedor del header */
-.header-container {
-    position: relative;
-}
-
-/* Estilos del menú hamburguesa */
+/* Menú hamburguesa (oculto por defecto) */
 .menu-hamburguesa {
     display: none;
     flex-direction: column;
@@ -68,9 +69,9 @@ header > a > img {
     margin-right: 30px;
     width: 35px;
     height: 25px;
+    position: relative;
+    z-index: 10;
 }
-
-/* Forma del menú hamburguesa */
 .menu-hamburguesa .linea {
     width: 100%;
     height: 4px;
@@ -78,12 +79,7 @@ header > a > img {
     border-radius: 2px;
 }
 
-/* Menú hamburguesa */
-.contenedor-desplegable {
-    display: none;
-}
-
-/* Estilos del menú desplegable */
+/* Menú desplegable */
 .menu-desplegable {
     position: absolute;
     top: 100%;
@@ -92,17 +88,13 @@ header > a > img {
     width: 100%;
     flex-direction: column;
     max-height: 0;
-    z-index: 5;
     overflow: hidden;
     transition: max-height 0.8s ease-in-out;
+    z-index: 1;
 }
-
-/* Menú desplegable cuando está activo */
 .menu-desplegable.activo {
     max-height: 400px;
 }
-
-/* Enlaces del menú hamburguesa */
 .menu-desplegable ul li a {
     display: block;
     padding: 20px;
@@ -110,38 +102,46 @@ header > a > img {
     text-decoration: none;
     border-bottom: 1px solid #358BC9;
 }
-
-/* Ultimo enlace */
 .menu-desplegable ul li:first-child a {
     border-top: 1px solid #358BC9;
 }
-
-/* Estilos de los enlaces cuando se pasa por encima */
 .menu-desplegable ul li a:hover {
     background-color: #358BC9;
 }
 
-/* Media queris */
+/* Media queries */
+/* Ajuste de gap en contenedor de apartados */
 @media (max-width: 840px) {
     .contenedor_apartados ul {
         gap: 30px;
     }
 }
 
+/* Pantallas ≤768px */
 @media (max-width: 768px) {
-    .logo {
-        height: 30px;
-    }
-
     .user,
     .contenedor_apartados {
         display: none;
     }
-
-    .menu-hamburguesa, .contenedor-desplegable {
+    .menu-hamburguesa,
+    .menu-desplegable {
         display: flex;
     }
-
 }
 
+/* Pantallas ≥769px: logo más grande */
+@media (min-width: 769px) {
+    .logo {
+        height: 150px;
+    }
+}
 
+/* Ajustes extra en pantallas ultra estrechas (<250px) */
+@media (max-width: 250px) {
+    header > a > img.logo {
+        margin: 0 10px;
+    }
+    .menu-hamburguesa {
+        margin-right: 10px;
+    }
+}
