@@ -1,79 +1,64 @@
-/* Fondo que ocupa toda la pantalla */
-.fondo_landing {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../../images/fondo_landing_web.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-/* Estructura */
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
-  z-index: 1;
 }
 
 h1 {
+  margin-bottom: 0px;
   text-align: center;
-  margin: 40px 0 20px;
 }
 
-/* Contenedor general centrado */
+/*CONTENEDORES GLOBALES*/
 .contenedor_catalogo {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px 60px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
 
-/* Grid responsive centrado, máximo 4 módulos de 260px */
-.grid-modulos {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
-  justify-content: center;
+.contenedor_catalogo ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+  gap: 70px;
+
 }
 
-/* Fallback para móviles muy estrechos: 1 columna y módulos algo más pequeños */
-@media (max-width: 600px) {
-  .grid-modulos {
-    grid-template-columns: 1fr;
-  }
-  .btn_modulo {
-    max-width: 200px;
-    margin: 0 auto;
-  }
+.contenedor_catalogo ul li a button {
+  cursor: pointer;
 }
 
-/* Botones: llenan su celda y siempre son cuadrados */
+/*SEPARADOR*/
+.separador {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/*MODULOS*/
 .btn_modulo {
-  width: 100%;
-  aspect-ratio: 1;
   border: none;
   border-radius: 20px;
+  width: 200px;
+  height: 200px;
   padding: 0;
   background-size: cover;
-  background-position: center;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: end;
   transition: 0.3s ease;
 }
 
 .btn_modulo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-/* Texto del módulo */
+button div p {
+  color: black;
+}
+
 .modulo_texto_container {
   background-color: var(--azul-no-tan-verdoso);
   width: 100%;
@@ -81,28 +66,85 @@ h1 {
   border-radius: 0 0 20px 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-left: 5px;
 }
 
-button div p {
-  color: black;
-  text-align: center;
-  font-weight: bold;
-  margin: 0;
+.btn_recursos {
+  background-image: url("../../../images/catalogo_recursos.png");
 }
 
-/* Imágenes de fondo específicas */
-.btn_recursos        { background-image: url("../../../images/catalogo_recursos.png"); }
-.btn_calificaciones  { background-image: url("../../../images/catalogo_calificaciones.png"); }
-.btn_examenes        { background-image: url("../../../images/catalogo_examenes.png"); }
-.btn_anuncios        { background-image: url("../../../images/catalogo_anuncios.png"); }
-.btn_tareas          { background-image: url("../../../images/catalogo_tareas.png"); }
-.btn_correo_interno  { background-image: url("../../../images/catalogo_correo_interno.png"); }
-.btn_foros           { background-image: url("../../../images/catalogo_foros.png"); }
-.btn_videoapuntes    { background-image: url("../../../images/catalogo_videoapuntes.png"); }
+.btn_calificaciones {
+  background-image: url("../../../images/catalogo_calificaciones.png");
+}
 
-/* Deshabilitados */
+.btn_examenes {
+  background-image: url("../../../images/catalogo_examenes.png");
+}
+
+.btn_anuncios {
+  background-image: url("../../../images/catalogo_anuncios.png");
+}
+
+.btn_tareas {
+  background-image: url("../../../images/catalogo_tareas.png");
+}
+
+.btn_correo_interno {
+  background-image: url("../../../images/catalogo_correo_interno.png");
+}
+
+.btn_foros {
+  background-image: url("../../../images/catalogo_foros.png");
+}
+
+.btn_videoapuntes {
+  background-image: url("../../../images/catalogo_videoapuntes.png");
+}
+
 .btn_inaccesible {
   filter: grayscale(100%);
-  pointer-events: none;
+}
+
+@media (width <= 1300px) {
+  /CONTENEDORES/
+  .contenedor_catalogo {
+    gap: 20px;
+  }
+
+  .contenedor_catalogo ul {
+    gap: 30px;
+  }
+
+  /SEPARADOR/
+  .separador {
+    gap: 0px;
+  }
+}
+
+
+
+@media (max-width: 950px) {
+  /*CONTENEDORES*/
+  .contenedor_catalogo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contenedor_catalogo ul {
+    gap: 50px;
+  }
+
+  /*SEPARADOR*/
+  .separador {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /*MODULOS*/
+  .btn_modulo {
+    width: 150px;
+    height: 150px;
+  }
+
 }
