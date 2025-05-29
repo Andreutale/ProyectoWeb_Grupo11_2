@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "Modulo_landing_alumno.html";
                 break;
             case "profesor":
-                window.location.href = "Modulo_landing_profesor.html";
+                window.location.href = "Modulo_landing_profesor.php";
                 break;
             case "pas":
                 window.location.href = "Modulo_landing_page_pas.html";

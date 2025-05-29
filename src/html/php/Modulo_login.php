@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: ../modulo/Modulo_landing_alumno.html");
                 break;
             case 'profesor':
-                header("Location: ../modulo/Modulo_landing_profesor.html");
+                header("Location: ../modulo/Modulo_landing_profesor.php");
                 break;
             case 'pas':
                 header("Location: ../modulo/Modulo_landing_page_pas.html");
