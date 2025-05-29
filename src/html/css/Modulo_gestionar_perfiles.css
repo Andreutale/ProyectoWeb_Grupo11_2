@@ -1,6 +1,12 @@
 main{
     display: flex;
     flex-direction: column;
+    padding: 0 5vw;
+}
+
+main > div:first-child h1 {
+    text-align: center;
+    margin-top: 40px;
 }
 
 div input{
@@ -12,8 +18,9 @@ div input{
 }
 /*div del buscador*/
 .buscador_gestionar_perfiles{
-     width: 20%;
-     margin: 40px 0;
+     width: 100%;
+     max-width: 400px;
+     margin: 40px auto;
      display: flex;
      align-items: center;
      gap: 10px;
@@ -23,6 +30,9 @@ div input{
     border: 1px solid black;
     height: 40px;
     width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*imagen del boton*/
@@ -235,7 +245,7 @@ th.desc .flecha_desplegable {
     }
 
     .buscador_gestionar_perfiles {
-        width: 60%;
+        width: 80%;
     }
 
     .buscador_gestionar_perfiles input {
