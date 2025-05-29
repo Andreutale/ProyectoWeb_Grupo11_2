@@ -6,8 +6,10 @@
 }
 
 /* Contenedor del header */
-.header-container {
+.header-container, 
+header {
     position: relative;
+    z-index: 10;
 }
 
 /* Estilos del header */
