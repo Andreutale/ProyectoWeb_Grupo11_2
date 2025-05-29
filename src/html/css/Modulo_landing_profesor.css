@@ -17,30 +17,33 @@ html, body {
 main {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
-/* Estilos del contenedor del main */
+/* Contenedor principal */
 .main-container {
   padding: 40px 20px;
   text-align: center;
 }
 
-/* Estilos h3 del contenedor del main */
+/* Título */
 .main-container h3 {
   margin-bottom: 40px;
+  font-size: 1.8rem;
 }
 
-/* Estilos del contenedor de las asignaturas */
+/* Grid de asignaturas */
 .grid-asignaturas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
   justify-content: center;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
+  width: 100%;
 }
 
-/* Estilos de cada cuadrado de la asignatura */
+/* Cuadro de asignatura */
 .asignatura {
   background-color: var(--azul-muy-claro);
   border: 2px solid var(--azul-muy-oscuro);
@@ -52,22 +55,59 @@ main {
   cursor: pointer;
 }
 
-/* Estilos de cuando mantienes el cursor sobre los cuadrados de las asignaturas */
+/* Hover */
 .asignatura:hover {
   transform: translateY(-4px);
 }
 
-/* Imagen de cada asignatura */
+/* Imagen de asignatura */
 .asignatura img {
   width: 40px;
   height: 40px;
   margin-bottom: 12px;
 }
 
-/* Media queris */
-@media (max-width: 1000px) {
+/* Media queries para ajustar el diseño en pantallas pequeñas */
+@media (max-width: 768px) {
   .main-container {
-    padding-left: 8%;
-    padding-right: 8%;
+    padding: 30px 10px;
+  }
+
+  .main-container h3 {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+  }
+
+  .asignatura {
+    padding: 16px;
+  }
+
+  .asignatura img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 20px 5%;
+  }
+
+  .main-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .grid-asignaturas {
+    gap: 20px;
+  }
+
+  .asignatura {
+    padding: 14px;
+  }
+
+  .asignatura img {
+    width: 32px;
+    height: 32px;
   }
 }
