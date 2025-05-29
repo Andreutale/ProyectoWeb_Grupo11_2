@@ -10,6 +10,8 @@
     padding: 70px 30px;
     width: 50%;
     border-radius: 10px;
+    position: relative;
+    z-index: 1;
 }
 /* titulo en pantalla pequeña */
 .titulo_pantalla_pquena {
@@ -43,8 +45,18 @@ h2{
 }
 
 .btn-azul-verdoso {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+    height: 40px;
     margin-top: 25px;
+}
+.btn-azul-verdoso p{
+    display: flex;
+    align-items: flex-end;
+    color: white;
+    
 }
 /* placeholder donde pondran el correo */
 .contenido-pagina input{
