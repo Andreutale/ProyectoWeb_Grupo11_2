@@ -1,10 +1,16 @@
+/* Reset y box-model */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* Estilos header */
+/* Contenedor del header */
+.header-container {
+    position: relative;
+}
+
+/* Estilos del header */
 header {
     height: 70px;
     background-color: #004576;
@@ -13,33 +19,24 @@ header {
     align-items: center;
 }
 
-/* Imagen de la imagen */
+/* Margen lateral de logos/iconos */
 header > a > img {
     margin: 0 30px;
 }
 
-/* Menú hamburguesa */
-.menu-hamburguesa {
-    display: none;
-}
-
-/* Estilos del logo */
+/* Tamaño por defecto del logo (pantallas ≤768px) */
 .logo {
-    height: 150px;
+    height: 120px;
     width: auto;
 }
 
-/* Estilos del perfil */
+/* Tamaño del icono de usuario */
 .user {
     height: 40px;
     width: auto;
 }
-/* Contenedor del header */
-.header-container {
-    position: relative;
-}
 
-/* Estilos de la ola azul */
+/* Ola azul (si la usas) */
 .ola_azul {
     position: absolute;
     top: 100%;
@@ -50,7 +47,7 @@ header > a > img {
     max-width: 100%;
 }
 
-/* Estilos del menú hamburguesa */
+/* Menú hamburguesa (oculto por defecto) */
 .menu-hamburguesa {
     display: none;
     flex-direction: column;
@@ -61,8 +58,6 @@ header > a > img {
     width: 35px;
     height: 25px;
 }
-
-/* Estilos de la lineas del menú hamburguesa */
 .menu-hamburguesa .linea {
     width: 100%;
     height: 4px;
@@ -70,13 +65,7 @@ header > a > img {
     border-radius: 2px;
 }
 
-
-/* Menú hamburguesa */
-.contenedor-desplegable {
-    display: none;
-}
-
-/* Estilos del desplegable */
+/* Menú desplegable */
 .menu-desplegable {
     position: absolute;
     top: 100%;
@@ -89,13 +78,9 @@ header > a > img {
     overflow: hidden;
     transition: max-height 0.8s ease-in-out;
 }
-
-/* Estilos del desplegable cuando esta activo */
 .menu-desplegable.activo {
     max-height: 300px;
 }
-
-/* Estilos de los enlaces del menú desplegable */
 .menu-desplegable ul li a {
     display: block;
     padding: 20px;
@@ -103,32 +88,29 @@ header > a > img {
     text-decoration: none;
     border-bottom: 1px solid var(--azul-oscuro);
 }
-
-/* Estilos del primer hijo del menú desplegable */
 .menu-desplegable ul li:first-child a {
     border-top: 1px solid var(--azul-oscuro);
 }
-
-/* Estilos del  */
 .menu-desplegable ul li a:hover {
     background-color: var(--azul-oscuro);
 }
 
-/* Media queris */
+/* Pantallas ≤768px */
 @media (max-width: 768px) {
-
-    .user, .ola_azul{
+    .user,
+    .ola_azul {
         display: none;
     }
-
-    .logo {
-        height: 30px;
-    }
-
-    .menu-hamburguesa, .contenedor-desplegable {
+    .menu-hamburguesa,
+    .contenedor-desplegable {
         display: flex;
     }
-
+    /* logo mantiene 120px aquí (regla por defecto) */
 }
 
-
+/* Pantallas ≥769px: logo más grande */
+@media (min-width: 769px) {
+    .logo {
+        height: 150px;
+    }
+}
