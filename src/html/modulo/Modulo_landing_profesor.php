@@ -1,3 +1,30 @@
+<?php
+session_start();
+include('../../app/conexion.inc'); // Asegúrate que la ruta es correcta
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../html/Modulo_Inicio_Sesion.html");
+    exit();
+}
+
+// Obtener información del usuario
+$user_id = $_SESSION['user_id'];
+$query = "SELECT nombre FROM usuariosmodulo WHERE id = ?";
+$stmt = $conexion->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    die("Usuario no encontrado");
+}
+
+$usuario = $result->fetch_assoc();
+$nombre_usuario = $usuario['nombre'];
+$stmt->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,8 +41,8 @@
 
 <div class="header-container">
   <header>
-    <a href="Modulo_landing_profesor.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
-    <a href="Modulo_Perfil.html"><img class="user" src="../../../images/user_icon.svg" alt="Icono de usuario"></a>
+      <a href="Modulo_landing_profesor.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+      <a href="Modulo_Perfil.html" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
     <div class="menu-hamburguesa" id="menu-btn">
       <div class="linea"></div>
       <div class="linea"></div>
@@ -25,14 +52,14 @@
       <ul>
         <li><a href="Modulo_landing_profesor.html">Inicio</a></li>
         <li><a href="Modulo_Perfil.html">Perfil</a></li>
-        <li><a href="Modulo_Inicio_Sesion.php">Cerrar sesión</a></li>
+        <li><a href="Modulo_Inicio_Sesion.html">Cerrar sesión</a></li>
       </ul>
     </nav>
   </header>
 </div>
 
 <main class="main-container">
-  <h1>Hola, Kevan</h1>
+  <h1>Hola, <?php echo htmlspecialchars($nombre_usuario); ?></h1>
   <h3>¿A qué asignatura quieres acceder?</h3>
 
   <div class="grid-asignaturas">
