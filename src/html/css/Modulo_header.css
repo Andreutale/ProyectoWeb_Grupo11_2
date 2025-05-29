@@ -17,7 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+     z-index: 1;
 }
 
 /* Margen lateral de logos/iconos */
@@ -42,7 +42,7 @@ header > a > img {
     position: absolute;
     top: 100%;
     right: 0;
-    z-index: 1;
+    z-index: 0;
     width: 150px;
     height: auto;
     max-width: 100%;
@@ -58,6 +58,10 @@ header > a > img {
     margin-right: 30px;
     width: 35px;
     height: 25px;
+
+    /* para quedar siempre por encima del logo */
+    position: relative;
+    z-index: 10;
 }
 .menu-hamburguesa .linea {
     width: 100%;
@@ -113,5 +117,17 @@ header > a > img {
 @media (min-width: 769px) {
     .logo {
         height: 150px;
+    }
+}
+
+/* Ajustes extra en pantallas ultra estrechas (<250px) */
+@media (max-width: 250px) {
+    /* reducimos el margen lateral del logo */
+    header > a > img.logo {
+        margin: 0 10px;
+    }
+    /* reducimos también el margen del menú */
+    .menu-hamburguesa {
+        margin-right: 10px;
     }
 }
