@@ -1,3 +1,7 @@
+main {
+    display: flex;
+}
+
 .asignaturas {
     position: relative;
     width: 250px;
@@ -44,6 +48,7 @@
 }
 
 .contenedor_pagina {
+
     flex: 1;
     padding: 30px;
     max-width: 1200px;
