@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -11,52 +15,77 @@ h1 {
 .contenedor_informacion {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     gap: 50px;
 }
 
-/*FOTOS VISTA PREVIA DEL MÓDULO*/
-.contenedor_img {
+/* Contenedor flotante */
+.floating-bouncing-arrow {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    pointer-events: none; /* Permite clicks a través del contenedor */
+    transition: opacity 0.5s ease;
+}
+
+.hide-arrow {
+    opacity: 0;
+    pointer-events: none; /* Desactiva interacciones cuando está oculto */
+}
+
+/* Estilo de la flecha */
+.bouncing-arrow {
+    display: inline-block;
+    font-size: 4rem; /* Más grande */
+    color: #000; /* Negro puro */
+    text-decoration: none;
+    animation: bounce 1.5s infinite ease-in-out;
+    cursor: pointer;
+    pointer-events: auto; /* Habilita clicks en la flecha */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Sutil sombra */
+    transition: all 0.3s;
+    opacity: 0.9; /* Ligeramente transparente */
+
+}
+
+/* Efecto al pasar el mouse */
+.bouncing-arrow:hover {
+    animation: none; /* Detiene la animación al hover */
+    transform: scale(1.2); /* Aumenta un poco el tamaño */
+}
+
+.contenedor_img_slider {
     width: 80%;
-    height: 100%;
+    height: auto;
+    padding: 0 2em 20px 2em;
     background-color: var(--gris-claro);
     border-radius: 20px;
-    padding: 0 2em;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 
-
-
-
-
-
-
-/* Slider Styles */
-.contenedor_img_slider {
-    width: 80%;
-    height: 100%;
-    background-color: var(--gris-claro);
-    border-radius: 20px;
-    padding: 0 2em 2em;
-    display: none;
-    flex-direction: column;
-    align-items: center;
+.contenedor_img_slider p {
+    margin: 0;
+    color: black;
 }
 
 .slider-container {
     position: relative;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     overflow: hidden;
 }
-
 .slider {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease;
     width: 100%;
 }
 
@@ -66,6 +95,8 @@ h1 {
     object-fit: contain;
     max-height: 400px;
     cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .slider-btn {
@@ -85,6 +116,11 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: rgba(0,0,0,0.8);
 }
 
 .prev-btn {
@@ -99,6 +135,7 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    flex-wrap: wrap;
 }
 
 .dot {
@@ -108,6 +145,7 @@ h1 {
     background-color: #bbb;
     margin: 0 5px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .dot.active {
@@ -187,18 +225,22 @@ button p {
     text-align: center;
 }
 
+.subrallado:last-child {}
+
 .negrita {
     font-weight: bold;
 }
 
 .botones_datos {
     display: flex;
-    flex-direction: column;
-    margin: 50px auto 20px auto;
+    justify-content: center;
+    margin: 30px auto 20px auto;
+    gap: 20px;
 }
 
 .botones_datos button {
     margin: .25em 0;
+    padding: 10px 100px;
 }
 
 .btn-azul-verdoso p {
@@ -270,39 +312,37 @@ button p {
     justify-content: center;
 }
 
-@media (max-width: 1220px ) {
-
-    .contenedor_informacion {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /*FOTOS VISTA PREVIA DEL MÓDULO*/
-    .contenedor_img {
-        align-items: center;
-    }
-
-    .contenedor_img img {
-        min-width: 135px;
-        min-height: 100px;
-    }
-}
-
-@media (max-width: 768px) {
-    .contenedor_img {
-        display: none;
-    }
-
+/* Estilos responsivos */
+@media (max-width: 900px) {
     .contenedor_img_slider {
-        display: flex;
     }
 
     .slider img {
-        max-height: 300px;
+        max-height: 350px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+    .slider img {
+        max-height: 250px;
+    }
+
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .botones_datos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
     .slider img {
         max-height: 200px;
     }
@@ -312,4 +352,28 @@ button p {
         height: 30px;
         font-size: 14px;
     }
+}
+
+/* Animación mejorada */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-20px) scale(1.1);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        transform: translateY(-10px) scale(1.05);
+    }
+}
+
+/* Efecto hover */
+.bouncing-arrow:hover {
+    animation: none;
+    transform: scale(1.2);
+    opacity: 1;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
