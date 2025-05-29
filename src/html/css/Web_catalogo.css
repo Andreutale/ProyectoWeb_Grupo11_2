@@ -1,150 +1,150 @@
 main {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
-    margin-bottom: 0px;
-    text-align: center;
+  margin-bottom: 0px;
+  text-align: center;
 }
 
 /*CONTENEDORES GLOBALES*/
 .contenedor_catalogo {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
 
 .contenedor_catalogo ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    margin: 0px;
-    gap: 70px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+  gap: 70px;
 
 }
 
 .contenedor_catalogo ul li a button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /*SEPARADOR*/
 .separador {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 /*MODULOS*/
 .btn_modulo {
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    background-size: cover;
-    display: flex;
-    align-items: end;
-    transition: 0.3s ease;
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  background-size: cover;
+  display: flex;
+  align-items: end;
+  transition: 0.3s ease;
 }
 
 .btn_modulo:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 button div p {
-    color: black;
+  color: black;
 }
 
 .modulo_texto_container {
-    background-color: var(--azul-no-tan-verdoso);
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 20px 20px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
+  background-color: var(--azul-no-tan-verdoso);
+  width: 100%;
+  height: 50px;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
 }
 
 .btn_recursos {
-    background-image: url("../../../images/catalogo_recursos.png");
+  background-image: url("../../../images/catalogo_recursos.png");
 }
 
 .btn_calificaciones {
-    background-image: url("../../../images/catalogo_calificaciones.png");
+  background-image: url("../../../images/catalogo_calificaciones.png");
 }
 
 .btn_examenes {
-    background-image: url("../../../images/catalogo_examenes.png");
+  background-image: url("../../../images/catalogo_examenes.png");
 }
 
 .btn_anuncios {
-    background-image: url("../../../images/catalogo_anuncios.png");
+  background-image: url("../../../images/catalogo_anuncios.png");
 }
 
 .btn_tareas {
-    background-image: url("../../../images/catalogo_tareas.png");
+  background-image: url("../../../images/catalogo_tareas.png");
 }
 
 .btn_correo_interno {
-    background-image: url("../../../images/catalogo_correo_interno.png");
+  background-image: url("../../../images/catalogo_correo_interno.png");
 }
 
 .btn_foros {
-    background-image: url("../../../images/catalogo_foros.png");
+  background-image: url("../../../images/catalogo_foros.png");
 }
 
 .btn_videoapuntes {
-    background-image: url("../../../images/catalogo_videoapuntes.png");
+  background-image: url("../../../images/catalogo_videoapuntes.png");
 }
 
 .btn_inaccesible {
-    filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 @media (width <= 1300px) {
-    /*CONTENEDORES*/
-    .contenedor_catalogo {
-        gap: 20px;
-    }
+  /CONTENEDORES/
+  .contenedor_catalogo {
+    gap: 20px;
+  }
 
-    .contenedor_catalogo ul {
-        gap: 30px;
-    }
+  .contenedor_catalogo ul {
+    gap: 30px;
+  }
 
-    /*SEPARADOR*/
-    .separador {
-        gap: 0px;
-    }
+  /SEPARADOR/
+  .separador {
+    gap: 0px;
+  }
 }
 
 
 
 @media (max-width: 950px) {
-    /*CONTENEDORES*/
-    .contenedor_catalogo {
-        display: flex;
-        flex-direction: column;
-    }
+  /*CONTENEDORES*/
+  .contenedor_catalogo {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .contenedor_catalogo ul {
-        gap: 50px;
-    }
+  .contenedor_catalogo ul {
+    gap: 50px;
+  }
 
-    /*SEPARADOR*/
-    .separador {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
+  /*SEPARADOR*/
+  .separador {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    /*MODULOS*/
-    .btn_modulo {
-        width: 150px;
-        height: 150px;
-    }
+  /*MODULOS*/
+  .btn_modulo {
+    width: 150px;
+    height: 150px;
+  }
 
 }
