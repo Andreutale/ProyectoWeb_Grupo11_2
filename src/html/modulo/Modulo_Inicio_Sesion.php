@@ -1,6 +1,6 @@
 <?php
-include('../../app/auth.php');
-verificarToken();
+/*include('../../app/auth.php');
+verificarToken();*/
 ?>
 
 <!doctype html>
@@ -15,8 +15,6 @@ verificarToken();
     <link rel="stylesheet" href="../css/Modulo_header.css">
     <link rel="stylesheet" href="../css/Modulo_footer.css">
 
-    <script type="module" src="../js/Modulo_Inicio_Sesion.js" defer></script>
-
 </head>
 <body>
 
@@ -30,9 +28,9 @@ verificarToken();
         <!-- Encabezado de la pagina -->
         <h1>Inicio de sesión</h1>
         <!-- Formulario de la pagina -->
-        <form id="loginForm" action="#">
+        <form id="loginForm" action="../php/Modulo_login.php" method="POST">
             <p>Correo</p>
-            <input type="email" id="loginCorreo" name="email" placeholder="carlosgarcia@correo.com">
+            <input type="email" id="loginCorreo" name="email" placeholder="correo@ejemplo.com">
             <p>Contraseña</p>
             <input type="password" id="loginPassword" name="password" placeholder="*******">
             <div class="contenido-centrado-form">
