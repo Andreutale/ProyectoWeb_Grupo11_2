@@ -18,11 +18,12 @@
     display: flex;
     gap: 30px;
     justify-content: center;
+
 }
 
 .bloque {
     flex: 1 1 400px; /* Ancho base más pequeño */
-    max-width: 400px; /* Máximo ancho fijo para que no se estiren */
+    max-width: 600px; /* Máximo ancho fijo para que no se estiren */
     background-color: var(--blanco-1);
     border: 1px solid var(--gris-claro);
     border-radius: 10px;
