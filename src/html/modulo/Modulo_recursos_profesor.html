@@ -38,116 +38,113 @@
                 </button>
             </div>
         </div>
-
-        <table id="tablaRecursos">
-            <thead>
-            <tr>
-                <th>
-                    <label class="checkbox-con-imagen">
-                        <input type="checkbox" id="selectAll">
-                        <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
-                    </label>
-                </th>
-                <th data-sort="nombre">
-                    <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                </th>
-                <th data-sort="autor">
-                    <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                </th>
-                <th data-sort="fecha">
-                    <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                </th>
-                <th data-sort="tipo">
-                    <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                </th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    <label class="checkbox-con-imagen">
-                        <input type="checkbox" class="rowCheckbox">
-                        <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
-                    </label>
-                </td>
-                <td><div class="nombreMasImagen"><img src="../../../images/iconos/icono_carpeta.png" alt="Icono de carpeta"><h3>Documentación_JS</h3></div></td>
-                <td><h3>Lucio</h3></td>
-                <td><h3 data-date="2022-08-21">21/08/22</h3></td>
-                <td><h3>Carpeta</h3></td>
-                <td class="responsive-actions">
-                    <button class="btn-azul-claro btn-desplegable-responsive">
-                        <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
-                    </button>
-                </td>
-                <td>
-                    <div class="dropdown-container">
-                        <button class="opciones"><h3>Opciones</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></button>
-                        <div class="dropdown-menu">
-                            <a href="#">Editar</a>
-                            <a href="#">Descargar</a>
-                            <a href="#">Eliminar</a>
+        <form action="../php/descarga.php" method="POST">
+            <table id="tablaRecursos">
+                <thead>
+                <tr>
+                    <th>
+                        <label class="checkbox-con-imagen">
+                            <input type="checkbox" id="selectAll">
+                            <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
+                        </label>
+                    </th>
+                    <th data-sort="nombre">
+                        <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    </th>
+                    <th data-sort="autor">
+                        <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    </th>
+                    <th data-sort="fecha">
+                        <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    </th>
+                    <th data-sort="tipo">
+                        <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <label class="checkbox-con-imagen">
+                            <input type="checkbox" class="rowCheckbox">
+                            <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
+                        </label>
+                    </td>
+                    <td><div class="nombreMasImagen"><img src="../../../images/iconos/icono_carpeta.png" alt="Icono de carpeta"><h3>Documentación_JS</h3></div></td>
+                    <td><h3>Lucio</h3></td>
+                    <td><h3 data-date="2022-08-21">21/08/22</h3></td>
+                    <td><h3>Carpeta</h3></td>
+                    <td class="responsive-actions">
+                        <button class="btn-azul-claro btn-desplegable-responsive">
+                            <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
+                        </button>
+                    </td>
+                    <td>
+                        <div class="dropdown-container">
+                            <button class="opciones"><h3>Opciones</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></button>
+                            <div class="dropdown-menu">
+                                <a href="#">Editar</a>
+                                <a href="#">Descargar</a>
+                                <a href="#">Eliminar</a>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label class="checkbox-con-imagen">
-                        <input type="checkbox" class="rowCheckbox">
-                        <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
-                    </label>
-                </td>
-                <td><div class="nombreMasImagen"><img src="../../../images/iconos/icono_fichero.png" alt="Icono de fichero"><h3>Ejemplo-Diseño</h3></div></td>
-                <td><h3>Lucio</h3></td>
-                <td><h3 data-date="2022-08-21">21/08/22</h3></td>
-                <td><h3>Imagen</h3></td>
-                <td class="responsive-actions">
-                    <button class="btn-azul-claro btn-desplegable-responsive">
-                        <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
-                    </button>
-                </td>
-                <td>
-                    <div class="dropdown-container">
-                        <button class="opciones"><h3>Opciones</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></button>
-                        <div class="dropdown-menu">
-                            <a href="#">Editar</a>
-                            <a href="#">Descargar</a>
-                            <a href="#">Eliminar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="checkbox-con-imagen">
+                            <input type="checkbox" class="rowCheckbox">
+                            <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
+                        </label>
+                    </td>
+                    <td><div class="nombreMasImagen"><img src="../../../images/iconos/icono_fichero.png" alt="Icono de fichero"><h3>Ejemplo-Diseño</h3></div></td>
+                    <td><h3>Lucio</h3></td>
+                    <td><h3 data-date="2022-08-21">21/08/22</h3></td>
+                    <td><h3>Imagen</h3></td>
+                    <td class="responsive-actions">
+                        <button class="btn-azul-claro btn-desplegable-responsive">
+                            <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
+                        </button>
+                    </td>
+                    <td>
+                        <div class="dropdown-container">
+                            <button class="opciones"><h3>Opciones</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></button>
+                            <div class="dropdown-menu">
+                                <a href="#">Editar</a>
+                                <a href="#">Descargar</a>
+                                <a href="#">Eliminar</a>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label class="checkbox-con-imagen">
-                        <input type="checkbox" class="rowCheckbox">
-                        <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
-                    </label>
-                </td>
-                <td><div class="nombreMasImagen"><img src="../../../images/iconos/icono_fichero.png" alt="Icono de fichero"><h3>Prueba.txt</h3></div></td>
-                <td><h3>Lucio</h3></td>
-                <td><h3 data-date="2022-08-22">22/08/22</h3></td>
-                <td><h3>Documento <span class="datos_responsive"> de texto</span></h3></td>
-                <td class="responsive-actions">
-                    <button class="btn-azul-claro btn-desplegable-responsive">
-                        <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
-                    </button>
-                </td>
-                <td>
-                    <div class="dropdown-container">
-                        <button class="opciones"><h3>Opciones</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></button>
-                        <div class="dropdown-menu">
-                            <a href="#">Editar</a>
-                            <a href="#">Descargar</a>
-                            <a href="#">Eliminar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="checkbox-con-imagen">
+                            <input type="checkbox" class="rowCheckbox">
+                            <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
+                        </label>
+                    </td>
+                    <td><div class="nombreMasImagen"><img src="../../../images/iconos/icono_fichero.png" alt="Icono de fichero"><h3>Prueba.txt</h3></div></td>
+                    <td><h3>Lucio</h3></td>
+                    <td><h3 data-date="2022-08-22">22/08/22</h3></td>
+                    <td><h3>Documento <span class="datos_responsive"> de texto</span></h3></td>
+                    <td class="responsive-actions">
+                        <button class="btn-azul-claro btn-desplegable-responsive">
+                            <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
+                        </button>
+                    </td>
+                    <td>
+                        <div class="dropdown-container">
+                            <input type="hidden" name="id_fichero" value="5">
+                            <button type="submit" class="btn-azul-claro">Descargar</button>
                         </div>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
 </main>
 
@@ -156,24 +153,15 @@
     <div class="modal-content">
         <span class="close-modal">&times;</span>
         <h2>Añadir nuevo recurso</h2>
-        <form id="formAñadirRecurso">
+        <!-- <form id="formAñadirRecurso" > -->
+        <form action="../php/Modulo_recursos_profesor.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombreRecurso"><p>Nombre del recurso:</p></label>
-                <input type="text" id="nombreRecurso" required>
-            </div>
-            <div class="form-group">
-                <label for="tipoRecurso"><p>Tipo de recurso:</p></label>
-                <select id="tipoRecurso" required>
-                    <option value=""><p>Seleccione un tipo</p></option>
-                    <option value="carpeta">Carpeta</option>
-                    <option value="documento">Documento</option>
-                    <option value="imagen">Imagen</option>
-                    <option value="archivo">Archivo</option>
-                </select>
+                <input type="text" name="nombre" id="nombreRecurso" required>
             </div>
             <div class="form-group">
                 <label for="archivoRecurso"><p>Subir archivo:</p></label>
-                <input type="file" id="archivoRecurso">
+                <input type="file" name="archivo" id="archivoRecurso">
             </div>
             <button type="submit" class="btn-azul-claro">Guardar recurso</button>
         </form>
