@@ -42,7 +42,7 @@
     import { iniciarMenuHamburguesa } from './html/js/Modulo_header.js';
 
     // Cargamos el HTML del header y footer
-    fetch("html/php/cargar_header.php")
+    fetch("html/web/Web_header_index.html")
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;
