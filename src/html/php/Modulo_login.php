@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Redirigir según rol
         switch ($usuario['rol']) {
             case 'alumno':
-                header("Location: ../modulo/Modulo_landing_alumno.html");
+                header("Location: ../modulo/Modulo_landing_alumno.php");
                 break;
             case 'profesor':
                 header("Location: ../modulo/Modulo_landing_profesor.php");

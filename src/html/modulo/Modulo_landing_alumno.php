@@ -14,7 +14,7 @@ $query = "SELECT nombre FROM usuariosmodulo WHERE id = ?";
 $stmt_nombre = $conexion->prepare($query);
 $stmt_nombre->bind_param("i", $user_id);
 $stmt_nombre->execute();
-$result_nombre = $stmt_nombre->get_result(); //???
+$result_nombre = $stmt_nombre->get_result();
 
 if ($result_nombre->num_rows === 0) {
     die("Usuario no encontrado");
@@ -24,8 +24,8 @@ $usuario = $result_nombre->fetch_assoc();
 $nombre_usuario = $usuario['nombre'];
 $stmt_nombre->close();
 
-// Obtener asignaturas del profesor
-$query_asignaturas = "SELECT a.id, a.nombre FROM asignaturas a JOIN profesores_asignaturas pa ON a.id = pa.id_asignatura WHERE pa.id_profesor = ?";
+// Obtener asignaturas del alumno
+$query_asignaturas = "SELECT a.id, a.nombre FROM asignaturas a JOIN alumnos_asignaturas aa ON a.id = aa.id_asignatura WHERE aa.id_alumno = ?";
 $stmt_asignaturas = $conexion->prepare($query_asignaturas);
 $stmt_asignaturas->bind_param("i", $user_id);
 $stmt_asignaturas->execute();
@@ -45,32 +45,33 @@ $conexion->close();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Landing Profesor</title>
+  <title>Landing Alumno</title>
   <link rel="stylesheet" href="../css/libro_de_estilos.css">
-  <link rel="stylesheet" href="../css/Modulo_landing_profesor.css">
+  <link rel="stylesheet" href="../css/Modulo_landing_alumno.css">
   <link rel="stylesheet" href="../css/Modulo_header.css">
   <link rel="stylesheet" href="../css/Modulo_footer.css">
   <script src="../js/Modulo_header.js" defer></script>
+
 </head>
 <body>
 
 <!-- Contenedor del header -->
 <div class="header-container">
   <header>
-      <!-- Logo -->
-      <a href="Modulo_landing_profesor.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+    <!-- Logo -->
+    <a href="Modulo_landing_alumno.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
       <a href="Modulo_perfil.html" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
-      <!-- Lineas del menu hamburguesa -->
-      <div class="menu-hamburguesa" id="menu-btn">
+    <!-- Lineas del menu hamburguesa -->
+    <div class="menu-hamburguesa" id="menu-btn">
       <div class="linea"></div>
       <div class="linea"></div>
       <div class="linea"></div>
     </div>
-      <!-- Menú desplegable -->
-      <nav class="menu-desplegable" id="menu">
+    <!-- Menú desplegable -->
+    <nav class="menu-desplegable" id="menu">
       <ul>
-        <li><a href="Modulo_landing_profesor.html">Inicio</a></li>
-        <li><a href="Modulo_Perfil.html">Perfil</a></li>
+        <li><a href="Modulo_landing_alumno.html">Inicio</a></li>
+        <li><a href="Modulo_perfil.html">Perfil</a></li>
         <li><a href="Modulo_Inicio_Sesion.html">Cerrar sesión</a></li>
       </ul>
     </nav>
@@ -79,23 +80,23 @@ $conexion->close();
 
 <!-- Contenedor de la pagina -->
 <main class="main-container">
-  <h1>Hola, <?php echo htmlspecialchars($nombre_usuario); ?></h1>
+    <h1>Hola, <?php echo htmlspecialchars($nombre_usuario); ?></h1>
   <h3>¿A qué asignatura quieres acceder?</h3>
 
-    <!-- Contenedor de los apartados -->
-    <div class="grid-asignaturas">
-        <?php if (count($asignaturas) > 0): ?>
-            <?php foreach ($asignaturas as $asignatura): ?>
-                <div class="asignatura">
-                    <a href="Modulo_asignaturas.php?id=<?= $asignatura['id'] ?>">
-                        <p><?= htmlspecialchars($asignatura['nombre']) ?></p>
-                    </a>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p class="no-asignaturas">No tienes asignaturas asignadas</p>
-        <?php endif; ?>
-    </div>
+  <!-- Contenedor de los apartados -->
+  <div class="grid-asignaturas">
+      <?php if (count($asignaturas) > 0): ?>
+          <?php foreach ($asignaturas as $asignatura): ?>
+              <div class="asignatura">
+                  <a href="Modulo_asignaturas.php?id=<?= $asignatura['id'] ?>">
+                      <p><?= htmlspecialchars($asignatura['nombre']) ?></p>
+                  </a>
+              </div>
+          <?php endforeach; ?>
+      <?php else: ?>
+          <p class="no-asignaturas">No estás matriculado en ninguna asignatura</p>
+      <?php endif; ?>
+  </div>
 </main>
 
 <!-- Contenedor footer -->
