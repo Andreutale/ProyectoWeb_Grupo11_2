@@ -1,8 +1,3 @@
-<!--?php
-include('../../app/auth.php');
-verificarToken();
-?-->
-
 <!doctype html>
 <html lang="es">
 <head>
@@ -15,6 +10,8 @@ verificarToken();
     <link rel="stylesheet" href="../css/Modulo_header.css">
     <link rel="stylesheet" href="../css/Modulo_footer.css">
 
+    <script src="../js/Modulo_Inicio_Sesion.js" defer></script>
+
 </head>
 <body>
 
@@ -23,6 +20,133 @@ verificarToken();
 
 <!-- Contenido de la página -->
 <main>
+    <span class="menu_info">Info</span>
+
+    <!-- Fondo oscuro para cerrar el popup al hacer clic fuera -->
+    <div class="overlay_info" id="overlayInfo"></div>
+
+    <!-- Contenedor de la información (popup) -->
+    <div class="contenedor_info">
+        <div class="exit">&times;</div>
+
+        <!-- Sección de Alumnos -->
+        <div class="rol-section apartado_alumno">
+            <h2>Alumnos</h2>
+            <ul class="user-list">
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Lief Simants Dredge</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> l.simdre@epsg.upv.es</p>
+                        <p><strong>Contraseña:</strong> 9218611</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="l.simdre@epsg.upv.es"
+                            data-password="9218611">
+                        Autocompletar
+                    </button>
+                </li>
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Merline Kirdsch Kampshell</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> m.kirkam@epsg.upv.es</p>
+                        <p><strong>Contraseña:</strong> 1320191</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="m.kirkam@epsg.upv.es"
+                            data-password="1320191">
+                        Autocompletar
+                    </button>
+                </li>
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Debora Rawstorne</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> d.rawabc@epsg.upv.es</p>
+                        <p><strong>Contraseña:</strong> 9971924</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="d.rawabc@epsg.upv.es"
+                            data-password="9971924">
+                        Autocompletar
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Sección de Profesores -->
+        <div class="rol-section apartado_profesor">
+            <h2>Profesores</h2>
+            <ul class="user-list">
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Kevan Pounds Mainston</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> k.poumal@upv.es</p>
+                        <p><strong>Contraseña:</strong> 4525956</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="k.poumal@upv.es"
+                            data-password="4525956">
+                        Autocompletar
+                    </button>
+                </li>
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Luelle Pridmore Starsmeare</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> l.prista@upv.es</p>
+                        <p><strong>Contraseña:</strong> 6055365</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="l.prista@upv.es"
+                            data-password="6055365">
+                        Autocompletar
+                    </button>
+                </li>
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Eolande Merriton Mizzi</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> e.mermiz@upv.es</p>
+                        <p><strong>Contraseña:</strong> 6738133</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="e.mermiz@upv.es"
+                            data-password="6738133">
+                        Autocompletar
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Sección de PAS -->
+        <div class="rol-section apartado_pas">
+            <h2>PAS</h2>
+            <ul class="user-list">
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Ondrea Brezlaw Sherwill</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> o.breshe@upv.es</p>
+                        <p><strong>Contraseña:</strong> 1316390</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="o.breshe@upv.es"
+                            data-password="1316390">
+                        Autocompletar
+                    </button>
+                </li>
+                <li class="user-item">
+                    <h3><span class="user-icon"></span> Brooke Mallmoe Thomerson</h3>
+                    <div class="user-details">
+                        <p><strong>Correo:</strong> b.maltho@upv.es</p>
+                        <p><strong>Contraseña:</strong> 1970980</p>
+                    </div>
+                    <button class="btn-autocompletar"
+                            data-email="b.maltho@upv.es"
+                            data-password="1970980">
+                        Autocompletar
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Formulario directamente en main -->
     <div class="apartado_inicio_sesion">
         <!-- Encabezado de la pagina -->

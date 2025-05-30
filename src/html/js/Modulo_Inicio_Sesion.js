@@ -1,41 +1,58 @@
-import { usuarios } from '../../app/usuarios.js';
+// Código para mostrar/ocultar el popup
+const botonInfo = document.querySelector('.menu_info');
+const contenedorInfo = document.querySelector('.contenedor_info');
+const overlayInfo = document.getElementById('overlayInfo');
+const cerrarPopup = document.querySelector('.exit');
 
-document.addEventListener("DOMContentLoaded", () => {
-    const mensaje = document.getElementById("mensaje");
-    const form = document.getElementById("loginForm");
+// Mostrar popup al hacer clic en Info
+botonInfo.addEventListener('click', () => {
+    contenedorInfo.style.display = 'block';
+    overlayInfo.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Evita el scroll del fondo
+});
 
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
+// Cerrar popup al hacer clic en la X
+cerrarPopup.addEventListener('click', () => {
+    contenedorInfo.style.display = 'none';
+    overlayInfo.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restaura el scroll
+});
 
-        const correo = document.getElementById("loginCorreo").value.trim().toLowerCase();
-        const password = document.getElementById("loginPassword").value;
+// Cerrar popup al hacer clic fuera del contenido
+overlayInfo.addEventListener('click', (e) => {
+    if (e.target === overlayInfo) {
+        contenedorInfo.style.display = 'none';
+        overlayInfo.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restaura el scroll
+    }
+});
 
-        // Buscar usuario con coincidencia exacta en correo y contraseña
-        const usuario = usuarios.find(u => u.correo === correo && u.contraseña === password);
+// Cerrar con tecla Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && contenedorInfo.style.display === 'block') {
+        contenedorInfo.style.display = 'none';
+        overlayInfo.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restaura el scroll
+    }
+});
 
-        if (!usuario || !usuario.rol) {
-            mensaje.style.visibility = "visible";
-            mensaje.textContent = "Datos incorrectos.";
-            return;
-        }
+// Funcionalidad para autocompletar los campos
+document.querySelectorAll('.btn-autocompletar').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Obtener los datos del botón
+        const email = this.getAttribute('data-email');
+        const password = this.getAttribute('data-password');
 
-        // Redirección según rol
-        mensaje.style.visibility = "hidden";
-        switch ((usuario.rol || "").toLowerCase()) {
-            case "alumno":
-                window.location.href = "Modulo_landing_alumno.html";
-                break;
-            case "profesor":
-                window.location.href = "Modulo_landing_profesor.php";
-                break;
-            case "pas":
-                window.location.href = "Modulo_landing_page_pas.html";
-                break;
-            default:
-                mensaje.style.display = "block";
-                mensaje.style.color = "orange";
-                mensaje.textContent = "Rol no reconocido.";
-                break;
-        }
+        // Autocompletar los campos
+        document.getElementById('loginCorreo').value = email;
+        document.getElementById('loginPassword').value = password;
+
+        // Cerrar el popup después de autocompletar
+        contenedorInfo.style.display = 'none';
+        overlayInfo.style.display = 'none';
+        document.body.style.overflow = 'auto';
+
+        // Opcional: Mostrar un mensaje o enfocar el botón de acceso
+        document.querySelector('.btn-azul-oscuro').focus();
     });
 });
