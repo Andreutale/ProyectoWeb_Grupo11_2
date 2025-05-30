@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../app/conexion.inc'); // Asegúrate que la ruta es correcta
+include('../../app/conexion.inc');
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
@@ -11,18 +11,34 @@ if (!isset($_SESSION['user_id'])) {
 // Obtener información del usuario
 $user_id = $_SESSION['user_id'];
 $query = "SELECT nombre FROM usuariosmodulo WHERE id = ?";
-$stmt = $conexion->prepare($query);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+$stmt_nombre = $conexion->prepare($query);
+$stmt_nombre->bind_param("i", $user_id);
+$stmt_nombre->execute();
+$result_nombre = $stmt_nombre->get_result(); //???
 
-if ($result->num_rows === 0) {
+if ($result_nombre->num_rows === 0) {
     die("Usuario no encontrado");
 }
 
-$usuario = $result->fetch_assoc();
+$usuario = $result_nombre->fetch_assoc();
 $nombre_usuario = $usuario['nombre'];
-$stmt->close();
+$stmt_nombre->close();
+
+// Obtener asignaturas del profesor
+$query_asignaturas = "SELECT a.id, a.nombre FROM asignaturas a JOIN profesores_asignaturas pa ON a.id = pa.id_asignatura WHERE pa.id_profesor = ?";
+$stmt_asignaturas = $conexion->prepare($query_asignaturas);
+$stmt_asignaturas->bind_param("i", $user_id);
+$stmt_asignaturas->execute();
+$result_asignaturas = $stmt_asignaturas->get_result();
+
+// Guardamos las asignaturas en un array para usar más adelante
+$asignaturas = [];
+while ($row = $result_asignaturas->fetch_assoc()) {
+    $asignaturas[] = $row;
+}
+
+$stmt_asignaturas->close();
+$conexion->close();
 ?>
 
 <!DOCTYPE html>
@@ -62,32 +78,19 @@ $stmt->close();
   <h1>Hola, <?php echo htmlspecialchars($nombre_usuario); ?></h1>
   <h3>¿A qué asignatura quieres acceder?</h3>
 
-  <div class="grid-asignaturas">
-    <div class="asignatura">
-      <a href="Modulo_asignaturas.html">
-        <img src="../../../images/iconos/icono_programacion.png" alt="Programación 1">
-        <p>Programación 1</p>
-      </a>
+    <div class="grid-asignaturas">
+        <?php if (count($asignaturas) > 0): ?>
+            <?php foreach ($asignaturas as $asignatura): ?>
+                <div class="asignatura">
+                    <a href="Modulo_asignaturas.php?id=<?= $asignatura['id'] ?>">
+                        <p><?= htmlspecialchars($asignatura['nombre']) ?></p>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p class="no-asignaturas">No tienes asignaturas asignadas</p>
+        <?php endif; ?>
     </div>
-    <div class="asignatura">
-      <a href="Modulo_asignaturas.html">
-        <img src="../../../images/iconos/icono_programacion.png" alt="Programación 2">
-        <p>Programación 2</p>
-      </a>
-    </div>
-    <div class="asignatura">
-      <a href="Modulo_asignaturas.html">
-        <img src="../../../images/iconos/icono_programacion_en_sistemas_cloud.png" alt="Programación en sistemas cloud">
-        <p>Programación en<br>sistemas cloud</p>
-      </a>
-    </div>
-    <div class="asignatura">
-      <a href="Modulo_asignaturas.html">
-        <img src="../../../images/iconos/icono_Proyecto_Aplicacion_Biometria.png" alt="Biometría y Medio Ambiente">
-        <p>Proyecto Aplicaciones de<br>Biometría y Medio Ambiente</p>
-      </a>
-    </div>
-  </div>
 </main>
 
 <footer class="footer">
