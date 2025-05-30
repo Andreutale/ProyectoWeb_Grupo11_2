@@ -59,7 +59,7 @@ $conexion->close();
   <header>
       <!-- Logo -->
       <a href="Modulo_landing_profesor.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
-      <a href="Modulo_perfil.html" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
+      <a href="Modulo_perfil.php" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
       <!-- Lineas del menu hamburguesa -->
       <div class="menu-hamburguesa" id="menu-btn">
       <div class="linea"></div>

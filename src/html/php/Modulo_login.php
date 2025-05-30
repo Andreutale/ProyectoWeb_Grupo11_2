@@ -10,19 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Por favor complete todos los campos");
     }
 
-    // Usar la función PASSWORD() de MySQL para verificar
-    $stmt = $conexion->prepare("SELECT id, rol FROM usuariosmodulo WHERE correo = ? AND contraseña = PASSWORD(?)");
+    // Preparar consulta (asegurándote que el campo contraseña está almacenado con PASSWORD())
+    $stmt = $conexion->prepare("SELECT id, nombre, apellidos, dni, correo, rol FROM usuariosmodulo WHERE correo = ? AND contraseña = PASSWORD(?)");
     $stmt->bind_param("ss", $correo, $password);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows === 1) {
+        // Extraer datos con fetch_assoc para mayor claridad
         $usuario = $result->fetch_assoc();
 
         // Guardar datos en sesión
         $_SESSION['user_id'] = $usuario['id'];
-        $_SESSION['user_email'] = $correo;
+        $_SESSION['user_email'] = $usuario['correo'];
         $_SESSION['user_role'] = $usuario['rol'];
+        $_SESSION['user_name'] = $usuario['nombre'];
+        $_SESSION['user_apellidos'] = $usuario['apellidos'];
+        $_SESSION['user_dni'] = $usuario['dni'];
 
         // Redirigir según rol
         switch ($usuario['rol']) {
