@@ -1,3 +1,35 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../html/Modulo_Inicio_Sesion.html");
+    exit();
+}
+
+include('../../app/conexion.inc');
+
+$user_id = $_SESSION['user_id'];
+
+$stmt = $conexion->prepare("SELECT nombre, apellidos, correo, dni, rol FROM usuariosmodulo WHERE id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+    $usuario = $result->fetch_assoc();
+    $nombre = $usuario['nombre'];
+    $apellidos = $usuario['apellidos'];
+    $correo = $usuario['correo'];
+    $dni = $usuario['dni'];
+    $rol = $usuario['rol'];
+} else {
+    die("Usuario no encontrado");
+}
+
+$stmt->close();
+$conexion->close();
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -5,22 +37,18 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mi perfil</title>
-
-
+  <title>Perfil | Módulo</title>
+  
   <link rel="stylesheet" href="../css/libro_de_estilos.css">
   <link rel="stylesheet" href="../css/Modulo_header.css">
   <link rel="stylesheet" href="../css/Modulo_footer.css">
   <link rel="stylesheet" href="../css/Modulo_perfil.css">
-
-  <script src="../js/Modulo_perfil.js" defer></script>
 
 </head>
 <body>
 <div id="header"></div>
 
 <main>
-
   <h1>Mi perfil</h1>
 
   <div>
@@ -28,31 +56,21 @@
     <div>
       <img src="../../../images/user_icon.svg" alt="Foto de perfil" >
       <button id="cerrarSesion" class="btn-azul-claro"><a href="Modulo_Inicio_Sesion.html"><h3>Cerrar sesión</h3></a></button>
-
     </div>
-
 
     <div>
       <ul id="datos">
         <!-- Cada informacion del perfil -->
-        <li><h3>Nombre</h3><div id="Nombre"><p>Lief</p></div></li>
-        <li><h3>Apellidos</h3><div id="Apellido"><p>Simants Dredge</p></div></li>
-        <li><h3>Correo</h3><div id="Correo"><p>l.simdre@epsg.upv.es</p></div></li>
-        <li><h3>DNI</h3><div id="DNI"><p>01-9218611</p></div></li>
-
+        <li><h3>Nombre</h3><div id="Nombre"><p> <?php echo htmlspecialchars($nombre); ?> </p></div></li>
+        <li><h3>Apellidos</h3><div id="Apellido"><p> <?php echo htmlspecialchars($apellidos); ?> </p></div></li>
+        <li><h3>Correo</h3><div id="Correo"><p> <?php echo htmlspecialchars($correo); ?> </p></div></li>
+        <li><h3>DNI</h3><div id="DNI"><p> <?php echo htmlspecialchars($dni); ?> </p></div></li>
       </ul>
-
     </div>
-
-
   </div>
-
-
 </main>
 
-
 <div id="footer"></div>
-
 
 <script type="module">
   // importamos el menu hamburguesa

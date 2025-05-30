@@ -43,23 +43,16 @@ document.querySelectorAll('.btn-autocompletar').forEach(btn => {
         const email = this.getAttribute('data-email');
         const password = this.getAttribute('data-password');
 
-        // Redirección según rol
-        mensaje.style.visibility = "hidden";
-        switch ((usuario.rol || "").toLowerCase()) {
-            case "alumno":
-                window.location.href = "Modulo_landing_alumno.html";
-                break;
-            case "profesor":
-                window.location.href = "Modulo_landing_profesor.php";
-                break;
-            case "pas":
-                window.location.href = "Modulo_landing_page_pas.html";
-                break;
-            default:
-                mensaje.style.display = "block";
-                mensaje.style.color = "orange";
-                mensaje.textContent = "Rol no reconocido.";
-                break;
-        }
+        // Autocompletar los campos
+        document.getElementById('loginCorreo').value = email;
+        document.getElementById('loginPassword').value = password;
+
+        // Cerrar el popup después de autocompletar
+        contenedorInfo.style.display = 'none';
+        overlayInfo.style.display = 'none';
+        document.body.style.overflow = 'auto';
+
+        // Opcional: Mostrar un mensaje o enfocar el botón de acceso
+        document.querySelector('.btn-azul-oscuro').focus();
     });
 });

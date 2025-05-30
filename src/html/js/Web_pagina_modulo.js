@@ -206,9 +206,6 @@ class ImageSlider {
     }
 }
 
-// Inicialización cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    const sliderContainer = document.querySelector('.slider-container');
-    const imageSlider = new ImageSlider();
-    imageSlider.init(sliderContainer);
-});
+const sliderContainer = document.querySelector('.slider-container');
+const imageSlider = new ImageSlider();
+imageSlider.init(sliderContainer);
