@@ -35,6 +35,17 @@ main {
   font-size: 1.4rem;
 }
 
+/* Contenedor icono perfil */
+.perfil {
+  display: flex;
+}
+
+.perfil h2 {
+  color: white;
+  margin-top: 5px;
+  margin-right: -20px;
+}
+
 /* Contenedor de las asignaturas */
 .grid-asignaturas {
   display: grid;
