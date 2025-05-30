@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     recursos.addEventListener("click", () => {
         setTimeout(() => {
-            document.location.href = "Modulo_recursos_profesor.html"
+            document.location.href = "Modulo_recursos_profesor.php"
         }, 150)
     })
 
