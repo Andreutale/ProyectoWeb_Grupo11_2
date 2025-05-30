@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Encriptar y guardar
     $contraseñaHash = password_hash($contraseña, PASSWORD_DEFAULT);
-    $stmt = $conexion->prepare("INSERT INTO usuariosWeb (nombre, apellidos, correo, telefono, contraseña, token) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conexion->prepare("INSERT INTO usuariosweb (nombre, apellidos, correo, telefono, contraseña, token) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $nombre, $apellidos, $correo, $telefono, $contraseñaHash, $token);
 
     if ($stmt->execute()) {
