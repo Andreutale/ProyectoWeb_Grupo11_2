@@ -19,60 +19,62 @@ verificarToken();
   <!-- Header -->
   <div id="header"></div>
 
-  <!-- Sección principal -->
-<section class="consulta-section">
-  <h1 class="consulta-titulo">Contáctanos para poder ayudarte</h1>
-  <h2 class="consulta-subtitulo">Completa el formulario y te responderemos pronto</h2>
+  <main>
+      <!-- Sección principal -->
+      <section class="consulta-section">
+          <h1 class="consulta-titulo">Contáctanos para poder ayudarte</h1>
+          <h2 class="consulta-subtitulo">Completa el formulario y te responderemos pronto</h2>
 
-    <div class="consulta-container">
-      <form class="consulta-form">
-        <div class="form-left">
-          <div class="input-group">
-            <label for="nombre">Nombre *</label>
-            <input type="text" id="nombre" name="nombre" required />
+          <div class="consulta-container">
+              <form class="consulta-form">
+                  <div class="form-left">
+                      <div class="input-group">
+                          <label for="nombre">Nombre *</label>
+                          <input type="text" id="nombre" name="nombre" required />
+                      </div>
+
+                      <div class="input-group">
+                          <label for="producto">Producto *</label>
+                          <select id="producto" name="modulos">
+                              <option value="1">Recursos</option>
+                              <option value="2">Calificaciones</option>
+                              <option value="3">Exámenes</option>
+                              <option value="4">Anuncios</option>
+                              <option value="5">Tareas</option>
+                              <option value="6">Correo interno</option>
+                              <option value="7">Foros</option>
+                              <option value="8">Videoapuntes</option>
+                          </select>
+                      </div>
+
+                      <div class="input-group">
+                          <label for="mensaje">Mensaje *</label>
+                          <textarea id="mensaje" name="mensaje" required></textarea>
+                      </div>
+                  </div>
+
+                  <div class="form-right">
+                      <div class="input-group">
+                          <label for="apellidos">Apellidos *</label>
+                          <input type="text" id="apellidos" name="apellidos" required />
+                      </div>
+
+                      <div class="input-group">
+                          <label for="entidad">Entidad *</label>
+                          <input type="text" id="entidad" name="entidad" required />
+                      </div>
+
+                      <div class="input-group">
+                          <label for="correo">Correo electrónico *</label>
+                          <input type="email" id="correo" name="correo" required />
+                      </div>
+
+                      <button type="submit">Enviar</button>
+                  </div>
+              </form>
           </div>
-
-          <div class="input-group">
-            <label for="producto">Producto *</label>
-              <select id="producto" name="modulos">
-                  <option value="1">Recursos</option>
-                  <option value="2">Calificaciones</option>
-                  <option value="3">Exámenes</option>
-                  <option value="4">Anuncios</option>
-                  <option value="5">Tareas</option>
-                  <option value="6">Correo interno</option>
-                  <option value="7">Foros</option>
-                  <option value="8">Videoapuntes</option>
-              </select>
-          </div>
-
-          <div class="input-group">
-            <label for="mensaje">Mensaje *</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-          </div>
-        </div>
-
-        <div class="form-right">
-          <div class="input-group">
-            <label for="apellidos">Apellidos *</label>
-            <input type="text" id="apellidos" name="apellidos" required />
-          </div>
-
-          <div class="input-group">
-            <label for="entidad">Entidad *</label>
-            <input type="text" id="entidad" name="entidad" required />
-          </div>
-
-          <div class="input-group">
-            <label for="correo">Correo electrónico *</label>
-            <input type="email" id="correo" name="correo" required />
-          </div>
-
-          <button type="submit">Enviar</button>
-        </div>
-      </form>
-    </div>
-  </section>
+      </section>
+  </main>
 
   <!-- Footer -->
   <id id="footer"></id>
