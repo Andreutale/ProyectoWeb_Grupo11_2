@@ -309,25 +309,3 @@ form div a {
         width: 70%;
     }
 }
-
-/* Botón de volver */
-.btn-volver {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: var(--blanco-1);
-    color: var(--azul-oscuro);
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-family: Assistant, sans-serif;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: background-color 0.2s, transform 0.2s;
-    z-index: 999; /* por encima de overlays */
-}
-
-.btn-volver:hover {
-    background-color: var(--gris-claro);
-    transform: translateX(-2px);
-}
