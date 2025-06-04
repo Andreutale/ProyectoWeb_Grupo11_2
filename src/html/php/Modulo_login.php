@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Preparar consulta (asegurándote que el campo contraseña está almacenado con PASSWORD())
-    $stmt = $conexion->prepare("SELECT id, nombre, apellidos, dni, correo, rol FROM usuariosmodulo WHERE correo = ? AND contraseña = PASSWORD(?)");
-    $stmt->bind_param("ss", $correo, $password);
+    $stmt = $conexion->prepare("SELECT id, nombre, apellidos, dni, correo, rol FROM usuariosmodulo WHERE correo = ?");
+    $stmt->bind_param("s", $correo);
     $stmt->execute();
     $result = $stmt->get_result();
 
