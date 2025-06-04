@@ -13,9 +13,6 @@ main {
     width: 50px;
     border-radius: 50%;
     background-color: var(--blanco-1);
-    font-family: Assistant, sans-serif;
-    font-weight: normal;
-    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +23,10 @@ main {
     z-index: 3;
     box-shadow: 0 2px 5px var(--gris-oscuro);
     transition: all 0.3s ease;
+}
+
+.menu_info p {
+    font-weight: 600;
 }
 
 /* Hover del boton de información de datos */
@@ -198,7 +199,7 @@ form p {
 }
 
 .btn-azul-oscuro {
-    margin-top: 30px;
+    margin-top: 10px;
     width: 50%;
     height: 50px;
     margin-bottom: 20px;
@@ -222,7 +223,6 @@ form div a {
     color: red;
     visibility: hidden;
     text-align: center;
-    margin-top: 10px;
 }
 
 /* Contenido centrado del formulario */
