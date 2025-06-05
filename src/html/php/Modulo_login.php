@@ -28,8 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user_apellidos'] = $usuario['apellidos'];
         $_SESSION['user_dni'] = $usuario['dni'];
 
-        $_SESSION['mensaje'] = $mensaje['mensaje'];
-
         // Redirigir según rol
         switch ($usuario['rol']) {
             case 'alumno':
@@ -46,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         exit();
     } else {
-        $_SESSION['mensaje'] = 'Credenciales incorrectas';
+        die('Credenciales incorrectas');
     }
 } else {
     header("Location: ../html/Modulo_Inicio_Sesion.html");
