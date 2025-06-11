@@ -80,6 +80,7 @@ $conexion->close();
 
 <!-- Contenedor de la pagina -->
 <main class="main-container">
+    <img class="fondo_landing" src="../../../images/fondo_landing_estudiante_modulo.jpg" alt="Imagen del fondo de la landing">
     <h1>Hola, <?php echo htmlspecialchars($nombre_usuario); ?></h1>
   <h3>¿A qué asignatura quieres acceder?</h3>
 
