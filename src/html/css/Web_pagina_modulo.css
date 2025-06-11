@@ -41,16 +41,21 @@ h1 {
 /* Estilo de la flecha */
 .bouncing-arrow {
     display: inline-block;
-    font-size: 4rem; /* Más grande */
-    color: #000; /* Negro puro */
+    font-size: 4rem;
+    color: #000;
     text-decoration: none;
     animation: bounce 1.5s infinite ease-in-out;
     cursor: pointer;
-    pointer-events: auto; /* Habilita clicks en la flecha */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Sutil sombra */
+    pointer-events: auto;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     transition: all 0.3s;
-    opacity: 0.9; /* Ligeramente transparente */
+    opacity: 0.9;
 
+    /* NUEVO: posicionamiento fijo a la derecha inferior */
+    position: fixed;
+    right: 60px;  /* Distancia desde el borde derecho */
+    bottom: 30px; /* Distancia desde el borde inferior */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
 }
 
 /* Efecto al pasar el mouse */
