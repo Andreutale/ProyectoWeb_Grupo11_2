@@ -123,8 +123,9 @@ table td:last-child {
 
 /*scroll de la tabla*/
 .tabla_scrolleable {
-    max-height: 400px; /* o lo que desees */
+    max-height: 600px;
     overflow-y: auto;
+    margin-bottom: 50px;
 }
 
 /* ancho de la tabla */
