@@ -1,0 +1,392 @@
+main {
+    padding: 0;
+    display: flex;
+}
+
+.guia-container {
+    width: 100%;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.descripcion p {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bloques {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.bloque {
+    flex: 1 1 400px;
+    max-width: 600px;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: var(--blanco-1);
+    border: 1px solid var(--gris-claro);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.bloque h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    color: var(--azul-oscuro);
+}
+
+.datos p {
+    margin-bottom: 12px;
+    display: flex;
+}
+
+.datos p strong {
+    min-width: 130px;
+    display: inline-block;
+}
+
+.criterios {
+    padding-left: 20px;
+    font-family: "Assistant", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.criterio-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.criterio-item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-size: 1.4rem;
+    top: -3px;
+}
+
+.criterio-texto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.criterio-texto strong {
+    margin-right: 5px;
+}
+
+/* ----------------- Botón editar ----------------- */
+.boton-editar-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.btn-azul-claro {
+    cursor: pointer;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    font-weight: 600;
+}
+
+.btn-azul-claro:hover {
+    background-color: var(--azul-oscuro);
+}
+
+/* Botón eliminar */
+.btn-rojo {
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.btn-rojo:hover {
+    background-color: orangered;
+}
+
+/* ----------------- Modal ----------------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 60px 0;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: var(--blanco-1);
+    margin: auto;
+    border-radius: 20px;
+    max-width: 1100px;
+    width: 90%;
+    padding: 50px 60px 60px 60px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    position: relative;
+    color: var(--gris-oscuro);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.modal-content h1 {
+    margin: 0 auto 30px auto;
+    text-align: center;
+    letter-spacing: 0.03em;
+    user-select: none;
+
+}
+
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 28px;
+    color: var(--gris-oscuro);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+
+.close-modal:hover {
+    color: var(--azul-oscuro);
+}
+
+
+/* ----------------- Pestañas ----------------- */
+.tabs-container {
+    display: flex;
+    border-bottom: 2px solid var(--gris-claro);
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    padding: 15px 30px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--azul-claro);
+}
+
+.tab-btn.active {
+    color: var(--azul-oscuro);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--azul-claro);
+    border-radius: 2px;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------- Formulario ----------------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.descripcion-textarea {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-family: "Assistant", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding-left: 11px;
+}
+
+.form-group input[type=text] {
+    font-family: "Assistant", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 14px 20px;
+    border: 2px solid var(--gris-claro);
+    border-radius: 10px;
+    font-family: inherit;
+    background-color: white;
+    resize: vertical;
+    min-height: 46px;
+}
+
+.form-group textarea {
+    font-family: "Assistant", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    min-height: 140px;
+}
+
+.form-group input:focus ,
+.form-group textarea:focus {
+    border: none;
+}
+
+/* Grupo de criterio */
+.criterio-form-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9ff;
+    border-radius: 10px;
+    border: 1px solid var(--azul-claro);
+}
+
+.criterio-form-group input[type="text"] {
+    flex: 1;
+    min-width: 150px;
+}
+
+.criterio-form-group input[type="number"] {
+    width: 100px;
+}
+
+/* Botón añadir criterio */
+.boton-anadir-contenedor {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* ----------------- Botón guardar ----------------- */
+.form-boton-guardar {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-azul-claro:hover {
+    background-color: var(--azul-oscuro);
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 1100px) {
+    .modal-content {
+        max-width: 95%;
+        padding: 45px 40px 50px 40px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .guia-container {
+        padding: 30px 20px;
+    }
+    .bloques {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .bloque {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+    }
+    .titulo {
+        font-size: 2rem;
+    }
+    .modal-content {
+        padding: 35px 25px 40px 25px;
+    }
+    .tabs-container {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .tab-btn {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+
+    .criterio-form-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .criterio-form-group input[type="number"] {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-grid {
+        gap: 20px;
+    }
+    .form-boton-guardar .btn-azul-claro {
+        width: 100%;
+        padding: 14px;
+        font-size: 1.2rem;
+    }
+}

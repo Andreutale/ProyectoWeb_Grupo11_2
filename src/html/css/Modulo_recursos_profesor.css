@@ -10,7 +10,6 @@ main {
     background-color: var(--azul-muy-claro);
     border-right: 2px solid var(--azul-oscuro);
     top: 0;
-    height: calc(100vh - 130px);
     overflow-y: auto;
     display: flex;
     align-items: center;
