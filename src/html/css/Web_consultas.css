@@ -3,12 +3,12 @@
   .consulta-titulo {
     text-align: center;
     font-size: 2em;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-top: 0;
   }
   /*fondo consulta*/
   .consulta-section {
-    padding: 80px 20px;
+    padding: 50px 20px;
   }
 /*contenedor del consulta*/
   .consulta-container {
@@ -22,6 +22,7 @@
   .consulta-container label p{
     color: black;
     font-weight: bold;
+    margin: 10px 0 3px 0;
   }
   
   .consulta-form {
@@ -42,7 +43,7 @@
   .input-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+
     margin-bottom: 20px;
   }
   
