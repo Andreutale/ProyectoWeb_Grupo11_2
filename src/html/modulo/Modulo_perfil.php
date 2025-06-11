@@ -55,7 +55,7 @@ $conexion->close();
     <!-- div de la imagen y el boton-->
     <div>
       <img src="../../../images/user_icon.svg" alt="Foto de perfil" >
-      <button id="cerrarSesion" class="btn-azul-claro"><a href="Modulo_Inicio_Sesion.html"><h3>Cerrar sesión</h3></a></button>
+      <button id="cerrarSesion" class="btn-cerrar-sesion"><a href="Modulo_Inicio_Sesion.html"><h3>Cerrar sesión</h3></a></button>
     </div>
 
     <div>

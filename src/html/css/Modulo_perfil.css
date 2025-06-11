@@ -47,15 +47,22 @@ main img {
     margin-bottom: 1rem;
 }
 
-main button {
-    padding: 0.6rem 1.5rem;
-    transition: background-color 0.2s ease;
-}
-
-main button:hover {
+.btn-cerrar-sesion {
     background-color: var(--azul-oscuro);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+.btn-cerrar-sesion a h3 {
+    color: white;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: var(--azul-claro);
+}
 
 /* Datos del perfil */
 #datos {
