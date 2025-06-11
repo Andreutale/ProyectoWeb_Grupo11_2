@@ -1,12 +1,71 @@
-const buscador = document.getElementById("Input_buscador")//input del buscador
-const btn_buscador = document.getElementById("Icono_buscador")
-const btn_eliminar = document.querySelectorAll(".boton_papelera")
+const buscador = document.getElementById("Input_buscador"); //input del buscador
+const btn_buscador = document.getElementById("Icono_buscador");
 const botonAbrirModal = document.querySelector('table th div button');
 const modal = document.getElementById('modalAñadirUsuario');
 const cerrarModal = document.getElementById('cerrarModal');
 const formulario = document.getElementById('formularioNuevoUsuario');
+const modalConfirmar = document.getElementById('modalConfirmarEliminar');
+let usuarioAEliminar = null;
 
+// Función para manejar la eliminación de usuarios
+function setupEliminacionUsuarios() {
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.boton_papelera')) {
+            e.preventDefault();
+            const botonPapelera = e.target.closest('.boton_papelera');
+            usuarioAEliminar = botonPapelera.getAttribute('data-id');
+            modalConfirmar.classList.remove('hidden');
+        }
+    });
 
+    // Confirmar eliminación
+    document.getElementById('confirmarEliminar').addEventListener('click', function() {
+        if (usuarioAEliminar) {
+            eliminarUsuario(usuarioAEliminar);
+        }
+    });
+
+    // Cancelar eliminación
+    document.getElementById('cancelarEliminar').addEventListener('click', function() {
+        modalConfirmar.classList.add('hidden');
+        usuarioAEliminar = null;
+    });
+
+    // Cerrar modal con la X
+    modalConfirmar.querySelector('.cerrar').addEventListener('click', function() {
+        modalConfirmar.classList.add('hidden');
+        usuarioAEliminar = null;
+    });
+}
+
+// Función para enviar la solicitud de eliminación al servidor
+function eliminarUsuario(idUsuario) {
+    fetch('../php/eliminar_usuario.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `id=${idUsuario}`
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Usuario eliminado correctamente');
+                // Recargar la página para ver los cambios
+                window.location.reload();
+            } else {
+                alert('Error al eliminar el usuario: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al conectar con el servidor');
+        })
+        .finally(() => {
+            modalConfirmar.classList.add('hidden');
+            usuarioAEliminar = null;
+        });
+}
 
 //orden de las flechas
 function setupColumnSorting() {
@@ -52,42 +111,17 @@ function setupColumnSorting() {
     });
 }
 
-
 // Alerts del input y botones
 document.addEventListener('DOMContentLoaded', () => {
     setupColumnSorting();
+    setupEliminacionUsuarios();
 
-//alert del buscador
-    btn_buscador.addEventListener("click", () => {
-        var contenido_input = buscador.value;
-        if(contenido_input === ""){
-            alert("Usuario/s no encontrado")
-        }else{
-            alert("Usuarios encontrados")
-        }
-
-    })
-//alerts de los botones papelera
-    btn_eliminar.forEach(elemento => {
-        // Agregar el evento de clic a cada elemento
-        elemento.addEventListener("click", function() {
-            // Código a ejecutar cuando se hace clic en el elemento
-            alert("Usuario eliminado")
-        });
-    });
-});
-
-
-//pop up
-document.addEventListener('DOMContentLoaded', () => {
-
-
-    // Mostrar el modal
+    // Mostrar el modal de añadir
     botonAbrirModal.addEventListener('click', () => {
         modal.classList.remove('hidden');
     });
 
-    // Cerrar el modal
+    // Cerrar el modal de añadir
     cerrarModal.addEventListener('click', () => {
         modal.classList.add('hidden');
     });
@@ -95,14 +129,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // Confirmar envío del formulario
     formulario.addEventListener('submit', function(e) {
         e.preventDefault();
-        const nombre = document.getElementById('nombreUsuario').value;
+
+        // Obtener valores del formulario
+        const nombre = document.getElementById('nombreUsuario').value.trim();
+        const apellidos = document.getElementById('apellidosUsuario').value.trim();
+        const dni = document.getElementById('dniUsuario').value.trim();
+        const correo = document.getElementById('correoUsuario').value.trim();
+        const contraseña = document.getElementById('contraseñaUsuario').value;
+        const confirmarContraseña = document.getElementById('confirmarContraseña').value;
         const rol = document.getElementById('rolUsuario').value;
-        const correo = document.getElementById('correoUsuario').value;
+        const mensajeError = document.getElementById('mensajeError');
 
-        // Aquí podrías hacer una llamada a backend para guardar
+        // Validación básica en cliente
+        mensajeError.textContent = '';
 
-        alert(`Usuario añadido:\nNombre: ${nombre}\nRol: ${rol}\nCorreo: ${correo}`);
-        modal.classList.add('hidden');
-        formulario.reset();
+        if (contraseña !== confirmarContraseña) {
+            mensajeError.textContent = 'Las contraseñas no coinciden';
+            return;
+        }
+
+        if (contraseña.length < 6) {
+            mensajeError.textContent = 'La contraseña debe tener al menos 6 caracteres';
+            return;
+        }
+
+        // Enviar datos al servidor
+        fetch('../php/agregar_usuario.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                nombre,
+                apellidos,
+                dni,
+                correo,
+                contraseña,
+                confirmar_contraseña: confirmarContraseña,
+                rol
+            })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert(data.message || 'Usuario añadido correctamente');
+                    modal.classList.add('hidden');
+                    formulario.reset();
+                    // Recargar la página para mostrar el nuevo usuario
+                    setTimeout(() => window.location.reload(), 1000);
+                } else {
+                    mensajeError.textContent = data.message || 'Error al añadir el usuario';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                mensajeError.textContent = 'Error al conectar con el servidor';
+            });
     });
 });
