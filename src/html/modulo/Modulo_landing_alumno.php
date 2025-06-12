@@ -46,21 +46,23 @@ $conexion->close();
   <header>
     <!-- Logo -->
     <a href="../php/cargar_header_modulo.php"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
-      <a href="Modulo_perfil.php" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
+    <a href="Modulo_perfil.php" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
     <!-- Lineas del menu hamburguesa -->
-    <div class="menu-hamburguesa" id="menu-btn">
-      <div class="linea"></div>
-      <div class="linea"></div>
-      <div class="linea"></div>
-    </div>
-    <!-- Menú desplegable -->
-    <nav class="menu-desplegable" id="menu">
-      <ul>
-        <li><a href="../php/cargar_header_modulo.php">Inicio</a></li>
-        <li><a href="Modulo_perfil.php">Perfil</a></li>
-        <li><a href="../php/logout_modulo.php">Cerrar sesión</a></li>
-      </ul>
-    </nav>
+    <div class="contenedor_nombre_menu_hamburguesa">
+        <h2><?php echo htmlspecialchars($nombre_usuario); ?></h2>
+        <!-- Menú desplegable -->
+        <div class="menu-hamburguesa" id="menu-btn">
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+        </div>
+        <nav class="menu-desplegable" id="menu">
+            <ul>
+                <li><a href="../php/cargar_header_modulo.php">Inicio</a></li>
+                <li><a href="Modulo_perfil.php">Perfil</a></li>
+                <li><a href="../php/logout_modulo.php">Cerrar sesión</a></li>
+            </ul>
+        </nav>
   </header>
 </div>
 
