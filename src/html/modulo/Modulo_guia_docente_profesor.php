@@ -1,3 +1,79 @@
+<?php
+session_start();
+include('../../app/conexion.inc');
+
+// Verificar sesión y rol
+if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'profesor') {
+    header("Location: Modulo_Inicio_Sesion.html");
+    exit();
+}
+
+// Obtener ID de asignatura
+$asignatura_id = isset($_GET['asignatura_id']) ? (int)$_GET['asignatura_id'] : 0;
+
+// Verificar que el profesor tiene permiso para esta asignatura
+$query = "SELECT COUNT(*) 
+          FROM profesores_asignaturas 
+          WHERE id_profesor = ? AND id_asignatura = ?";
+$stmt = $conexion->prepare($query);
+$stmt->bind_param("ii", $_SESSION['user_id'], $asignatura_id);
+$stmt->execute();
+$stmt->bind_result($count);
+$stmt->fetch();
+$stmt->close();
+
+if ($count === 0) {
+    die("No tienes permiso para acceder a esta asignatura");
+}
+
+// Obtener datos de la asignatura
+$query = "SELECT `nombre`,`ects`,`idioma`,`grado`,`duracion`,`descripcion` FROM asignaturas WHERE id = ?";
+$stmt = $conexion->prepare($query);
+$stmt->bind_param("i", $asignatura_id);
+$stmt->execute();
+$stmt->bind_result($nombre,$ects,$idioma,$grado,$duracion,$descripcion);
+$stmt->fetch();
+$stmt->close();
+
+// Obtener profesores de la asignatura
+$query = "
+    SELECT u.nombre, u.apellidos 
+    FROM usuariosmodulo u
+    INNER JOIN profesores_asignaturas pa ON u.id = pa.id_profesor
+    WHERE pa.id_asignatura = ?
+";
+$stmt = $conexion->prepare($query);
+$stmt->bind_param("i", $asignatura_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$profesores = [];
+while ($row = $result->fetch_assoc()) {
+    $profesores[] = $row['nombre'] . ' ' . $row['apellidos'];
+}
+$stmt->close();
+
+// Unir los nombres en una sola cadena
+$nombres_profesores = implode(', ', $profesores);
+
+// Obtener criterios de evaluación desde la BD
+$query = "SELECT id, nombre, valor FROM criterios_asignaturas WHERE id_asignatura = ?";
+$stmt = $conexion->prepare($query);
+$stmt->bind_param("i", $asignatura_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$criteriosEvaluacion = [];
+while ($row = $result->fetch_assoc()) {
+    $criteriosEvaluacion[] = $row;
+}
+
+$stmt->close();
+
+
+$conexion->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +86,7 @@
     <link rel="stylesheet" href="../css/Modulo_asignaturas.css">
     <link rel="stylesheet" href="../css/Modulo_recursos_profesor.css">
     <link rel="stylesheet" href="../css/Modulo_asignaturasProfesor.css">
-    <script src="../js/Modulo_asignaturasProfesor.js" defer></script>
+    <script src="../js/Modulo_guia_docente_profesor.js" defer></script>
 </head>
 <body>
 
@@ -31,13 +107,11 @@
     </div>
 
     <div class="guia-container">
-        <h1 class="titulo">Programación 2</h1>
+        <h1 class="titulo"><?php echo $nombre?></h1>
 
         <section class="descripcion">
             <p>
-                <br />
-                Esta asignatura profundiza en programación orientada a objetos, estructuras de datos y buenas prácticas de desarrollo. </br
-                    >Se enfoca en la resolución eficiente de problemas y el diseño modular de aplicaciones.
+                <?php echo $descripcion?>
             </p>
         </section>
 
@@ -45,11 +119,11 @@
             <section class="bloque informacion">
                 <h2>Información general</h2>
                 <div class="datos">
-                    <p><strong>Profesorado:</strong> Prof. Luelle Pridmore Starsmeare</p>
-                    <p><strong>Idioma:</strong> Español</p>
-                    <p><strong>Créditos:</strong> 6 ECTS</p>
-                    <p><strong>Titulación:</strong> Grado en Tecnologías Interactivas</p>
-                    <p><strong>Duración:</strong> Segundo semestre</p>
+                    <p><strong>Profesorado:</strong> <?php echo htmlspecialchars($nombres_profesores); ?></p>
+                    <p><strong>Idioma:</strong> <?php echo $idioma?></p>
+                    <p><strong>Créditos:</strong> <?php echo $ects?> ECTS</p>
+                    <p><strong>Titulación:</strong> <?php echo $grado?></p>
+                    <p><strong>Duración:</strong> <?php echo ($duracion === 'A') ? 'Primer semestre' : (($duracion === 'B') ? 'Segundo semestre' : 'Anual'); ?></p>
                 </div>
             </section>
 
@@ -78,38 +152,38 @@
                 <button class="tab-btn" data-tab="criterios">Criterios de evaluación</button>
             </div>
 
-            <form id="formEditarGuia">
-                <!-- Pestaña de Información General - SIN CAMBIOS -->
+            <form id="formEditarGuia" action="../php/modificar_guia_docente.php" method="POST">
+                <!-- Pestaña de Información General -->
                 <div id="tab-informacion" class="tab-content active">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="profesor">Profesorado</label>
-                            <input type="text" id="profesor" value="Prof. Luelle Pridmore Starsmeare" />
+                            <input type="text" id="profesor" value="<?php echo htmlspecialchars($nombres_profesores); ?>" disabled/>
                         </div>
 
                         <div class="form-group">
                             <label for="idioma">Idioma</label>
-                            <input type="text" id="idioma" value="Español" />
+                            <input type="text" id="idioma" value="<?php echo htmlspecialchars($idioma)?>" disabled/>
                         </div>
 
                         <div class="form-group">
                             <label for="creditos">Créditos</label>
-                            <input type="text" id="creditos" value="6 ECTS" />
+                            <input type="text" id="creditos" value="<?php echo htmlspecialchars($ects)?> ECTS" disabled/>
                         </div>
 
                         <div class="form-group">
                             <label for="duracion">Duración</label>
-                            <input type="text" id="duracion" value="Segundo semestre" />
+                            <input type="text" id="duracion" value="<?php echo ($duracion === 'A') ? 'Primer semestre' : (($duracion === 'B') ? 'Segundo semestre' : 'Anual'); ?>" disabled/>
                         </div>
 
                         <div class="form-group descripcion-textarea">
                             <label for="titulacion">Titulación</label>
-                            <input type="text" id="titulacion" value="Grado en Tecnologías Interactivas" />
+                            <input type="text" id="titulacion" value="<?php echo htmlspecialchars($grado)?>" disabled/>
                         </div>
 
                         <div class="form-group descripcion-textarea">
                             <label for="descripcionAsignatura">Descripción</label>
-                            <textarea id="descripcionAsignatura" rows="6" placeholder="Introduce una descripción...">Esta asignatura profundiza en programación orientada a objetos, estructuras de datos y buenas prácticas de desarrollo. Se enfoca en la resolución eficiente de problemas y el diseño modular de aplicaciones.</textarea>
+                            <textarea name="descripcionAsignatura" id="descripcionAsignatura" rows="6" placeholder="Introduce una descripción..."><?php echo htmlspecialchars($descripcion)?></textarea>
                         </div>
                     </div>
                 </div>
@@ -126,6 +200,7 @@
 
                 <div class="form-boton-guardar">
                     <button type="submit" class="btn-azul-claro">Guardar cambios</button>
+                    <input type="hidden" name="asignatura_id" value="<?= $_GET['asignatura_id'] ?>">
                 </div>
             </form>
         </div>
@@ -150,6 +225,10 @@
         .then(html => {
             document.getElementById("footer").innerHTML = html;
         });
+</script>
+
+<script>
+    const criteriosEvaluacionBD = <?php echo json_encode($criteriosEvaluacion); ?>;
 </script>
 
 </body>
