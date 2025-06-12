@@ -1,71 +1,73 @@
 
 /*titulo*/
-  .consulta-titulo {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-    margin-top: 0;
-  }
-  /*fondo consulta*/
-  .consulta-section {
-    padding: 50px 20px;
-  }
+.consulta-titulo {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+/*fondo consulta*/
+.consulta-section {
+  padding: 50px 20px;
+}
 /*contenedor del consulta*/
-  .consulta-container {
-    background-color: #fff;
-    margin: 0 auto;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  }
+.consulta-container {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
 
-  .consulta-container label p{
-    color: black;
-    font-weight: bold;
-    margin: 10px 0 3px 0;
-  }
-  
-  .consulta-form {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  
-  .form-left,
-  .form-right {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Grupo de campos */
-  .input-group {
-    display: flex;
-    flex-direction: column;
+.consulta-container label p{
+  color: black;
+  font-weight: bold;
+  margin: 10px 0 3px 0;
+}
 
-    margin-bottom: 20px;
-  }
-  
-  .consulta-form label {
-    font-weight: bold;
-  }
-  
-  .consulta-form input,
-  .consulta-form textarea {
-    padding: 10px;
-    border: 1px solid #999;
-    background-color: #e6e6e6;
-    border-radius: 5px;
-    font-size: 1em;
-    resize: vertical;
-  }
-  
-  textarea {
-    min-height: 200px;
-  }
+.consulta-form {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 
-  /* Botón base */
+.form-left,
+.form-right {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grupo de campos */
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.consulta-form label {
+  font-weight: bold;
+}
+
+.consulta-form input,
+.consulta-form textarea {
+  font-family: "Assistant", sans-serif;
+  font-weight: 500;
+  padding: 10px;
+  border: 1px solid var(--gris-oscuro);
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  font-size: 1em;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 200px;
+}
+
+/* Botón base */
 
 .btn-azul-verdoso{
   max-width: 300px;
