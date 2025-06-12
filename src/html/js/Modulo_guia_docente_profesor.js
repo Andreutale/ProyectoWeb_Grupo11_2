@@ -1,10 +1,9 @@
 // Datos iniciales de los criterios
-let criteriosEvaluacion = [
-    { nombre: "Exámenes", porcentaje: 50 },
-    { nombre: "Prácticas", porcentaje: 30 },
-    { nombre: "Asistencia", porcentaje: 10 },
-    { nombre: "Participación", porcentaje: 10 }
-];
+// Inicializar con los criterios cargados desde PHP
+let criteriosEvaluacion = (typeof criteriosEvaluacionBD !== "undefined")
+    ? criteriosEvaluacionBD.map(c => ({ nombre: c.nombre, porcentaje: c.valor }))
+    : [];
+
 
 // Función para renderizar los criterios en la vista principal
 function renderizarCriteriosEnVista() {
@@ -147,18 +146,27 @@ tabBtns.forEach(btn => {
     });
 });
 
-// JS para manejar el envío del formulario
-// document.getElementById('formEditarGuia').addEventListener('submit', function(e) {
-//     e.preventDefault();
-//
-//     // Guardar criterios solo si están en la pestaña activa
-//     if (!guardarCriteriosDesdeModal()) {
-//         return; // Detener el envío si hay error
-//     }
-//
-//     alert('Cambios guardados exitosamente');
-//     modal.style.display = "none";
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    const formEditarGuia = document.getElementById('formEditarGuia');
+
+    if (formEditarGuia) {
+        formEditarGuia.addEventListener('submit', function(e) {
+            if (!guardarCriteriosDesdeModal()) {
+                e.preventDefault(); // Cancelar envío si hay error
+                return;
+            }
+
+            // Serializar los criterios en JSON y meterlo en un input hidden
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'criterios_json';
+            hiddenInput.value = JSON.stringify(criteriosEvaluacion);
+            this.appendChild(hiddenInput);
+
+            // No cancelamos el envío; permitimos que el form siga
+        });
+    }
+});
 
 // Evento para añadir nuevo criterio
 document.getElementById('btnAnadirCriterio').addEventListener('click', añadirNuevoCriterio);
