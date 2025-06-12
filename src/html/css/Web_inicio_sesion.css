@@ -36,7 +36,8 @@ main {
 /* Estilos del encabezado del contenedor */
 .contenedor_inicio_sesion h1 {
     margin-top: 30px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 /* Estilos de los apartados de la pagina */
@@ -69,7 +70,7 @@ main {
 
 /* Estilos del ultimo hijo */
 .contenedor_inicio_sesion ul li:last-child {
-    margin: 70px 0 40px 0;
+    margin: 50px 0 40px 0;
 }
 
 /* Estilos del boton azul verdoso */
@@ -115,9 +116,14 @@ main {
 /* Estilos del mensaje de error */
 .mensaje-error {
     color: red;
+    font-size: 14px;
+    align-self: flex-start;
+    margin: 5px auto -20px auto;
     text-align: center;
-    margin-bottom: 10px;
-    visibility: hidden;
+}
+
+.mensaje-error.visible {
+    visibility: visible;
 }
 
 

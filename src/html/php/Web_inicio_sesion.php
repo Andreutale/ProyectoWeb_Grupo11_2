@@ -13,11 +13,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $stmt->store_result();
 
+    $errores = [];
+
+    if (empty($correo)) {
+        $errores['correo'] = "Correo obligatorio";
+    } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        $errores['correo'] = "Formato de correo inválido";
+    }
+
+    if (empty($contraseña)) {
+        $errores['contraseña'] = "Contraseña obligatoria";
+    }
+
+    // Guardar en sesión
+    $_SESSION['errores'] = $errores;
+    $_SESSION['datos'] = $_POST;
+
+    // Si hay errores, redirigir
+    if (!empty($errores)) {
+        header("Location: ../web/Web_inicio_sesion.php");
+        exit();
+    }
+
     if ($stmt->num_rows === 1) {
         $stmt->bind_result($id, $nombre, $apellidos, $correoDB, $telefono, $hash_guardado, $token);
         $stmt->fetch();
 
         if (password_verify($contraseña, $hash_guardado)) {
+            // Éxito: autenticar usuario
+            unset($_SESSION['errores']);
+            unset($_SESSION['datos']);
+
             $_SESSION['user_id'] = $id;
             $_SESSION['user_nombre'] = $nombre;
             $_SESSION['user_apellidos'] = $apellidos;
@@ -27,15 +53,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: ../web/Web_landing_page_registrado.html");
             exit();
         } else {
-            header("Location: ../web/Web_inicio_sesion.html?error=1");
-            exit();
+            $errores['contraseña'] = "Contraseña incorrecta";
         }
     } else {
-        header("Location: ../web/Web_inicio_sesion.html?error=1");
-        exit();
+        $errores['correo'] = "Correo no registrado";
     }
 
     $stmt->close();
     $conexion->close();
+
+    // Volver a enviar errores
+    $_SESSION['errores'] = $errores;
+    header("Location: ../web/Web_inicio_sesion.php");
+    exit();
 }
 ?>

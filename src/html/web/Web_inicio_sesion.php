@@ -14,6 +14,13 @@
 </head>
 <body>
 
+<?php
+session_start();
+$errores = $_SESSION['errores'] ?? [];
+$datos = $_SESSION['datos'] ?? [];
+unset($_SESSION['errores'], $_SESSION['datos']);
+?>
+
 <div id="header"></div>
 
 <!-- Imagenes de inicio de sesión -->
@@ -28,17 +35,31 @@
         <ul>
             <li>
                 <label for="email">Correo</label>
-                <input type="email" name="correo" id="email" placeholder="Introduce tu correo electrónico" required>
+                <input type="email" name="correo" id="email" placeholder="Introduce tu correo electrónico"
+                       value="<?php echo htmlspecialchars($datos['correo'] ?? '', ENT_QUOTES); ?>" >
+                <?php if (isset($errores['correo'])): ?>
+                    <p class="mensaje-error"><?php echo htmlspecialchars($errores['correo']); ?></p>
+                <?php endif; ?>
             </li>
             <li>
                 <label for="password">Contraseña</label>
-                <input type="password" name="contraseña" id="password" placeholder="Introduce tu contraseña" required>
+                <input type="password" name="contraseña" id="password" placeholder="Introduce tu contraseña" >
+                <?php if (isset($errores['contraseña'])): ?>
+                    <p class="mensaje-error"><?php echo htmlspecialchars($errores['contraseña']); ?></p>
+                <?php endif; ?>
             </li>
         </ul>
         <button class="btn-azul-verdoso" type="submit">Acceder</button>
+
+        <!-- Mensaje de error general, opcional -->
+        <?php if (isset($errores['general'])): ?>
+            <p id="mensaje-error" class="mensaje-error"><?php echo htmlspecialchars($errores['general']); ?></p>
+        <?php endif; ?>
+
         <div class="contenido_final">
-            <p id="mensaje-error" class="mensaje-error">Datos incorrectos</p>
-            <a href="Web_contraseña_olvidada.html"><p>¿Has olvidado tu <span class="parrafo_verde">Contraseña</span>?</p></a>
+            <a href="Web_contraseña_olvidada.html">
+                <p>¿Has olvidado tu <span class="parrafo_verde">Contraseña</span>?</p>
+            </a>
         </div>
     </form>
 
@@ -64,14 +85,6 @@
         .then(html => {
             document.getElementById("footer").innerHTML = html;
         });
-
-    // Mostrar mensaje de error
-    const mensajeError = document.getElementById("mensaje-error");
-    if (window.location.search.includes("error=1")) {
-        mensajeError.style.display = "block";
-    } else {
-        mensajeError.style.display = "none";
-    }
 
 </script>
 

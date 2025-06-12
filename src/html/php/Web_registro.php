@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Limpiar sesión y redirigir
         unset($_SESSION['errores']);
         unset($_SESSION['datos']);
-        header("Location: ../web/Web_inicio_sesion.html");
+        header("Location: ../web/Web_inicio_sesion.php");
         exit();
     } else {
         $errores['general'] = "Error en el registro. Intente nuevamente.";

@@ -81,7 +81,7 @@ unset($_SESSION['datos']);
         <?php endif; ?>
 
         <button class="btn-azul-verdoso" type="submit">Regístrate</button>
-        <a href="Web_inicio_sesion.html"><p>¿Ya tienes cuenta? <span class="parrafo_verde">Inicia Sesión</span></p></a>
+        <a href="Web_inicio_sesion.php"><p>¿Ya tienes cuenta? <span class="parrafo_verde">Inicia Sesión</span></p></a>
     </form>
 </main>
 
