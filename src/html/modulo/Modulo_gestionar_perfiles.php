@@ -68,7 +68,7 @@ $conexion->close();
         <th><a href="#" class="sortable"><h3>Correo electrónico</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt=""></a></th>
         <th>
           <div>
-            <button><h3>Añadir Usuario</h3></button>
+            <button><h3>Añadir <span class="esconder">Usuario</span></h3></button>
           </div>
         </th>
       </tr>

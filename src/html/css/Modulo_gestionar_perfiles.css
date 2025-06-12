@@ -4,6 +4,8 @@ main{
     padding: 0 5vw;
 }
 
+
+
 main > div:first-child h1 {
     text-align: center;
     margin-top: 40px;
@@ -17,31 +19,50 @@ div input{
     padding-left:5px;
 }
 /*div del buscador*/
-.buscador_gestionar_perfiles{
-     width: 100%;
-     max-width: 400px;
-     margin: 40px auto;
-     display: flex;
-     align-items: center;
-     gap: 10px;
- }
-/*boton del buscado*/
-.buscador_gestionar_perfiles button{
-    border: 1px solid black;
+.buscador_gestionar_perfiles {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.buscador_gestionar_perfiles form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.buscador_gestionar_perfiles input {
+    flex-grow: 1;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    background-color: var(--blanco-1);
+    box-sizing: border-box;
+}
+
+.buscador_gestionar_perfiles button {
     height: 40px;
     width: 40px;
+    background-color: var(--azul-claro);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-/*imagen del boton*/
-.buscador_gestionar_perfiles img{
+.buscador_gestionar_perfiles img {
     height: 30px;
     width: 30px;
 }
 /* boton añadir usuario*/
 table th div button {
+    display: flex;
+    justify-content: center;
     background-color: var(--azul-claro);
     padding: 10px 20px;
     border-radius: 6px;
@@ -67,6 +88,12 @@ table tr th {
     border-bottom: 2px solid black;
     vertical-align: middle;
     height: 60px;
+}
+
+table tr th:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*enlace de encabezado*/
@@ -251,6 +278,11 @@ th.desc .flecha_desplegable {
 
     .buscador_gestionar_perfiles input {
         width: 100%
+    }
+
+    .esconder{
+        display: none;
+        visibility: hidden;
     }
 
 
