@@ -10,5 +10,5 @@ formulario.addEventListener('submit', e => {
     // Redirigir después de 2 segundos
     setTimeout(() => {
         window.location.href = '../web/Web_contacto.php';
-    }, 2000);
+    }, 1000);
 });
