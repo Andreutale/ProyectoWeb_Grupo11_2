@@ -78,13 +78,13 @@
                 <button class="tab-btn" data-tab="criterios">Criterios de evaluación</button>
             </div>
 
-            <form id="formEditarGuia">
+            <form id="formEditarGuia" action="../php/modificar_guia_docente.php" method="POST">
                 <!-- Pestaña de Información General - SIN CAMBIOS -->
                 <div id="tab-informacion" class="tab-content active">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="profesor">Profesorado</label>
-                            <input type="text" id="profesor" value="Prof. Luelle Pridmore Starsmeare" />
+                            <input type="text" id="profesor" value="Prof. Luelle Pridmore Starsmeare" disabled/>
                         </div>
 
                         <div class="form-group">
@@ -109,7 +109,7 @@
 
                         <div class="form-group descripcion-textarea">
                             <label for="descripcionAsignatura">Descripción</label>
-                            <textarea id="descripcionAsignatura" rows="6" placeholder="Introduce una descripción...">Esta asignatura profundiza en programación orientada a objetos, estructuras de datos y buenas prácticas de desarrollo. Se enfoca en la resolución eficiente de problemas y el diseño modular de aplicaciones.</textarea>
+                            <textarea name="descripcionAsignatura" id="descripcionAsignatura" rows="6" placeholder="Introduce una descripción...">Esta asignatura profundiza en programación orientada a objetos, estructuras de datos y buenas prácticas de desarrollo. Se enfoca en la resolución eficiente de problemas y el diseño modular de aplicaciones.</textarea>
                         </div>
                     </div>
                 </div>
