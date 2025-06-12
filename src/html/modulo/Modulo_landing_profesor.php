@@ -4,28 +4,15 @@ include('../../app/conexion.inc');
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../html/Modulo_Inicio_Sesion.html");
+    header("Location: ./Modulo_Inicio_Sesion.html");
     exit();
 }
 
-// Obtener información del usuario
 $user_id = $_SESSION['user_id'];
-$query = "SELECT nombre FROM usuariosmodulo WHERE id = ?";
-$stmt_nombre = $conexion->prepare($query);
-$stmt_nombre->bind_param("i", $user_id);
-$stmt_nombre->execute();
-$result_nombre = $stmt_nombre->get_result(); //???
+$nombre_usuario = $_SESSION['user_name'];
 
-if ($result_nombre->num_rows === 0) {
-    die("Usuario no encontrado");
-}
-
-$usuario = $result_nombre->fetch_assoc();
-$nombre_usuario = $usuario['nombre'];
-$stmt_nombre->close();
-
-// Obtener asignaturas del profesor
-$query_asignaturas = "SELECT a.id, a.nombre FROM asignaturas a JOIN profesores_asignaturas pa ON a.id = pa.id_asignatura WHERE pa.id_profesor = ?";
+// Obtener asignaturas del alumno
+$query_asignaturas = "SELECT a.id, a.nombre FROM asignaturas a JOIN alumnos_asignaturas aa ON a.id = aa.id_asignatura WHERE aa.id_alumno = ?";
 $stmt_asignaturas = $conexion->prepare($query_asignaturas);
 $stmt_asignaturas->bind_param("i", $user_id);
 $stmt_asignaturas->execute();
@@ -39,6 +26,7 @@ while ($row = $result_asignaturas->fetch_assoc()) {
 $stmt_asignaturas->close();
 $conexion->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -58,7 +46,7 @@ $conexion->close();
 <div class="header-container">
   <header>
       <!-- Logo -->
-      <a href="Modulo_landing_profesor.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+      <a href="../php/cargar_header_modulo.php"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
       <a href="Modulo_perfil.php" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
       <!-- Lineas del menu hamburguesa -->
       <div class="menu-hamburguesa" id="menu-btn">
@@ -69,9 +57,9 @@ $conexion->close();
       <!-- Menú desplegable -->
       <nav class="menu-desplegable" id="menu">
       <ul>
-        <li><a href="Modulo_landing_profesor.html">Inicio</a></li>
-        <li><a href="Modulo_Perfil.html">Perfil</a></li>
-        <li><a href="Modulo_Inicio_Sesion.html">Cerrar sesión</a></li>
+        <li><a href="../php/cargar_header_modulo.php">Inicio</a></li>
+        <li><a href="Modulo_perfil.php">Perfil</a></li>
+        <li><a href="../php/logout_modulo.php">Cerrar sesión</a></li>
       </ul>
     </nav>
   </header>

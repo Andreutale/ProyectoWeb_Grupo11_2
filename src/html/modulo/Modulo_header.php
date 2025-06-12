@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -15,7 +20,7 @@
     <!-- Header del módulo de la web -->
     <header>
         <!-- logo del módulo -->
-        <a href="Modulo_Inicio_Sesion.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+        <a href="../php/cargar_header_modulo.php"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
 
         <!-- icono de usuario -->
         <a href="Modulo_perfil.php"><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
@@ -31,9 +36,9 @@
         <!-- Contenido del menú desplegable -->
         <nav class="menu-desplegable" id="menu">
             <ul>
-                <li><a href="Modulo_Inicio_Sesion.html">Inicio</a></li>
-                <li><a href="Modulo_Perfil.html">Perfil</a></li>
-                <li><a href="Modulo_Inicio_Sesion.html">Cerrar sesión</a></li>
+                <li><a href="../php/cargar_header_modulo.php">Inicio</a></li>
+                <li><a href="Modulo_perfil.php">Perfil</a></li>
+                <li><a href="../php/logout_modulo.php">Cerrar sesión</a></li>
             </ul>
         </nav>
 

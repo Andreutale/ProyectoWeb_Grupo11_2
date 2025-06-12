@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: ../modulo/Modulo_landing_profesor.php");
                 break;
             case 'pas':
-                header("Location: ../modulo/Modulo_landing_page_pas.html");
+                header("Location: ../modulo/Modulo_landing_page_pas.php");
                 break;
             default:
                 die("Rol no reconocido");

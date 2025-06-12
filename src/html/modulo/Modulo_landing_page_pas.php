@@ -1,3 +1,17 @@
+<?php
+session_start();
+include('../../app/conexion.inc');
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ./Modulo_Inicio_Sesion.html");
+    exit();
+}
+
+$nombre_usuario = $_SESSION['user_name'];
+
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -18,7 +32,7 @@
 
 <main>
     <div class="contenedor-pagina">
-        <h1>Hola, <span id="nombreUsuario">Andrea</span></h1>
+        <h1>Hola, <span id="nombreUsuario"><?php echo htmlspecialchars($nombre_usuario); ?></span></h1>
         <h3>Pulsa el botón para acceder a la gestión de usuarios</h3>
         <button class="btn-azul-oscuro">
             <a href="Modulo_gestionar_perfiles.php"><h3>Gestión de usuarios</h3></a>
@@ -31,7 +45,7 @@
 <script type="module">
     import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
 
-    fetch("Modulo_header.html")
+    fetch("Modulo_header.php")
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;
