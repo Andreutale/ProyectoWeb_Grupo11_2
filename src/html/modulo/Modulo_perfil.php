@@ -55,7 +55,7 @@ $conexion->close();
     <!-- div de la imagen y el boton-->
     <div>
       <img src="../../../images/user_icon.svg" alt="Foto de perfil" >
-        <a href="Modulo_Inicio_Sesion.html"><button id="cerrarSesion" class="btn-cerrar-sesion"><h3>Cerrar sesión</h3></button></a>
+        <a href="../php/logout_modulo.php"><button id="cerrarSesion" class="btn-cerrar-sesion"><h3>Cerrar sesión</h3></button></a>
     </div>
 
     <div>
@@ -78,7 +78,7 @@ $conexion->close();
 
 
   // Cargamos el HTML del header y footer
-  fetch("Modulo_header.html")
+  fetch("Modulo_header.php")
           .then(res => res.text())
           .then(html => {
             document.getElementById("header").innerHTML = html;

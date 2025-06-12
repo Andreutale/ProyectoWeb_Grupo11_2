@@ -48,15 +48,28 @@ main {
   font-size: 1.4rem;
 }
 
+.menu-desplegable {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.contenedor_nombre_menu_hamburguesa {
+  display: none;
+}
+
 /* Contenedor icono perfil */
 .perfil {
   display: flex;
 }
 
-.perfil h2 {
+.perfil h2,
+.contenedor_nombre_menu_hamburguesa h2 {
   color: white;
-  margin-top: 5px;
-  margin-right: -20px;
+  margin: auto auto;
 }
 
 /* Contenedor de las asignaturas */
@@ -115,6 +128,20 @@ main {
   .main-container h3 {
     font-size: 1.2rem;
   }
+
+  .perfil {
+    display: none;
+  }
+
+  .menu-desplegable {
+    display: block;
+  }
+
+  .contenedor_nombre_menu_hamburguesa {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -133,5 +160,11 @@ main {
   .asignatura img {
     width: 32px;
     height: 32px;
+  }
+}
+
+@media(max-width: 360px) {
+  .contenedor_nombre_menu_hamburguesa h2 {
+    display: none;
   }
 }

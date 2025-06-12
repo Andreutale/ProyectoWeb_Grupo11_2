@@ -1,0 +1,56 @@
+<?php
+    session_start();
+
+?>
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Header | Módulo</title>
+
+</head>
+<body>
+
+<!-- contenedor del header -->
+<div class="header-container">
+    <!-- Header del módulo de la web -->
+    <header>
+        <!-- logo del módulo -->
+        <a href="../php/cargar_header_modulo.php"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+
+        <!-- icono de usuario -->
+        <a href="Modulo_perfil.php"><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
+
+        <!-- Menú hamburguesa -->
+        <div class="menu-hamburguesa" id="menu-btn">
+            <!-- Lineas del menú hamburguesa-->
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+        </div>
+
+        <!-- Contenido del menú desplegable -->
+        <nav class="menu-desplegable" id="menu">
+            <ul>
+                <li><a href="../php/cargar_header_modulo.php">Inicio</a></li>
+                <li><a href="Modulo_perfil.php">Perfil</a></li>
+                <li><a href="../php/logout_modulo.php">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- imagen de la ola azul de la parte inferior derecha del header -->
+    <img class="ola_azul" src="../../../images/ola_azul_oscuro.png" alt="Ola azul oscuro del borde derecho">
+</div>
+
+<script type="module">
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+    iniciarMenuHamburguesa()
+</script>
+
+</body>
+</html>

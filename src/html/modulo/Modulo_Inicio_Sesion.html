@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../css/libro_de_estilos.css">
     <link rel="stylesheet" href="../css/Modulo_Inicio_Sesión.css">
-    <link rel="stylesheet" href="../css/Modulo_header.css">
+    <link rel="stylesheet" href="../css/Modulo_header_Inicio_sesion.css">
     <link rel="stylesheet" href="../css/Modulo_footer.css">
 
     <script src="../js/Modulo_Inicio_Sesion.js" defer></script>
@@ -180,7 +180,7 @@
     import { usuarios } from '../../app/usuarios.js';
 
     // Cargamos el HTML del header y footer
-    fetch("Modulo_header.html")
+    fetch("Modulo_header_Inicio_sesion.html")
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;
