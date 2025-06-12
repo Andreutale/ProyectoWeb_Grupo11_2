@@ -35,7 +35,7 @@
     font-size: 32px;
 }
 /*boton descubrelos*/
-.btn-azul-verdoso {
+.landing-texto a button {
     position: relative;
     font-size: 28px;
     font-weight: 600;

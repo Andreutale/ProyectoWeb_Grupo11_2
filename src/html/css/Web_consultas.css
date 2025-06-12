@@ -64,23 +64,22 @@
   textarea {
     min-height: 200px;
   }
-  
+
   /* Botón base */
-  .consulta-form button {
-    margin-top: 16px;
-    padding: 0;
-    background-color: #1e5a61;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .consulta-form button:hover {
-    background-color: #16474d;
-  }
+
+.btn-azul-verdoso{
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 0;
+  width: 100%;
+}
+
+.btn-azul-verdoso h3{
+  margin: 10px 0;
+}
+.btn-azul-verdoso:hover {
+  background-color: #16474d;
+}
 /*responsive*/
   @media (max-width: 600px) {
     .consulta-form {
@@ -108,8 +107,8 @@
       padding-left: 15%;
       padding-right: 15%;
     }
-  
-    .consulta-form button {
+
+    .btn-azul-verdoso {
       width: 300px;
       margin: 16px auto 0 auto;
     }
@@ -120,7 +119,7 @@
         padding-left: 15%;
         padding-right: 15%;
       }
-  
+
 }
 
 .fondo_consulta {
