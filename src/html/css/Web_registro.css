@@ -15,7 +15,6 @@
     border: 1px solid var(--gris-oscuro);
     background-color: white;
     border-radius: 20px;
-    z-index: 1;
 
     display: flex;
     flex-direction: column;
@@ -24,7 +23,7 @@
 }
 
 .contenedor_registro h1 {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 .contenedor_div_formulario {
@@ -66,13 +65,13 @@
 }
 
 .mensaje-error {
+    margin-top: 0;
     visibility: hidden;
 }
 
 /* Estilo para el botón y enlace */
 .contenedor_registro button {
     padding: 10px 0;
-    margin-top: 10px;
     width: 30%;
 }
 
