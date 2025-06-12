@@ -7,7 +7,7 @@ function verificarToken() {
 
     if (!isset($_SESSION['token'])) {
         // Sin token → Redirigir a la página de registro
-        header("Location: ../web/Web_inicio_sesion.html");
+        header("Location: ../web/Web_inicio_sesion.php");
         exit();
     }
 
@@ -19,7 +19,7 @@ function verificarToken() {
 
     if ($stmt->num_rows === 0) {
         // Token no válido → Redirigir a registro
-        header("Location: ../web/Web_inicio_sesion.html");
+        header("Location: ../web/Web_inicio_sesion.php");
         exit();
     }
 }

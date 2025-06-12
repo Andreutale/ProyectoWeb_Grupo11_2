@@ -14,90 +14,100 @@ verificarToken();
   <link rel="stylesheet" href="../css/Web_header_registrado.css">
   <link rel="stylesheet" href="../css/Web_footer.css">
   <link rel="stylesheet" href="../css/libro_de_estilos.css">
+
+  <script src="../js/Web_contacto.js" defer></script>
 </head>
 <body>
-  <!-- Header -->
-  <div id="header"></div>
+<!-- Header -->
+<div id="header"></div>
 
-  <main>
-      <!-- Sección principal -->
-      <section class="consulta-section">
-          <h1 class="consulta-titulo">Contáctanos para poder ayudarte</h1>
-          <h2 class="consulta-subtitulo">Completa el formulario y te responderemos pronto</h2>
+<main>
+    <!-- Sección principal -->
+    <section class="consulta-section">
+        <h1 class="consulta-titulo">Contáctanos <span>para poder ayudarte</span></h1>
+        <h2 class="consulta-subtitulo">Completa el formulario y te responderemos pronto</h2>
 
-          <div class="consulta-container">
-              <form class="consulta-form">
-                  <div class="form-left">
-                      <div class="input-group">
-                          <label for="nombre">Nombre</label>
-                          <input type="text" id="nombre" name="nombre" required />
-                      </div>
+        <div class="consulta-container">
+            <form class="consulta-form">
+                <div class="form-left">
+                    <div class="input-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required />
+                    </div>
 
-                      <div class="input-group">
-                          <label for="producto">Producto</label>
-                          <select id="producto" name="modulos">
-                              <option value="1">Recursos</option>
-                              <option value="2">Calificaciones</option>
-                              <option value="3">Exámenes</option>
-                              <option value="4">Anuncios</option>
-                              <option value="5">Tareas</option>
-                              <option value="6">Correo interno</option>
-                              <option value="7">Foros</option>
-                              <option value="8">Videoapuntes</option>
-                          </select>
-                      </div>
+                    <div class="input-group">
+                        <label for="producto">Producto</label>
+                        <select id="producto" name="modulos">
+                            <option value="1">Recursos</option>
+                            <option value="2">Calificaciones</option>
+                            <option value="3">Exámenes</option>
+                            <option value="4">Anuncios</option>
+                            <option value="5">Tareas</option>
+                            <option value="6">Correo interno</option>
+                            <option value="7">Foros</option>
+                            <option value="8">Videoapuntes</option>
+                        </select>
+                    </div>
 
-                      <div class="input-group">
-                          <label for="mensaje">Mensaje</label>
-                          <textarea id="mensaje" name="mensaje" required></textarea>
-                      </div>
-                  </div>
+                    <div class="input-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+                </div>
 
-                  <div class="form-right">
-                      <div class="input-group">
-                          <label for="apellidos">Apellidos</label>
-                          <input type="text" id="apellidos" name="apellidos" required />
-                      </div>
+                <div class="form-right">
+                    <div class="input-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" required />
+                    </div>
 
-                      <div class="input-group">
-                          <label for="entidad">Entidad</label>
-                          <input type="text" id="entidad" name="entidad" required />
-                      </div>
+                    <div class="input-group">
+                        <label for="entidad">Entidad</label>
+                        <input type="text" id="entidad" name="entidad" required />
+                    </div>
 
-                      <div class="input-group">
-                          <label for="correo">Correo electrónico</label>
-                          <input type="email" id="correo" name="correo" required />
-                      </div>
+                    <div class="input-group">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" required />
+                    </div>
 
-                      <button type="submit">Enviar</button>
-                  </div>
-              </form>
-          </div>
-      </section>
-  </main>
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
 
-  <!-- Footer -->
-  <id id="footer"></id>
+<!-- Alerta personalizada y redirección -->
+<div class="alerta-personalizada" id="alerta-personalizada">
+    <div class="alerta-contenedor">
+        <p id="mensaje-alerta">Enviando consulta</p>
+        <div class="loader"></div>
+    </div>
+</div>
 
-  <script type="module">
-    // Importamos el menu hamburguesa
-    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+<!-- Footer -->
+<id id="footer"></id>
+
+<script type="module">
+  // Importamos el menu hamburguesa
+  import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
 
 
-    // Cargamos el HTML del header y footer
-    fetch("Web_header_registrado.html")
-            .then(res => res.text())
-            .then(html => {
-              document.getElementById("header").innerHTML = html;
-              iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
-            });
+  // Cargamos el HTML del header y footer
+  fetch("Web_header_registrado.html")
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById("header").innerHTML = html;
+            iniciarMenuHamburguesa(); // Aquí activamos el menú hamburguesa
+          });
 
-    fetch("Web_footer.html")
-            .then(res => res.text())
-            .then(html => {
-              document.getElementById("footer").innerHTML = html;
-            });
-  </script>
+  fetch("Web_footer.html")
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById("footer").innerHTML = html;
+          });
+</script>
 
 <script type="module">
   import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'

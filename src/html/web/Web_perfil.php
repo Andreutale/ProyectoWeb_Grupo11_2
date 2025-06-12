@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['user_correo'])) {
-    header("Location: Web_inicio_sesion.html");
+    header("Location: Web_inicio_sesion.php");
     exit();
 }
 
