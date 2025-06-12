@@ -52,6 +52,8 @@
     align-self: flex-start;
     margin-left: 7%;
     margin-bottom: 2px;
+
+    display: flex;
 }
 
 .contenedor_1_formulario input,
@@ -65,12 +67,22 @@
 }
 
 .mensaje-error {
-    margin-top: 0;
+    color: red;
+    font-size: 14px;
+    align-self: flex-start;
+    margin: -20px auto 5px auto;
+    text-align: center;
     visibility: hidden;
+    display: initial;
+}
+
+.mensaje-error.visible {
+    visibility: visible;
 }
 
 /* Estilo para el botón y enlace */
 .contenedor_registro button {
+    margin-top: 10px;
     padding: 10px 0;
     width: 30%;
 }
