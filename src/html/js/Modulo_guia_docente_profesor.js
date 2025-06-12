@@ -148,17 +148,17 @@ tabBtns.forEach(btn => {
 });
 
 // JS para manejar el envío del formulario
-document.getElementById('formEditarGuia').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Guardar criterios solo si están en la pestaña activa
-    if (!guardarCriteriosDesdeModal()) {
-        return; // Detener el envío si hay error
-    }
-
-    alert('Cambios guardados exitosamente');
-    modal.style.display = "none";
-});
+// document.getElementById('formEditarGuia').addEventListener('submit', function(e) {
+//     e.preventDefault();
+//
+//     // Guardar criterios solo si están en la pestaña activa
+//     if (!guardarCriteriosDesdeModal()) {
+//         return; // Detener el envío si hay error
+//     }
+//
+//     alert('Cambios guardados exitosamente');
+//     modal.style.display = "none";
+// });
 
 // Evento para añadir nuevo criterio
 document.getElementById('btnAnadirCriterio').addEventListener('click', añadirNuevoCriterio);
