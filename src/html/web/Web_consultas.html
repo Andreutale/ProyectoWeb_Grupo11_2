@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="../css/Web_header_registrado.css">
   <link rel="stylesheet" href="../css/Web_footer.css">
 
-
-
+  <script src="../js/Web_consultas.js" defer></script>
 </head>
 <body>
 <!-- header -->
@@ -62,6 +61,14 @@
     <!-- footer -->
 <div id="footer"></div>
 
+<!-- Alerta personalizada y redirección -->
+<div class="alerta-personalizada" id="alerta-personalizada">
+  <div class="alerta-contenedor">
+    <p id="mensaje-alerta">Enviando consulta</p>
+    <div class="loader"></div>
+  </div>
+</div>
+
 <script type="module">
   // Importamos el menu hamburguesa
   import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
@@ -82,10 +89,10 @@
           });
 </script>
 
-  <script type="module">
-    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'
-    iniciarMenuHamburguesa();
-  </script>
+<script type="module">
+  import { iniciarMenuHamburguesa } from '../js/Modulo_header.js'
+  iniciarMenuHamburguesa();
+</script>
 
 
 
