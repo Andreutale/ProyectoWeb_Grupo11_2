@@ -29,12 +29,12 @@ verificarToken();
               <form class="consulta-form">
                   <div class="form-left">
                       <div class="input-group">
-                          <label for="nombre">Nombre *</label>
+                          <label for="nombre">Nombre</label>
                           <input type="text" id="nombre" name="nombre" required />
                       </div>
 
                       <div class="input-group">
-                          <label for="producto">Producto *</label>
+                          <label for="producto">Producto</label>
                           <select id="producto" name="modulos">
                               <option value="1">Recursos</option>
                               <option value="2">Calificaciones</option>
@@ -48,24 +48,24 @@ verificarToken();
                       </div>
 
                       <div class="input-group">
-                          <label for="mensaje">Mensaje *</label>
+                          <label for="mensaje">Mensaje</label>
                           <textarea id="mensaje" name="mensaje" required></textarea>
                       </div>
                   </div>
 
                   <div class="form-right">
                       <div class="input-group">
-                          <label for="apellidos">Apellidos *</label>
+                          <label for="apellidos">Apellidos</label>
                           <input type="text" id="apellidos" name="apellidos" required />
                       </div>
 
                       <div class="input-group">
-                          <label for="entidad">Entidad *</label>
+                          <label for="entidad">Entidad</label>
                           <input type="text" id="entidad" name="entidad" required />
                       </div>
 
                       <div class="input-group">
-                          <label for="correo">Correo electrónico *</label>
+                          <label for="correo">Correo electrónico</label>
                           <input type="email" id="correo" name="correo" required />
                       </div>
 
