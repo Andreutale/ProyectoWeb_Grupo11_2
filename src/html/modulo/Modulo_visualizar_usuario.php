@@ -92,7 +92,9 @@ $conexion->close();
 
 <main>
     <section class="container">
-        <h1 style="text-align: center;">Visualizar usuario</h1>
+        <h1>Visualizar usuario</h1>
+
+        <p class="cruz_salir">&times;</p>
 
         <img src="../../../images/iconos/web_perfil.svg" alt="Foto de perdil" class="user-img">
         <button id="btn-editar" class="btn-editar">Editar usuario</button>

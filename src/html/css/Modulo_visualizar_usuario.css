@@ -12,6 +12,20 @@ main {
     padding: 2rem;
     background-color: #e4e4e4;
     border-radius: 10px;
+    position: relative;
+}
+
+.cruz_salir {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    color: var(--azul-oscuro);
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.cruz_salir:hover {
+    color: var(--azul-claro);
 }
 
 /* Imagen de usuario */
