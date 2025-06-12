@@ -21,7 +21,7 @@ btn_enviar.addEventListener("click", () => {
     //alert de confirmacion
     alert("Sigue los pasos del correo que has recibido")
     setTimeout(() => {
-        document.location.href = "Web_inicio_sesion.html"
+        document.location.href = "Web_inicio_sesion.php"
     }, 150)
 
 })
