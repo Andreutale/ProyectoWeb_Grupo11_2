@@ -89,7 +89,7 @@ $conexion->close();
       <?php if (count($asignaturas) > 0): ?>
           <?php foreach ($asignaturas as $asignatura): ?>
               <div class="asignatura">
-                  <a href="Modulo_recursos_alumno.php?id_asignatura=<?= $asignatura['id'] ?>">
+                  <a href="Modulo_guia_docente.php?asignatura_id=<?= $asignatura['id'] ?>">
                       <p><?= htmlspecialchars($asignatura['nombre']) ?></p>
                   </a>
               </div>
