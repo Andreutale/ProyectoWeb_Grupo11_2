@@ -3,33 +3,49 @@ session_start();
 include('../../app/conexion.inc');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    include('../../app/conexion.inc');
-
     $id_usuario = intval($_GET['id']);
     $nombre = $conexion->real_escape_string($_POST['nombre']);
     $apellidos = $conexion->real_escape_string($_POST['apellidos']);
     $correo = $conexion->real_escape_string($_POST['correo']);
     $dni = $conexion->real_escape_string($_POST['dni']);
+    $asignaturas_seleccionadas = isset($_POST['asignaturas']) ? $_POST['asignaturas'] : [];
 
-    $sql_update = "
-        UPDATE usuariosmodulo SET 
-            nombre = '$nombre',
-            apellidos = '$apellidos',
-            correo = '$correo',
-            dni = '$dni'
-        WHERE id = $id_usuario
-    ";
+    // Obtener rol actualizado
+    $sql_rol = "SELECT rol FROM usuariosmodulo WHERE id = $id_usuario";
+    $res_rol = $conexion->query($sql_rol);
+    $rol = ($res_rol->num_rows > 0) ? $res_rol->fetch_assoc()['rol'] : '';
 
-    $conexion->query($sql_update);
+    $conexion->query("UPDATE usuariosmodulo SET 
+        nombre = '$nombre',
+        apellidos = '$apellidos',
+        correo = '$correo',
+        dni = '$dni'
+        WHERE id = $id_usuario");
+
+    // Gestión de asignaturas
+    if ($rol === 'alumno' || $rol === 'profesor') {
+        $tabla_relacional = ($rol === 'alumno') ? 'alumnos_asignaturas' : 'profesores_asignaturas';
+        $campo_usuario = ($rol === 'alumno') ? 'id_alumno' : 'id_profesor';
+
+        // Confirmación con JS en frontend, pero por si acaso...
+        // Eliminar asignaciones anteriores
+        $conexion->query("DELETE FROM $tabla_relacional WHERE $campo_usuario = $id_usuario");
+
+        // Insertar nuevas asignaciones
+        foreach ($asignaturas_seleccionadas as $id_asig) {
+            $id_asig = intval($id_asig);
+            $conexion->query("INSERT INTO $tabla_relacional ($campo_usuario, id_asignatura) VALUES ($id_usuario, $id_asig)");
+        }
+    }
+
     $conexion->close();
-
-    // Redirigir para evitar re-envío en refresco
     header("Location: Modulo_visualizar_usuario.php?id=$id_usuario");
     exit;
 }
 
+
 if (!isset($_GET['id'])) {
-    die("ID de usuario no especificado.");
+    header("Location: Modulo_Inicio_Sesion.html");
 }
 
 $id_usuario = intval($_GET['id']);
@@ -100,7 +116,7 @@ $conexion->close();
         <button id="btn-editar" class="btn-editar">Editar usuario</button>
 
         <div id="botones-edicion" style="display: none;">
-            <button type="submit" form="form-usuario" class="btn-confirmar">Confirmar</button>
+            <button type="submit" form="form-usuario" class="btn-editar">Confirmar</button>
             <button type="button" id="cancelar-edicion" class="btn-cancelar">Cancelar</button>
         </div>
 
@@ -110,28 +126,52 @@ $conexion->close();
             <div class="user-info">
                 <div>
                     <p>Nombre</p>
-                    <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($usuario['nombre']); ?>" disabled>
+                    <input type="text" name="nombre" id="nombre"
+                           value="<?php echo htmlspecialchars($usuario['nombre']); ?>" disabled>
                 </div>
                 <div>
                     <p>Apellidos</p>
-                    <input type="text" name="apellidos" id="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" disabled>
+                    <input type="text" name="apellidos" id="apellidos"
+                           value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" disabled>
                 </div>
                 <div>
                     <p>Correo</p>
-                    <input type="email" name="correo" id="correo" value="<?php echo htmlspecialchars($usuario['correo']); ?>" disabled>
+                    <input type="email" name="correo" id="correo"
+                           value="<?php echo htmlspecialchars($usuario['correo']); ?>" disabled>
                 </div>
                 <div>
-                        <p>DNI</p>
-                    <input type="text" name="dni" id="dni" value="<?php echo htmlspecialchars($usuario['dni']); ?>" disabled>
+                    <p>DNI</p>
+                    <input type="text" name="dni" id="dni" value="<?php echo htmlspecialchars($usuario['dni']); ?>"
+                           disabled>
                 </div>
                 <div>
                     <p>Rol</p>
-                    <input type="text" name="rol" id="rol" value="<?php echo htmlspecialchars($usuario['rol']); ?>" disabled>
+                    <input type="text" name="rol" id="rol" value="<?php echo htmlspecialchars($usuario['rol']); ?>"
+                           disabled>
                 </div>
                 <!--div>
                     <p>Grado</p>
                     <input type="text" name="grado" id="grado" value="<?php echo htmlspecialchars($usuario['grado']); ?>" disabled>
                 </div-->
+            </div>
+
+            <div id="asignaturas-container" style="display: none;">
+                <br>
+                <h3>Asignaturas</h3>
+                <br>
+                <p>
+                    <?php
+                    include('../../app/conexion.inc'); // Solo si no está ya incluida
+                    $todas_asignaturas = $conexion->query("SELECT id, nombre FROM asignaturas");
+                    $asignaturas_ids_usuario = array_column($asignaturas, 'id');
+
+                    while ($asig = $todas_asignaturas->fetch_assoc()) {
+                        $checked = in_array($asig['id'], $asignaturas_ids_usuario) ? 'checked' : '';
+                        echo "<p><input type='checkbox' name='asignaturas[]' value='{$asig['id']}' $checked disabled>{$asig['nombre']}
+                </p>
+                <br>";
+                    }
+                    ?>
             </div>
         </form>
 
@@ -154,7 +194,9 @@ $conexion->close();
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
-                <tr><td colspan="2"><p>No hay asignaturas matriculadas.</p></td></tr>
+                <tr>
+                    <td colspan="2"><p>No hay asignaturas matriculadas.</p></td>
+                </tr>
             <?php endif; ?>
             </tbody>
         </table>
@@ -167,8 +209,8 @@ $conexion->close();
 <!-- SCRIPTS GENERALES -->
 <script type="module">
     // Primero importamos las funciones y datos necesarios
-    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
-    import { usuarios } from '../../app/usuarios.js';
+    import {iniciarMenuHamburguesa} from '../js/Modulo_header.js';
+    import {usuarios} from '../../app/usuarios.js';
 
     // Cargamos el HTML del header y footer
     fetch("Modulo_header_sin_ola.html")
