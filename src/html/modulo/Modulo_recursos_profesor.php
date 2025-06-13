@@ -102,71 +102,71 @@ $conexion->close();
             </div>
         </div>
 
-            <table id="tablaRecursos">
-                <thead>
-                <tr>
-                    <th>
-                        <!--label class="checkbox-con-imagen">
-                            <input type="checkbox" id="selectAll">
-                            <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
-                        </label-->
-                    </th>
-                    <th data-sort="nombre">
-                        <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th data-sort="autor">
-                        <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th data-sort="fecha">
-                        <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th data-sort="tipo">
-                        <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($archivos as $archivo):
-                    $fecha_formateada = date('d/m/y', strtotime($archivo['fecha']));
-                    $tipo_archivo = obtenerTipoArchivo($archivo['tipo']);
-                    ?>
-                    <tr>
-                        <td>
-                            <!--label class="checkbox-con-imagen">
+        <table id="tablaRecursos">
+            <thead>
+            <tr>
+                <th>
+                    <!--label class="checkbox-con-imagen">
+                        <input type="checkbox" id="selectAll">
+                        <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
+                    </label-->
+                </th>
+                <th data-sort="nombre">
+                    <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th data-sort="autor">
+                    <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th data-sort="fecha">
+                    <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th data-sort="tipo">
+                    <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($archivos as $archivo):
+            $fecha_formateada = date('d/m/y', strtotime($archivo['fecha']));
+            $tipo_archivo = obtenerTipoArchivo($archivo['tipo']);
+            ?>
+            <tr>
+                <td>
+                    <!--label class="checkbox-con-imagen">
                                 <input type="checkbox" class="rowCheckbox" name="archivos_seleccionados[]" value="<?= $archivo['id'] ?>">
                                 <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
                             </label-->
-                        </td>
-                        <td>
-                            <div class="nombreMasImagen">
-                                <img src="../../../images/iconos/icono_fichero.png" alt="Icono de <?= $tipo_archivo ?>">
-                                <h3><?= htmlspecialchars($archivo['nombre']) ?></h3>
-                            </div>
-                        </td>
-                        <td><h3><?= htmlspecialchars($archivo['nombre_autor']) ?></h3></td>
-                        <td><h3 data-date="<?= $archivo['fecha'] ?>"><?= $fecha_formateada ?></h3></td>
-                        <td><h3><?= $tipo_archivo ?></h3></td>
-                        <td class="responsive-actions">
-                            <button class="btn-azul-claro btn-desplegable-responsive">
-                                <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
-                            </button>
-                        </td>
-                        <td>
-                            <div class="dropdown-container">
-                                    <a href="../php/descargar_archivo.php?id=<?= $archivo['id'] ?>" class="dropdown-item"><button class="btn-azul-claro">Descargar</button></a>
-                                    <form action="../php/eliminar_archivo.php" method="POST" class="dropdown-item-form">
-                                        <input type="hidden" name="id_archivo" value="<?= $archivo['id'] ?>">
-                                        <button type="submit" class="dropdown-item-btn btn-azul-claro" onclick="return confirm('¿Estás seguro de que quieres eliminar este archivo?')">Eliminar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+                </td>
+                <td>
+                    <div class="nombreMasImagen">
+                        <img src="../../../images/iconos/icono_fichero.png" alt="Icono de <?= $tipo_archivo ?>">
+                        <h3><?= htmlspecialchars($archivo['nombre']) ?></h3>
+                    </div>
+                </td>
+                <td><h3><?= htmlspecialchars($archivo['nombre_autor']) ?></h3></td>
+                <td><h3 data-date="<?= $archivo['fecha'] ?>"><?= $fecha_formateada ?></h3></td>
+                <td><h3><?= $tipo_archivo ?></h3></td>
+                <td class="responsive-actions">
+                    <button class="btn-azul-claro btn-desplegable-responsive">
+                        <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
+                    </button>
+                </td>
+                <td>
+                    <div class="dropdown-container">
+                        <a href="../php/descargar_archivo.php?id=<?= $archivo['id'] ?>" class="dropdown-item"><button class="btn-azul-claro">Descargar</button></a>
+                        <form action="../php/eliminar_archivo.php" method="POST" class="dropdown-item-form">
+                            <input type="hidden" name="id_archivo" value="<?= $archivo['id'] ?>">
+                            <button type="submit" class="dropdown-item-btn btn-azul-claro" onclick="return confirm('¿Estás seguro de que quieres eliminar este archivo?')">Eliminar</button>
+                        </form>
+                    </div>
+    </div>
+    </td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+    </table>
 
     </div>
 </main>
@@ -275,8 +275,18 @@ function obtenerNombreUsuario($id_usuario) {
 <script type="module">
     import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
 
-    // Cargar header y footer
-    fetch("Modulo_header_asignaturas.html")
+    // Lee el valor de asignatura_id desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const asignaturaIdURL = urlParams.get('asignatura_id');
+
+    if (asignaturaIdURL) {
+        localStorage.setItem('asignatura_id', asignaturaIdURL);
+    }
+
+    const asignaturaId = localStorage.getItem('asignatura_id');
+
+    // Cargar header con la asignatura correcta
+    fetch(`Modulo_header_asignaturas_profesor.php?asignatura_id=${asignaturaId}`)
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;

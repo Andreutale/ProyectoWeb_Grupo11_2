@@ -67,7 +67,18 @@ $criteriosEvaluacion = [];
 while ($row = $result->fetch_assoc()) {
     $criteriosEvaluacion[] = $row;
 }
+$stmt->close();
 
+// Obtener asignaturas del profesor para el menú lateral
+$query = "SELECT a.id, a.nombre 
+          FROM asignaturas a
+          JOIN profesores_asignaturas pa ON a.id = pa.id_asignatura
+          WHERE pa.id_profesor = ?";
+$stmt = $conexion->prepare($query);
+$stmt->bind_param("i", $_SESSION['user_id']);
+$stmt->execute();
+$asignaturas_result = $stmt->get_result();
+$asignaturas = $asignaturas_result->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
 
@@ -79,7 +90,7 @@ $conexion->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recursos profesor | Módulo</title>
+    <title>Guía docente profesor | Módulo</title>
     <link rel="stylesheet" href="../css/libro_de_estilos.css">
     <link rel="stylesheet" href="../css/Modulo_header_asignaturas.css">
     <link rel="stylesheet" href="../css/Modulo_footer.css">
@@ -94,16 +105,13 @@ $conexion->close();
 
 <main>
     <div class="asignaturas">
-        <div class="btn-azul-claro">
-            <h3>Programación 1</h3>
-        </div>
-        <div class="btn-azul-claro">
-            <h3>Programación en sistemas cloud</h3>
-        </div>
-        <div class="btn-azul-claro">
-            <h3>Proyecto Aplicaciones de Biometría y Medio Ambiente</h3>
-        </div>
-        <img id="img_puntos_suspensivos" src="../../../images/iconos/icono_tres_puntos_suspensivos.png" alt="Icono marcapaginas">
+        <?php foreach ($asignaturas as $asig): ?>
+            <a href="Modulo_guia_docente_profesor.php?asignatura_id=<?= $asig['id'] ?>">
+                <div class="btn-azul-claro <?= $asig['id'] == $asignatura_id ? 'active' : '' ?>">
+                    <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
+                </div>
+            </a>
+        <?php endforeach; ?>
     </div>
 
     <div class="guia-container">
@@ -144,7 +152,7 @@ $conexion->close();
     <div id="modalEditarGuia" class="modal">
         <div class="modal-content modal-editar-guia">
             <span class="close-modal">&times;</span>
-            <h1>Editar guía docente de la asignatura</h1>
+            <h1>Editar guía docente de <?php echo $nombre?></h1>
 
             <!-- Pestañas -->
             <div class="tabs-container">
@@ -212,8 +220,18 @@ $conexion->close();
 <script type="module">
     import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
 
-    // Cargar header y footer
-    fetch("Modulo_header_asignaturas.html")
+    // Lee el valor de asignatura_id desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const asignaturaIdURL = urlParams.get('asignatura_id');
+
+    if (asignaturaIdURL) {
+        localStorage.setItem('asignatura_id', asignaturaIdURL);
+    }
+
+    const asignaturaId = localStorage.getItem('asignatura_id');
+
+    // Cargar header con la asignatura correcta
+    fetch(`Modulo_header_asignaturas_profesor.php?asignatura_id=${asignaturaId}`)
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;
