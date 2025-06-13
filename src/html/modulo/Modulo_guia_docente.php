@@ -59,19 +59,6 @@ while ($row = $result->fetch_assoc()) {
     $criteriosEvaluacion[] = $row;
 }
 $stmt->close();
-
-// Obtener asignaturas del alumno para el menú lateral
-$query = "SELECT a.id, a.nombre 
-          FROM asignaturas a
-          JOIN alumnos_asignaturas pa ON a.id = pa.id_asignatura
-          WHERE pa.id_alumno = ?";
-$stmt = $conexion->prepare($query);
-$stmt->bind_param("i", $_SESSION['user_id']);
-$stmt->execute();
-$asignaturas_result = $stmt->get_result();
-$asignaturas = $asignaturas_result->fetch_all(MYSQLI_ASSOC);
-$stmt->close();
-
 $conexion->close();
 ?>
 
@@ -81,7 +68,7 @@ $conexion->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía docente alumno | Módulo</title>
+    <title>Recursos alumno | Módulo</title>
     <link rel="stylesheet" href="../css/libro_de_estilos.css">
     <link rel="stylesheet" href="../css/Modulo_header_asignaturas.css">
     <link rel="stylesheet" href="../css/Modulo_footer.css">
@@ -95,13 +82,16 @@ $conexion->close();
 
 <main>
     <div class="asignaturas">
-        <?php foreach ($asignaturas as $asig): ?>
-            <a href="Modulo_guia_docente.php?asignatura_id=<?= $asig['id'] ?>">
-                <div class="btn-azul-claro <?= $asig['id'] == $asignatura_id ? 'active' : '' ?>">
-                    <h3><?= htmlspecialchars($asig['nombre']) ?></h3>
-                </div>
-            </a>
-        <?php endforeach; ?>
+        <div class="btn-azul-claro">
+            <h3>Programación 1</h3>
+        </div>
+        <div class="btn-azul-claro">
+            <h3>Programación en sistemas cloud</h3>
+        </div>
+        <div class="btn-azul-claro">
+            <h3>Proyecto Aplicaciones de Biometría y Medio Ambiente</h3>
+        </div>
+        <img id="img_puntos_suspensivos" src="../../../images/iconos/icono_tres_puntos_suspensivos.png" alt="Icono marcapaginas">
     </div>
 
     <div class="guia-container">
@@ -143,18 +133,8 @@ $conexion->close();
 <script type="module">
     import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
 
-    // Lee el valor de asignatura_id desde la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const asignaturaIdURL = urlParams.get('asignatura_id');
-
-    if (asignaturaIdURL) {
-        localStorage.setItem('asignatura_id', asignaturaIdURL);
-    }
-
-    const asignaturaId = localStorage.getItem('asignatura_id');
-
-    // Cargar header con la asignatura correcta
-    fetch(`Modulo_header_asignaturas_alumno.php?asignatura_id=${asignaturaId}`)
+    // Cargar header y footer
+    fetch("Modulo_header_asignaturas.html")
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;
