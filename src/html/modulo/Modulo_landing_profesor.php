@@ -4,7 +4,7 @@ include('../../app/conexion.inc');
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ./Modulo_Inicio_Sesion.php");
+    header("Location: ./Modulo_Inicio_Sesion.html");
     exit();
 }
 
