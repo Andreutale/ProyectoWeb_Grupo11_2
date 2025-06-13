@@ -12,3 +12,7 @@ formulario.addEventListener('submit', e => {
         window.location.href = '../web/Web_contacto.php';
     }, 1000);
 });
+
+document.getElementById('boton-atras').addEventListener('click', () => {
+    history.back();
+});

@@ -8,6 +8,44 @@ h1 {
   margin: 0 auto;
 }
 
+.contenedor_atras {
+  margin: auto;
+  padding: 8px 12px;
+  background-color: var(--blanco-1);
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  color: var(--azul-verdoso);
+  max-width: 140px;
+  white-space: nowrap;
+}
+
+.contenedor_atras:hover {
+  background-color: var(--azul-verdoso);
+  color: var(--blanco-1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.contenedor_atras p {
+  margin: auto 0;
+  color: black;
+}
+
+.flecha_atras {
+  color: var(--azul-verdoso);
+  cursor: pointer;
+  font-size: 32px;
+  padding-bottom: 8px;
+}
+
 .consulta-titulo {
   font-size: 2em;
   margin-bottom: 30px;
@@ -178,11 +216,9 @@ textarea {
   margin-bottom: 40px;
 }
 
-@media (min-width: 600px) {
-  .consulta-section,
-  .consulta-titulo,
-  .consulta-subtitulo {
-    text-align: left;
+@media (max-width: 600px) {
+  .consulta-titulo span {
+    display: none;
   }
 }
 
@@ -226,4 +262,17 @@ textarea {
   text-align: center;
   font-size: 1.2em;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 860px) {
+  .contenedor_atras .texto {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  #boton-atras {
+    display: none;
+  }
 }

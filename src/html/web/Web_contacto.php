@@ -1,4 +1,4 @@
-    <?php
+<?php
 include('../../app/auth.php');
 verificarToken();
 ?>
@@ -24,8 +24,13 @@ verificarToken();
 <main>
     <!-- Sección principal -->
     <section class="consulta-section">
-        <h1 class="consulta-titulo">Contáctanos <span>para poder ayudarte</span></h1>
+        <h1 class="consulta-titulo">Contáctanos&nbsp;<span> para poder ayudarte</span></h1>
         <h2 class="consulta-subtitulo">Completa el formulario y te responderemos pronto</h2>
+
+        <div id="boton-atras" class="contenedor_atras">
+            <p class="flecha_atras">&larr;</p>
+            <p class="texto">Vuelve atrás</p>
+        </div>
 
         <div class="consulta-container">
             <form class="consulta-form">
