@@ -30,12 +30,12 @@ $correo = $_SESSION['user_correo'];
 <!-- WEB -->
 <main>
     <!-- FONDO -->
-    <img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="fondo del catálogo">
+    <img class="fondo_landing" src="../../images/fondo_landing_web.png" alt="fondo del catálogo">
     <section class="perfil">
         <h1>Mi perfil</h1>
         <!-- AVATAR -->
         <div class="perfil-avatar">
-            <img src="../../../images/iconos/web_perfil.svg" alt="Avatar del usuario">
+            <img src="../../images/iconos/web_perfil.svg" alt="Avatar del usuario">
         </div>
         <!-- CONTENEDOR PERFIL -->
         <div class="perfil-contenedor">

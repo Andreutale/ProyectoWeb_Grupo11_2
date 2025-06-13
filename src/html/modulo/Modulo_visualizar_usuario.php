@@ -96,7 +96,7 @@ $conexion->close();
 
         <p class="cruz_salir">&times;</p>
 
-        <img src="../../../images/iconos/web_perfil.svg" alt="Foto de perdil" class="user-img">
+        <img src="../../images/iconos/web_perfil.svg" alt="Foto de perdil" class="user-img">
         <button id="btn-editar" class="btn-editar">Editar usuario</button>
 
         <div id="botones-edicion" style="display: none;">

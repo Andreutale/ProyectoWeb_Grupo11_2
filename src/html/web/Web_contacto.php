@@ -133,7 +133,7 @@ verificarToken();
   });
 </script>
 
-  <img class="fondo_contacto" src="../../../images/fondo_landing_web.png" alt="Fondo de la sección de consulta">
+  <img class="fondo_contacto" src="../../images/fondo_landing_web.png" alt="Fondo de la sección de consulta">
 
 <div id="popup-exito" class="popup">
   <div class="popup-contenido">

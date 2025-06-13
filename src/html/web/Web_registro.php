@@ -23,8 +23,8 @@ $datos = $_SESSION['datos'] ?? [];
 unset($_SESSION['errores']);
 unset($_SESSION['datos']);
 ?>
-<img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="Imagen del fondo de la pantalla">
-<img class="img_persona" src="../../../images/persona_registro_web.png" alt="Imagen de la persona que aparece en el high fidelity
+<img class="fondo_landing" src="../../images/fondo_landing_web.png" alt="Imagen del fondo de la pantalla">
+<img class="img_persona" src="../../images/persona_registro_web.png" alt="Imagen de la persona que aparece en el high fidelity
         de registro">
 
 <div id="header"></div>

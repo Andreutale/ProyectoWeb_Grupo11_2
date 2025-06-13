@@ -1,3 +1,12 @@
+<?php
+session_start();
+include('../../app/conexion.inc'); // NO SÉ SI HACE FALTA
+
+// Obtener ID de asignatura
+$asignatura_id = isset($_GET['asignatura_id']) ? (int)$_GET['asignatura_id'] : 0;
+
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -34,8 +43,8 @@
         <nav class="menu-desplegable" id="menu">
             <ul>
                 <!-- Apartados -->
-                <li><a href="#"><h3>Guía Docente</h3></a></li>
-                <li><a href="#"><h3 class="recursos">Recursos</h3></a></li>
+                <li><a href="Modulo_guia_docente_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3>Guía Docente</h3></a></li>
+                <li><a href="Modulo_recursos_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3 class="recursos">Recursos</h3></a></li>
                 <li><a href="#"><h3>Tareas</h3></a></li>
                 <li><a href="#"><h3>Exámenes</h3></a></li>
                 <li><a href="#"><h3>Calificaciones</h3></a></li>
@@ -48,8 +57,8 @@
     <nav class="contenedor_apartados">
         <ul>
             <!-- Apartados -->
-            <li><a href="Modulo_guia_docente.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3>Guía Docente</h3></a></li>
-            <li><a href="Modulo_recursos_alumno.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3>Recursos</h3></a></li>
+            <li><a href="Modulo_guia_docente_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3>Guía Docente</h3></a></li>
+            <li><a href="Modulo_recursos_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"  ><h3>Recursos</h3></a></li>
             <li><a href="#"><h3>Tareas</h3></a></li>
             <li><a href="#"><h3>Exámenes</h3></a></li>
             <li><a href="#"><h3>Calificaciones</h3></a></li>

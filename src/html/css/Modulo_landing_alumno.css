@@ -5,7 +5,7 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
-  background-image: url("../../../images/fondo_landing_estudiante_modulo.jpg");
+  background-image: url("../../images/fondo_landing_estudiante_modulo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
