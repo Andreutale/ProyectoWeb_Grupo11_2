@@ -4,7 +4,7 @@ include('../../app/conexion.inc');
 
 // Verificar sesión y rol
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'profesor') {
-    header("Location: Modulo_Inicio_Sesion.html");
+    header("Location: Modulo_Inicio_Sesion.php");
     exit();
 }
 
@@ -102,71 +102,71 @@ $conexion->close();
             </div>
         </div>
 
-            <table id="tablaRecursos">
-                <thead>
-                <tr>
-                    <th>
-                        <!--label class="checkbox-con-imagen">
-                            <input type="checkbox" id="selectAll">
-                            <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
-                        </label-->
-                    </th>
-                    <th data-sort="nombre">
-                        <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th data-sort="autor">
-                        <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th data-sort="fecha">
-                        <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th data-sort="tipo">
-                        <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
-                    </th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($archivos as $archivo):
-                    $fecha_formateada = date('d/m/y', strtotime($archivo['fecha']));
-                    $tipo_archivo = obtenerTipoArchivo($archivo['tipo']);
-                    ?>
-                    <tr>
-                        <td>
-                            <!--label class="checkbox-con-imagen">
+        <table id="tablaRecursos">
+            <thead>
+            <tr>
+                <th>
+                    <!--label class="checkbox-con-imagen">
+                        <input type="checkbox" id="selectAll">
+                        <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
+                    </label-->
+                </th>
+                <th data-sort="nombre">
+                    <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th data-sort="autor">
+                    <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th data-sort="fecha">
+                    <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th data-sort="tipo">
+                    <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($archivos as $archivo):
+            $fecha_formateada = date('d/m/y', strtotime($archivo['fecha']));
+            $tipo_archivo = obtenerTipoArchivo($archivo['tipo']);
+            ?>
+            <tr>
+                <td>
+                    <!--label class="checkbox-con-imagen">
                                 <input type="checkbox" class="rowCheckbox" name="archivos_seleccionados[]" value="<?= $archivo['id'] ?>">
                                 <img src="../../../images/iconos/icono_tick.png" alt="Icono del tick de seleccionado">
                             </label-->
-                        </td>
-                        <td>
-                            <div class="nombreMasImagen">
-                                <img src="../../../images/iconos/icono_fichero.png" alt="Icono de <?= $tipo_archivo ?>">
-                                <h3><?= htmlspecialchars($archivo['nombre']) ?></h3>
-                            </div>
-                        </td>
-                        <td><h3><?= htmlspecialchars($archivo['nombre_autor']) ?></h3></td>
-                        <td><h3 data-date="<?= $archivo['fecha'] ?>"><?= $fecha_formateada ?></h3></td>
-                        <td><h3><?= $tipo_archivo ?></h3></td>
-                        <td class="responsive-actions">
-                            <button class="btn-azul-claro btn-desplegable-responsive">
-                                <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
-                            </button>
-                        </td>
-                        <td>
-                            <div class="dropdown-container">
-                                    <a href="../php/descargar_archivo.php?id=<?= $archivo['id'] ?>" class="dropdown-item"><button class="btn-azul-claro">Descargar</button></a>
-                                    <form action="../php/eliminar_archivo.php" method="POST" class="dropdown-item-form">
-                                        <input type="hidden" name="id_archivo" value="<?= $archivo['id'] ?>">
-                                        <button type="submit" class="dropdown-item-btn btn-azul-claro" onclick="return confirm('¿Estás seguro de que quieres eliminar este archivo?')">Eliminar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+                </td>
+                <td>
+                    <div class="nombreMasImagen">
+                        <img src="../../../images/iconos/icono_fichero.png" alt="Icono de <?= $tipo_archivo ?>">
+                        <h3><?= htmlspecialchars($archivo['nombre']) ?></h3>
+                    </div>
+                </td>
+                <td><h3><?= htmlspecialchars($archivo['nombre_autor']) ?></h3></td>
+                <td><h3 data-date="<?= $archivo['fecha'] ?>"><?= $fecha_formateada ?></h3></td>
+                <td><h3><?= $tipo_archivo ?></h3></td>
+                <td class="responsive-actions">
+                    <button class="btn-azul-claro btn-desplegable-responsive">
+                        <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
+                    </button>
+                </td>
+                <td>
+                    <div class="dropdown-container">
+                        <a href="../php/descargar_archivo.php?id=<?= $archivo['id'] ?>" class="dropdown-item"><button class="btn-azul-claro">Descargar</button></a>
+                        <form action="../php/eliminar_archivo.php" method="POST" class="dropdown-item-form">
+                            <input type="hidden" name="id_archivo" value="<?= $archivo['id'] ?>">
+                            <button type="submit" class="dropdown-item-btn btn-azul-claro" onclick="return confirm('¿Estás seguro de que quieres eliminar este archivo?')">Eliminar</button>
+                        </form>
+                    </div>
+    </div>
+    </td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+    </table>
 
     </div>
 </main>

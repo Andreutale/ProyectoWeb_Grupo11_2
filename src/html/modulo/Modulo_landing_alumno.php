@@ -4,7 +4,7 @@ include('../../app/conexion.inc');
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ./Modulo_Inicio_Sesion.html");
+    header("Location: ./Modulo_Inicio_Sesion.php");
     exit();
 }
 
@@ -73,7 +73,6 @@ $conexion->close();
     <h1>Hola, <?php echo htmlspecialchars($nombre_usuario); ?></h1>
     <h3>¿A qué asignatura quieres acceder?</h3>
 
-<<<<<<< HEAD
   <!-- Contenedor de los apartados -->
   <div class="grid-asignaturas">
       <?php if (count($asignaturas) > 0): ?>
@@ -88,22 +87,6 @@ $conexion->close();
           <p class="no-asignaturas">No estás matriculado en ninguna asignatura</p>
       <?php endif; ?>
   </div>
-=======
-    <!-- Contenedor de los apartados -->
-    <div class="grid-asignaturas">
-        <?php if (count($asignaturas) > 0): ?>
-            <?php foreach ($asignaturas as $asignatura): ?>
-                <div class="asignatura">
-                    <a href="Modulo_recursos_alumno.php?id_asignatura=<?= $asignatura['id'] ?>">
-                        <p><?= htmlspecialchars($asignatura['nombre']) ?></p>
-                    </a>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p class="no-asignaturas">No estás matriculado en ninguna asignatura</p>
-        <?php endif; ?>
-    </div>
->>>>>>> modulo/HEADERS
 </main>
 
 <!-- Contenedor footer -->

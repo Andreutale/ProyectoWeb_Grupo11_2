@@ -3,7 +3,7 @@ session_start();
 
 // Verifica que el usuario haya iniciado sesión. Si no ha iniciado sesión te lleva al inicio de sesión
 if (!isset($_SESSION['user_role'])) {
-    header("Location: Modulo_Inicio_Sesion.html");
+    header("Location: Modulo_Inicio_Sesion.php");
     exit();
 }
 
@@ -20,7 +20,7 @@ switch ($_SESSION['user_role']) {
         break;
     default:
         // Si el rol no es reconocido
-        header("Location: ../modulo/Modulo_Inicio_Sesion.html");
+        header("Location: ../modulo/Modulo_Inicio_Sesion.php");
 }
 exit();
 ?>

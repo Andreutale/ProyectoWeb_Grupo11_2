@@ -4,7 +4,7 @@ include('../../app/conexion.inc');
 
 // Verificar sesión y rol
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'alumno') {
-    header("Location: Modulo_Inicio_Sesion.html");
+    header("Location: Modulo_Inicio_Sesion.php");
     exit();
 }
 
