@@ -1,0 +1,76 @@
+<?php
+session_start();
+include('../../app/conexion.inc'); // NO SÉ SI HACE FALTA
+
+// Obtener ID de asignatura
+$asignatura_id = isset($_GET['asignatura_id']) ? (int)$_GET['asignatura_id'] : 0;
+
+?>
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Header | Módulo</title>
+    <link rel="stylesheet" href="../css/libro_de_estilos.css">
+    <link rel="stylesheet" href="../css/Modulo_header_asignaturas.css">
+
+</head>
+<body>
+
+<!-- contenedor del header -->
+<div class="header-container">
+    <!-- Header del módulo de la web -->
+    <header>
+        <!-- logo del módulo -->
+        <a href="Modulo_Inicio_Sesion.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+
+        <!-- icono de usuario -->
+        <a href="Modulo_perfil.php"><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
+
+        <!-- Menú hamburguesa -->
+        <div class="menu-hamburguesa" id="menu-btn">
+            <!-- Lineas del menú hamburguesa-->
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <div class="linea"></div>
+        </div>
+
+        <!-- Contenido del menú desplegable -->
+        <nav class="menu-desplegable" id="menu">
+            <ul>
+                <!-- Apartados -->
+                <li><a href="Modulo_guia_docente_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3>Guía Docente</h3></a></li>
+                <li><a href="Modulo_recursos_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3 class="recursos">Recursos</h3></a></li>
+                <li><a href="#"><h3>Tareas</h3></a></li>
+                <li><a href="#"><h3>Exámenes</h3></a></li>
+                <li><a href="#"><h3>Calificaciones</h3></a></li>
+                <li><a href="#"><h3>Anuncios</h3></a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <!-- Apartados del header-->
+    <nav class="contenedor_apartados">
+        <ul>
+            <!-- Apartados -->
+            <li><a href="Modulo_guia_docente_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"><h3>Guía Docente</h3></a></li>
+            <li><a href="Modulo_recursos_profesor.php?asignatura_id=<?php echo $asignatura_id; ?>"  ><h3>Recursos</h3></a></li>
+            <li><a href="#"><h3>Tareas</h3></a></li>
+            <li><a href="#"><h3>Exámenes</h3></a></li>
+            <li><a href="#"><h3>Calificaciones</h3></a></li>
+            <li><a href="#"><h3>Anuncios</h3></a></li>
+        </ul>
+    </nav>
+</div>
+
+<script type="module">
+    import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
+    iniciarMenuHamburguesa()
+</script>
+
+</body>
+</html>
