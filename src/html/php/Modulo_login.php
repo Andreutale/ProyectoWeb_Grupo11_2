@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die('Credenciales incorrectas');
     }
 } else {
-    header("Location: ../html/Modulo_Inicio_Sesion.html");
+    header("Location: ../html/Modulo_Inicio_Sesion.php");
     exit();
 }
 ?>
