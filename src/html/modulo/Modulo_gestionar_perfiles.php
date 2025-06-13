@@ -55,7 +55,7 @@ $conexion->close();
     <div class="buscador_gestionar_perfiles">
         <form method="get" action="Modulo_gestionar_perfiles.php">
             <input id="Input_buscador" name="busqueda" type="text" placeholder="Buscar usuarios..." value="<?php echo htmlspecialchars($busqueda); ?>">
-            <button id="Icono_buscador" class="btn-azul-claro" type="submit"><img src="../../../images/iconos/icono_lupa.png" alt="Icono de la lupa"></button>
+            <button id="Icono_buscador" class="btn-azul-claro" type="submit"><img src="../../images/iconos/icono_lupa.png" alt="Icono de la lupa"></button>
         </form>
     </div>
   <!-- cabezera de la tabla -->
@@ -63,9 +63,9 @@ $conexion->close();
     <table id="tablaRecursos">
       <thead>
       <tr>
-        <th><a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt=""></a></th>
-        <th><a href="#" class="sortable"><h3>Rol</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt=""></a></th>
-        <th><a href="#" class="sortable"><h3>Correo electrónico</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt=""></a></th>
+        <th><a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../images/iconos/icono_flecha_desplegable.png" alt=""></a></th>
+        <th><a href="#" class="sortable"><h3>Rol</h3><img class="flecha_desplegable" src="../../images/iconos/icono_flecha_desplegable.png" alt=""></a></th>
+        <th><a href="#" class="sortable"><h3>Correo electrónico</h3><img class="flecha_desplegable" src="../../images/iconos/icono_flecha_desplegable.png" alt=""></a></th>
         <th>
           <div>
             <button><h3>Añadir <span class="esconder">Usuario</span></h3></button>
@@ -86,8 +86,8 @@ $conexion->close();
         echo '<td><h3>' . htmlspecialchars($fila["rol"]) . '</h3></td>';
         echo '<td><h3>' . htmlspecialchars($fila["correo"]) . '</h3></td>';
         echo '<td>';
-          echo '<a href="Modulo_visualizar_usuario.php?id=' . $fila["id"] . '"><button class="botones_gestionar_perfiles"><img src="../../../images/iconos/icono_ojo.png" alt="Icono de visualizar usuario"></button></a>';
-          echo '<button class="botones_gestionar_perfiles boton_papelera" data-id="' . $fila["id"] . '"><img src="../../../images/iconos/icono_papelera.png" alt="Icono de la papelera"></button>';
+          echo '<a href="Modulo_visualizar_usuario.php?id=' . $fila["id"] . '"><button class="botones_gestionar_perfiles"><img src="../../images/iconos/icono_ojo.png" alt="Icono de visualizar usuario"></button></a>';
+          echo '<button class="botones_gestionar_perfiles boton_papelera" data-id="' . $fila["id"] . '"><img src="../../images/iconos/icono_papelera.png" alt="Icono de la papelera"></button>';
           echo '</td>';
         echo '</tr>';
       }

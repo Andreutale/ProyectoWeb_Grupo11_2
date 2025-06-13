@@ -26,10 +26,10 @@ $asignatura_id = isset($_GET['asignatura_id']) ? (int)$_GET['asignatura_id'] : 0
     <!-- Header del módulo de la web -->
     <header>
         <!-- logo del módulo -->
-        <a href="Modulo_Inicio_Sesion.html"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+        <a href="Modulo_Inicio_Sesion.html"><img class="logo" src="../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
 
         <!-- icono de usuario -->
-        <a href="Modulo_perfil.php"><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
+        <a href="Modulo_perfil.php"><img class="user" src="../../images/user_icon.png" alt="Icono de usuario"></a>
 
         <!-- Menú hamburguesa -->
         <div class="menu-hamburguesa" id="menu-btn">

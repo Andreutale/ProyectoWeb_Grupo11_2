@@ -24,8 +24,8 @@ unset($_SESSION['errores'], $_SESSION['datos']);
 <div id="header"></div>
 
 <!-- Imagenes de inicio de sesión -->
-<img class="fondo_landing" src="../../../images/fondo_landing_web.png" alt="Imagen de fondo">
-<img class="img_persona" src="../../../images/persona_inicio_sesion_web.png" alt="Imagen de la persona">
+<img class="fondo_landing" src="../../images/fondo_landing_web.png" alt="Imagen de fondo">
+<img class="img_persona" src="../../images/persona_inicio_sesion_web.png" alt="Imagen de la persona">
 
 <!-- Contenedor de la pagina -->
 <main>

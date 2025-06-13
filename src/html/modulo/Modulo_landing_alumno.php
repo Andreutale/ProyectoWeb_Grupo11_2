@@ -46,8 +46,8 @@ $conexion->close();
 <div class="header-container">
     <header>
         <!-- Logo -->
-        <a href="../php/cargar_header_modulo.php"><img class="logo" src="../../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
-        <a href="Modulo_perfil.php" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../../images/user_icon.png" alt="Icono de usuario"></a>
+        <a href="../php/cargar_header_modulo.php"><img class="logo" src="../../images/logo_modulo.png" alt="Logo del apartado de modulo"></a>
+        <a href="Modulo_perfil.php" class="perfil"><h2><?php echo htmlspecialchars($nombre_usuario); ?></h2><img class="user" src="../../images/user_icon.png" alt="Icono de usuario"></a>
         <!-- Lineas del menu hamburguesa -->
         <div class="contenedor_nombre_menu_hamburguesa">
             <h2><?php echo htmlspecialchars($nombre_usuario); ?></h2>
@@ -69,7 +69,7 @@ $conexion->close();
 
 <!-- Contenedor de la pagina -->
 <main class="main-container">
-    <img class="fondo_landing" src="../../../images/fondo_landing_estudiante_modulo.jpg" alt="Imagen del fondo de la landing">
+    <img class="fondo_landing" src="../../images/fondo_landing_estudiante_modulo.jpg" alt="Imagen del fondo de la landing">
     <h1>Hola, <?php echo htmlspecialchars($nombre_usuario); ?></h1>
     <h3>¿A qué asignatura quieres acceder?</h3>
 

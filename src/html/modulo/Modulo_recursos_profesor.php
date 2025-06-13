@@ -88,7 +88,6 @@ $conexion->close();
                 </div>
             </a>
         <?php endforeach; ?>
-        <img id="img_puntos_suspensivos" src="../../../images/iconos/icono_tres_puntos_suspensivos.png" alt="Icono marcapaginas">
     </div>
 
     <div class="contenedor_pagina">
@@ -112,16 +111,16 @@ $conexion->close();
                     </label-->
                 </th>
                 <th data-sort="nombre">
-                    <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    <a href="#" class="sortable"><h3>Nombre</h3><img class="flecha_desplegable" src="../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
                 </th>
                 <th data-sort="autor">
-                    <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    <a href="#" class="sortable"><h3>Autor</h3><img class="flecha_desplegable" src="../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
                 </th>
                 <th data-sort="fecha">
-                    <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    <a href="#" class="sortable"><h3>Fecha <span class="datos_responsive">de Publicación</span></h3><img class="flecha_desplegable" src="../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
                 </th>
                 <th data-sort="tipo">
-                    <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
+                    <a href="#" class="sortable"><h3><span class="datos_responsive">Tipo de </span>Archivo</h3><img class="flecha_desplegable" src="../../images/iconos/icono_flecha_desplegable.png" alt="Icono de la flecha desplegable"></a>
                 </th>
                 <th></th>
                 <th></th>
@@ -141,7 +140,7 @@ $conexion->close();
                 </td>
                 <td>
                     <div class="nombreMasImagen">
-                        <img src="../../../images/iconos/icono_fichero.png" alt="Icono de <?= $tipo_archivo ?>">
+                        <img src="../../images/iconos/icono_fichero.png" alt="Icono de <?= $tipo_archivo ?>">
                         <h3><?= htmlspecialchars($archivo['nombre']) ?></h3>
                     </div>
                 </td>
@@ -150,7 +149,7 @@ $conexion->close();
                 <td><h3><?= $tipo_archivo ?></h3></td>
                 <td class="responsive-actions">
                     <button class="btn-azul-claro btn-desplegable-responsive">
-                        <img src="../../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
+                        <img src="../../images/iconos/icono_flecha_desplegable.png" alt="Mostrar más">
                     </button>
                 </td>
                 <td>
@@ -243,21 +242,21 @@ function obtenerNombreUsuario($id_usuario) {
             <div class="asignatura-item">
                 <label class="checkbox-con-imagen">
                     <input type="checkbox" class="asignatura-checkbox" checked>
-                    <img src="../../../images/iconos/icono_tick.png" alt="Icono de selección">
+                    <img src="../../images/iconos/icono_tick.png" alt="Icono de selección">
                 </label>
                 <h3>Programación 1</h3>
             </div>
             <div class="asignatura-item">
                 <label class="checkbox-con-imagen">
                     <input type="checkbox" class="asignatura-checkbox" checked>
-                    <img src="../../../images/iconos/icono_tick.png" alt="Icono de selección">
+                    <img src="../../images/iconos/icono_tick.png" alt="Icono de selección">
                 </label>
                 <h3>Programación en sistemas cloud</h3>
             </div>
             <div class="asignatura-item">
                 <label class="checkbox-con-imagen">
                     <input type="checkbox" class="asignatura-checkbox" checked>
-                    <img src="../../../images/iconos/icono_tick.png" alt="Icono de selección">
+                    <img src="../../images/iconos/icono_tick.png" alt="Icono de selección">
                 </label>
                 <h3>Proyecto Aplicaciones de Biometría y Medio Ambiente</h3>
             </div>
