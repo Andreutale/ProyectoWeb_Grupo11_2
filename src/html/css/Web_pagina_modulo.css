@@ -289,8 +289,8 @@ button p {
 .popup-content {
     margin: auto;
     display: block;
-    max-width: 60%;
-    max-height: 60%;
+    max-width: 55%;
+    max-height: 55%;
 }
 
 .close {
