@@ -275,18 +275,8 @@ function obtenerNombreUsuario($id_usuario) {
 <script type="module">
     import { iniciarMenuHamburguesa } from '../js/Modulo_header.js';
 
-    // Lee el valor de asignatura_id desde la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const asignaturaIdURL = urlParams.get('asignatura_id');
-
-    if (asignaturaIdURL) {
-        localStorage.setItem('asignatura_id', asignaturaIdURL);
-    }
-
-    const asignaturaId = localStorage.getItem('asignatura_id');
-
-    // Cargar header con la asignatura correcta
-    fetch(`Modulo_header_asignaturas_profesor.php?asignatura_id=${asignaturaId}`)
+    // Cargar header y footer
+    fetch("Modulo_header_asignaturas.html")
         .then(res => res.text())
         .then(html => {
             document.getElementById("header").innerHTML = html;
