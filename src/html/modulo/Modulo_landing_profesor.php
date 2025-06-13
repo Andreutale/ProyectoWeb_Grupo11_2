@@ -8,11 +8,12 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+// Obtener información del usuario
 $user_id = $_SESSION['user_id'];
 $nombre_usuario = $_SESSION['user_name'];
 
-// Obtener asignaturas del alumno
-$query_asignaturas = "SELECT a.id, a.nombre FROM asignaturas a JOIN alumnos_asignaturas aa ON a.id = aa.id_asignatura WHERE aa.id_alumno = ?";
+// Obtener asignaturas del profesor
+$query_asignaturas = "SELECT a.id, a.nombre FROM asignaturas a JOIN profesores_asignaturas pa ON a.id = pa.id_asignatura WHERE pa.id_profesor = ?";
 $stmt_asignaturas = $conexion->prepare($query_asignaturas);
 $stmt_asignaturas->bind_param("i", $user_id);
 $stmt_asignaturas->execute();
